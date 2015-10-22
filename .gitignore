@@ -16,12 +16,12 @@
 # *.pdf
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
-*.bbl
+#*.bbl
 *.bcf
 *.blg
 *-blx.aux
 *-blx.bib
-*.brf
+#*.brf
 *.run.xml
 
 ## Build tool auxiliary files:
@@ -34,8 +34,8 @@
 ## Auxiliary and intermediate files from other packages:
 
 # algorithms
-*.alg
-*.loa
+#*.alg
+#*.loa
 
 # achemso
 acs-*.bib
@@ -71,18 +71,18 @@ acs-*.bib
 *.gls
 
 # gnuplottex
-*-gnuplottex-*
+#*-gnuplottex-*
 
 # hyperref
-*.brf
+#*.brf
 
 # knitr
 *-concordance.tex
-*.tikz
-*-tikzDictionary
+#*.tikz
+#*-tikzDictionary
 
 # listings
-*.lol
+#*.lol
 
 # makeidx
 *.idx
@@ -122,5 +122,5 @@ sympy-plots-for-*.tex/
 *.xdy
 
 # WinEdt
-*.bak
-*.sav
+#*.bak
+#*.sav
