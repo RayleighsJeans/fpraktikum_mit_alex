@@ -7,6 +7,22 @@
 *.out
 *.toc
 
+*.blg
+*/*.blg
+*.bbl
+*/*.bbl
+*/.DS_Store
+*/*/.DS_Store
+*/*/*/.DS_Store
+*~
+*/*.pdf
+*/*.blg
+*/*.bbl
+*e/*.aux
+*/*.log
+*e/*.toc
+*/*.synctex.gz
+
 ## Intermediate documents:
 *.dvi
 *-converted-to.*

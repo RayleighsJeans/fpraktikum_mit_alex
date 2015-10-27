@@ -1,0 +1,77 @@
+\documentclass[numbers=noenddot,12pt,a4paper]{scrartcl}
+\usepackage[greek,ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{ifoddpage}
+\usepackage{libertine}
+\usepackage{ziffer}
+\usepackage{graphicx}
+\usepackage{units}
+\usepackage[infoshow]{tabularx}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{wrapfig}
+\usepackage{esint}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage[font=small]{caption}
+\usepackage{subcaption}
+\usepackage{lscape}
+\usepackage{hyperref}
+
+\renewcommand{\thefigure}{Abb. \arabic{figure}}
+
+\captionsetup[wrapfigure]{name=}
+\captionsetup[figure]{name=}
+\newcommand{\degree}{^\circ}
+\newcommand{\diff}{\textnormal{d}}
+\newcommand{\tenpo}[1]{\cdot 10^{#1}}
+\newcommand{\greek}[1]{\greektext#1\latintext}
+\newcommand{\ix}[1]{_\text{#1}}
+\newcommand{\imag}{\mathbf{i}}
+\newcommand{\tilt}[1]{\textit{#1}}
+\newcommand{\grad}[1]{\textit{grad}\left(#1\right)}
+\newcommand{\divergenz}[1]{\textit{div}\left(#1\right)}
+\newcommand{\euler}{\mathnormal{e}}
+\newcommand{\fett}[1]{\textbf{#1}}
+\renewcommand{\headrulewidth}{0.1pt}
+\renewcommand{\footrulewidth}{0.1pt}
+\newcommand{\name}{\text{Name}} %TODO Name des Protokollanten eintragen
+
+\title{Protokoll: Versuch} %TODO Name des Versuchs eintragen
+\author{Alexander Jankowski, Philipp Hacker}
+\date{\today}
+\pagestyle{fancy}
+\fancyhead[C]{\thepage}
+\fancyhead[R]{\name}
+\fancyfoot[C]{\thepage}
+\fancyhead[L]{Abschnitt \thesection}
+\begin{document}
+	\maketitle
+	\begin{center}
+		Betreuer: \\ %TODO Name des Betreuers eintragen
+		Versuchsdatum: \\ %TODO Datum des Versuchs eintragen
+		\begin{table}[h]
+			\centering
+			Note: %TODO Gute Note erhalten :)
+			\begin{tabularx}{1.5cm}{|X|}
+				\hline \\ \\
+				\hline
+			\end{tabularx}
+		\end{table}
+	\end{center}
+	\vspace*{\fill}
+	\tableofcontents
+	\vfill
+	\newpage
+	\section{Motivation}
+	\newpage
+	\section{Physikalische Grundlagen}
+	\newpage
+	\section{Durchführung}
+	\newpage
+	\section{Auswertung}
+	\newpage
+	\section{Anhang}
+\end{document}
