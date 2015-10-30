@@ -1,32 +1,52 @@
-\documentclass[numbers=noenddot,12pt,a4paper]{scrartcl}
+% Copyright (C)  2015  Alexander Jankowski, Philipp Hacker.
+% Permission is granted to copy, distribute and/or modify this document
+% under the terms of the GNU Free Documentation License, Version 1.3
+% or any later version published by the Free Software Foundation;
+% with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+% The lincense itself can be found at <https://www.gnu.org/licenses/fdl-1.3>.
+
+\documentclass[numbers=noenddot,a4paper,notitlepage,twoside,BCOR15mm]{scrartcl}
+%\documentclass[numbers=noenddot,12pt,a4paper]{scrartcl}
+
+\usepackage{ifoddpage}
+\usepackage[infoshow]{tabularx}
+\usepackage{fancyhdr}
 \usepackage[greek,ngerman]{babel}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{ifoddpage}
 \usepackage{libertine}
 \usepackage{ziffer}
 \usepackage{graphicx}
 \usepackage{units}
 \usepackage[infoshow]{tabularx}
+\usepackage[all]{xy}
 \usepackage{amsmath}
-\usepackage{fancyhdr}
 \usepackage{amssymb}
 \usepackage{wrapfig}
+\usepackage{upgreek}
 \usepackage{esint}
 \usepackage{float}
-\usepackage{wrapfig}
-\usepackage[font=small]{caption}
+\usepackage[font=small,labelfont=bf]{caption}
 \usepackage{subcaption}
 \usepackage{lscape}
-\usepackage{hyperref}
+\usepackage[backref=page]{hyperref}
+\usepackage{cleveref}
+\usepackage{csquotes}
 
-\renewcommand{\thefigure}{Abb. \arabic{figure}}
+\renewcommand{\headrulewidth}{0.1pt}
+\renewcommand{\footrulewidth}{0.1pt}
+\newcommand{\name}{\text{Name}} %TODO Name des Protokollanten eintragen
 
-\captionsetup[wrapfigure]{name=}
-\captionsetup[figure]{name=}
+\renewcaptionname{ngerman}{\figurename}{Abb. }
+\renewcaptionname{ngerman}{\tablename}{Tab.}
+
+\setlength{\parindent}{0pt}
+
+\newcommand{\nummat}[1]{\left[\text{#1}\right]}
+\newcommand{\num}[1]{$\left[\text{#1}\right]$}
 \newcommand{\degree}{^\circ}
 \newcommand{\diff}{\textnormal{d}}
-\newcommand{\tenpo}[1]{\cdot 10^{#1}}
+\newcommand{\tenpo}[1]{ 10^{#1}}
 \newcommand{\greek}[1]{\greektext#1\latintext}
 \newcommand{\ix}[1]{_\text{#1}}
 \newcommand{\imag}{\mathbf{i}}
@@ -35,9 +55,9 @@
 \newcommand{\divergenz}[1]{\textit{div}\left(#1\right)}
 \newcommand{\euler}{\mathnormal{e}}
 \newcommand{\fett}[1]{\textbf{#1}}
-\renewcommand{\headrulewidth}{0.1pt}
-\renewcommand{\footrulewidth}{0.1pt}
-\newcommand{\name}{\text{Name}} %TODO Name des Protokollanten eintragen
+\newcommand{\einnup}{\hspace{0.2cm}}
+\newcommand{\einnum}{\hspace{-0.2cm}}
+\newcommand{\zentriert}[1]{\begin{center}#1\end{center}}
 
 \title{Protokoll: Versuch} %TODO Name des Versuchs eintragen
 \author{Alexander Jankowski, Philipp Hacker}
@@ -47,6 +67,7 @@
 \fancyhead[R]{\name}
 \fancyfoot[C]{\thepage}
 \fancyhead[L]{Abschnitt \thesection}
+
 \begin{document}
 	\maketitle
 	\begin{center}
@@ -66,12 +87,20 @@
 	\vfill
 	\newpage
 	\section{Motivation}
+	
 	\newpage
 	\section{Physikalische Grundlagen}
+	
 	\newpage
 	\section{Durchführung}
+	
 	\newpage
 	\section{Auswertung}
+	
 	\newpage
 	\section{Anhang}
+
+		\bibliography{all.bib}
+		\bibliographystyle{unsrt}
+
 \end{document}
