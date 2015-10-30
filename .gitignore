@@ -6,7 +6,6 @@
 *.fls
 *.out
 *.toc
-*.pdf
 
 *.blg
 */*.blg
@@ -17,7 +16,7 @@
 */*/*/.DS_Store
 *~*
 */*.blg
-*/*.bbl
+*/*.brf
 *e/*.aux
 */*.log
 *e/*.toc
