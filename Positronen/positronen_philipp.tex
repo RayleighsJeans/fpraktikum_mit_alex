@@ -5,8 +5,7 @@
 % with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
 % The lincense itself can be found at <https://www.gnu.org/licenses/fdl-1.3>.
 
-\documentclass[numbers=noenddot,a4paper,notitlepage,twoside,BCOR15mm]{scrartcl}
-%\documentclass[numbers=noenddot,12pt,a4paper]{scrartcl}
+\documentclass[numbers=noenddot,a4paper,notitlepage,twoside]{scrartcl}
 
 \usepackage{ifoddpage}
 \usepackage[infoshow]{tabularx}
@@ -90,16 +89,50 @@
 	
 	\newpage
 	\section{Physikalische Grundlagen}
-	\subsection{Erzeugung und Vernichtung von Positronen}
 
-		Das Positron ist ein stabiles Lepton mit der Leptonenzahl $L=-1$, dem Spin $s=\frac{1}{2}$ und das Anti-Teilchen des Elektrons. Somit gehört es, dem Standardmodell zur Folge, zu den Elementarteilchen und damit den grundlegenden Bausteinen der Materie. Es wird durch das Symbol $\textbf{e}^+$ ausgedrückt. Dessen Ladung ist die entgegensetzte zum Elektron $q=1\cdot\text{e}=\unit[1,602 176462(63)\cdot\tenpo{-19}]{C}$ (ebenso magnetisches Moment), seine Masse ist gleich der des $\textbf{e}^-$ $m_{\textbf{e}^+}=\unit[9,10938188(72)\cdot\tenpo{-31}]{kg}$ und auch in allen anderen Eigenschaften stimmen die beiden Teilchen überein. Es wurde 1928 vom Nobelpreisträger \tilt{Paul M. Dirac} vorhergesagt und erstmal 1932 von \tilt{Carl David Anderson} in der kosmischen Strahlung nachgewiesen. Das Positron tritt also u.a. beim Zerfall positiver Myonen in der Atmosphäre, dem $\beta^+$-Zerfall mit der Form
-		
-		\begin{align}
-			^{X}_{Z}A \rightarrow ^{X}_{Z-1}B+\textbf{e}^{+}+\nu\ix{e}
-		\end{align}
+		\subsection{Erzeugung und Vernichtung von Positronen}
+	
+			\begin{wrapfigure}{r}{0.55\textwidth}
+				\includegraphics[width=0.55\textwidth,height=0.5\textwidth]{zerfallsschema.png}
+				\caption{Schema eines, von einem $\beta^+$-Zerfall erzeugten Positrons (aus \cite{Augsten08}). Im Bereich der "`Thermalization"' kommt es zu Stößen/Streuung des Positrons in Materie.}
+				\label{img:zerfall}
+			\end{wrapfigure}
+	
+			Das Positron ist ein stabiles Lepton mit der Leptonenzahl $L=-1$, dem Spin $s=\frac{1}{2}$ und das Anti-Teilchen des Elektrons. Somit gehört es, dem Standardmodell zur Folge, zu den Elementarteilchen und damit den grundlegenden Bausteinen der Materie. Es wird durch das Symbol $\textbf{e}^+$ ausgedrückt. Dessen Ladung ist die entgegensetzte zum Elektron $q=1\cdot\text{e}=\unit[1,602 176462(63)\cdot\tenpo{-19}]{C}$ (ebenso magnetisches Moment), seine Masse ist gleich der des $\textbf{e}^-$ $m_{\textbf{e}^+}=\unit[9,10938188(72)\cdot\tenpo{-31}]{kg}$ und auch in allen anderen Eigenschaften stimmen die beiden Teilchen überein. Es wurde 1928 vom Nobelpreisträger \tilt{Paul M. Dirac} vorhergesagt und erstmal 1932 von \tilt{Carl David Anderson} in der kosmischen Strahlung nachgewiesen. Das Positron tritt also u.a. beim Zerfall positiver Myonen in der Atmosphäre, dem $\beta^+$-Zerfall mit der Form
+			
+			\begin{align}
+				^{X}_{Z}A \rightarrow ^{X}_{Z-1}B+\textbf{e}^{+}+\nu\ix{e}+\gamma
+			\end{align}
+	
+			oder bei hochenergetischen Stoßprozessen bzw. der Proton-Proton-Wechselwirkung.\\
+			Treffen Teilchen und Anti-Teilchen aufeinander ($\textbf{e}^+$ und $\textbf{e}^-$), so kommt es zu deren Wechselwirkung in Form der Bildung des \tilt{Positroniums} - sozusagen dem "`Anti-Atom"' zum Wasserstoff, welches jedoch sehr kurzlebig ist. Das Positronium besteht demnach im "`Kern"' aus einem Positron und dem, auf einer Kreisbahn umlaufenden Elektron. Je nach Spin-Einstellung der beiden Fermionen - parallel als \tilt{ortho-} oder anti-parallel als \tilt{para-Positronium} - ändert sich die Lebensdauer des Pseudo-Atoms: etwa $\unit[\tenpo{-7}]{s}$ bzw. $\unit[\tenpo{-9}]{s}$. Sind die Streupartner zu schnell oder langsam (der Wirkungsquerschnitt ist stark energieabhängig), kommt es, ohne Ausbildung und Zerfall eines gebundenen Zustandes vorher, zur Paarvernichtung. Dabei \tilt{annihilieren} sich Elektron und Positron unter Emission von 2 Photonen mit Gesamtenergie der kinetischen Energie beider Teilchen und deren Ruhemassen. Unter Voraussetzung, dass das Elektron stationär und das Positron stark verlangsamt ist, ergibt sich eine Photonen-Energie von $\unit[511]{keV}$. Der Winkel, unter welchen diese beiden sich auseinander bewegen, wird, mit den selben Annahmen, zu $\sim\unit[180]{\degree}$.\\
+			Die Erzeugung von Positronen in diesem Versuch erfolgt über eine $^{22}Na$-Quelle, die über einen $\beta^+$-Zerfall in $^{22}Ne$ übergeht. Das entsprechende Schema zeigt \autoref{img:schemana22}. Aufgrund der langen Halbwertszeit des Natriums sind dabei moderate Zählraten zu erwarten.\\
+			Zusammen mit dem Positron und Elektron-Neutrino entsteht auch ein hochenergetisches "`Start"'-Photon - mit etwa $\unit[1,274]{MeV}$ - aus der Abregung eines dazwischen gelegenen Niveaus. Die Lebensdauer dessen liegt außerhalb des Bereiches der zu erwartenden Halbwertszeiten der Positronen, weshalb diese Emission als quasi-instantan mit der des $\textbf{e}^+$ zusammen angenommen werden kann. Dieser Fakt und der Energieunterschied in den Photonen von Annihilation und Zerfall eröffnen die Möglichkeit der Koinzidenzmessung (siehe \ref{subsec:koinz}).\\
 
-		oder bei hochenergetischen Stoßprozessen bzw. der Proton-Proton-Wechselwirkung.\\
-		Treffen Teilchen und Anti-Teilchen aufeinander ($\textbf{e}^+$ und $\textbf{e}^-$), so kommt es zu deren Wechselwirkung in Form der Bildung des \tilt{Positroniums} - sozusagen dem "`Anti-Atom"' zum Wasserstoff, welches jedoch sehr kurzlebig ist. Sind die Streupartner zu schnell oder langsam (der Wirkungsquerschnitt ist stark energieabhängig), kommt es, ohne Ausbildung und Zerfall eines gebundenen Zustandes vorher, zur Paarvernichtung. Dabei \tilt{annihilieren} sich Elektron und Positron unter Emission von 2 Photonen mit Gesamtenergie der kinetischen Energie beider Teilchen und deren Ruhemassen. Unter Voraussetzung, dass das Elektron stationär und das Positron stark verlangsamt ist, ergibt sich eine Photonen-Energie von $\unit[511]{keV}$. Der Winkel, unter welchen diese sich auseinander bewegen, wird, mit den selben Annahmen, zu $\sim\unit[180]{\degree}$.
+							\begin{figure}[t]
+								\centering
+								\includegraphics[width=0.7\textwidth]{termschema.png}
+								\caption{Niveau-Darstellung des $\beta^+$-Zerfalls von $^{22}Na$ unter Aussendung eines zusätzlichen $\unit[1,274]{MeV}$-Photons. Angegeben sind auch die Halbwertszeit des Natriums und die Lebensdauer des Zustandes zur Erzeugung des "`Start"'-Photons (aus \cite{Augsten08}).}
+								\label{img:schemana22}
+							\end{figure}
+
+			Einen grundlegenden, experimentellen Zusammenhang von Erzeugung, Vernichtung und Energiespektrum dieses Versuchs zeigt \ref{img:zerfall}. Da der Emissionswinkel zwischen den "`Stop"'-Photonen $\sim\unit[180]{\degree}$ beträgt - weswegen eine gedachte Gerade zwischen diesen gezogen werden kann -, können 2 gegenüberliegende Detektoren, deren Fenster die sogenannte \tilt{Koinzidenz-Linie} überdecken, diese aufnehmen. Dieser Prozess ist über den gesamten Raumwinkel gleichverteilt. Genauere Prinzipien der Messtechnik werden im nächsten Abschnitt \ref{subsec:koinz} beschrieben.\\
+			Da ein emittiertes Positron von seinem Entstehungsort bis zu seiner Annihilation eine endliche Wegstrecke zurücklegt und dessen Lebenszeit nicht $\unit[0]{s}$ beträgt, ist es naheliegend, vor der Paarvernichtung eine Streuung innerhalb von Materie anzunehmen. Des weiteren kann man dies auch als Forderung für die beobachtete Ausbildung von Positronium ansehen: das $\textbf{e}^+$ muss erst verlangsamt werden, bevor es einen gebundenen Zustand eingehen kann. Das Kriterium dafür ist, dass die restliche kinetische Energie des Positrons in der Größenordnung der thermischen Anregungen innerhalb des vorliegenden Festkörpers ist \cite{Augsten08}. Damit moduliert die Zeitspanne von dem Ereignis des Zerfalls bis zur Detektion der Photonen aus der Vernichtung. Sie wird zu einer Funktion der Materie- bzw. Elektronendichte $n\ix{-}\left(\vec{r}\right)$. Mit der Positronendichte $n\ix{+}\left(\vec{r}\right)$, dem klass. Elektronenradius $r\ix{0}$ und der Lichtgeschwindigkeit in dem vorliegenden Medium $c$ ergibt sich für die Annihilationsrate $\lambda$ bzw. die Lebensdauer $\tau$
+
+				\begin{align}
+					\lambda=\frac{1}{\tau}=\pi r\ix{0}^{2}c\int n\ix{+}\left(\vec{r}\right)\left(1+\frac{\Delta n\ix{-}\left(\vec{r}\right)}{n\ix{-}\left(\vec{r}\right)}\right)\diff \vec{r} \,\, .
+				\end{align}
+
+			Dabei ist $\Delta n\ix{+}\left(\vec{r}\right)$ die durch das Positron hervorgerufene Pertubation von $n\ix{-}$ an seinem Ort $\vec{r}$. Die Messung der Lebensdauer kann also zur Bestimmung von lokalen Elektronendichten genutzt werden.\\
+			Schließlich erfahren auch die am Ort der Vernichtung erzeugten Photonen Streuung und Abbremsung. Idealer Weise detektiert man zwei Teilchen mit der Energie von $\unit[511]{keV}$, jedoch sieht die Praxis anders aus: das Spektrum der aufgenommenen Photonen reicht von \mbox{$\unit[511-0]{keV}$}. Betrachtet man ein vollständiges Energiespektrum (Intensität über Energie) so beeinflussen die sog. \tilt{Compton}-Kanten im Diagramm das Bild der Messung stärker, als die Peaks der erwarteten Energien. Aufgrund des namensgebenden Compton-Effekts verändert sich die Wellenlänge der Photonen bei ihrer Wechselwirkung mit Materie bis zu einem kritischen Wert, der \tilt{Compton-Wellenlänge}, mit welcher natürlich eine Energie korrespondiert. Daher ist das Spektrum in 2 Bereiche - dem des Start-Photons aus der $^{22}Na$-Quelle und seiner Aufweichung bis zu $\lambda\ix{C}$ und analog dem der Stop-Photonen der Annihilation - zu unterteilen, was für den Abschnitt \ref{subsec:koinz} eine wichtige Rolle spielt. Zu dieser Unterscheidung kommt hinzu, dass das Positron/Positronium in verschiedenen Zuständen im Medium zerstrahlt: Defekten, Löchern, defektfreien Elektronenschalen, ortho- oder para-Positronium \dots . Deswegen setzt sich letztlich das Spektrum der Annihilations-Photonen aus mehreren Spezies $k$ von Ereignissen zusammen. Das Lebensdauerspektrum $T\left(t\right)$ geht über einen \tilt{Lambert-Beer}'schen Exponentialzusammenhang aus
+
+			\begin{align}
+				T\left(t\right)=\sum_{k}\frac{I\ix{k}}{\tau\ix{k}}\exp\left(\frac{-t}{\tau\ix{k}}\right)
+			\end{align}
+
+			hervor. 
+
+		\subsection{Start-Stop-Koinzidenzmessungen}\label{subsec:koinz}
 
 	\newpage
 	\section{Durchführung}
