@@ -5,7 +5,7 @@
 % with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
 % The lincense itself can be found at <https://www.gnu.org/licenses/fdl-1.3>.
 
-\documentclass[numbers=noenddot,a4paper,notitlepage,twoside]{scrartcl}
+\documentclass[numbers=noenddot,a4paper]{scrartcl}
 
 \usepackage{ifoddpage}
 \usepackage[infoshow]{tabularx}
@@ -34,7 +34,7 @@
 
 \renewcommand{\headrulewidth}{0.1pt}
 \renewcommand{\footrulewidth}{0.1pt}
-\newcommand{\name}{\text{Name}} %TODO Name des Protokollanten eintragen
+\newcommand{\name}{\text{Philipp Hacker}} %TODO Name des Protokollanten eintragen
 
 \renewcaptionname{ngerman}{\figurename}{Abb. }
 \renewcaptionname{ngerman}{\tablename}{Tab.}
@@ -86,11 +86,13 @@
 	\vfill
 	\newpage
 	\section{Motivation}
-	
+
+	In diesem Versuch geht es um den Aufbau, die Kalibrierung und Anwendung von Hochpräzisions-Elektronik auf die Lebensdauermessung von Positronen. Einerseits galt es hierbei Einblick in die unterschiedlichen Wechselwirkungsarten von $\textbf{e}^+$ bzw. $\beta^+$-Strahlung mit Materie zu erhalten, und andererseits die Kunstgriffe und Bestandteile von schneller Zeit-Messtechnik kennen zu lernen. Insbesondere die Idee der Beobachtung und Interpretation atomar koinzidenter Ereignisse mit Hilfe von geeigneten Konstruktionen wurde hierbei näher gebracht. Ob, wann und in welcher Weise zwei Quanten einen gemeinsamen Ursprung haben bzw. in Zusammenhang stehen kann eine Fragestellung zu diesem Experiment sein.
+
 	\newpage
 	\section{Physikalische Grundlagen}
 
-		\subsection{Erzeugung und Vernichtung von Positronen}
+		\subsection{Erzeugung und Vernichtung von Positronen}\label{subsec:psoitronen}
 	
 			\begin{wrapfigure}{r}{0.55\textwidth}
 				\includegraphics[width=0.55\textwidth,height=0.5\textwidth]{zerfallsschema.png}
@@ -111,13 +113,14 @@
 
 							\begin{figure}[t]
 								\centering
-								\includegraphics[width=0.7\textwidth]{termschema.png}
+								\includegraphics[width=0.5\textwidth]{termschema.png}
 								\caption{Niveau-Darstellung des $\beta^+$-Zerfalls von $^{22}Na$ unter Aussendung eines zusätzlichen $\unit[1,274]{MeV}$-Photons. Angegeben sind auch die Halbwertszeit des Natriums und die Lebensdauer des Zustandes zur Erzeugung des "`Start"'-Photons (aus \cite{Augsten08}).}
 								\label{img:schemana22}
 							\end{figure}
 
 			Einen grundlegenden, experimentellen Zusammenhang von Erzeugung, Vernichtung und Energiespektrum dieses Versuchs zeigt \ref{img:zerfall}. Da der Emissionswinkel zwischen den "`Stop"'-Photonen $\sim\unit[180]{\degree}$ beträgt - weswegen eine gedachte Gerade zwischen diesen gezogen werden kann -, können 2 gegenüberliegende Detektoren, deren Fenster die sogenannte \tilt{Koinzidenz-Linie} überdecken, diese aufnehmen. Dieser Prozess ist über den gesamten Raumwinkel gleichverteilt. Genauere Prinzipien der Messtechnik werden im nächsten Abschnitt \ref{subsec:koinz} beschrieben.\\
-			Da ein emittiertes Positron von seinem Entstehungsort bis zu seiner Annihilation eine endliche Wegstrecke zurücklegt und dessen Lebenszeit nicht $\unit[0]{s}$ beträgt, ist es naheliegend, vor der Paarvernichtung eine Streuung innerhalb von Materie anzunehmen. Des weiteren kann man dies auch als Forderung für die beobachtete Ausbildung von Positronium ansehen: das $\textbf{e}^+$ muss erst verlangsamt werden, bevor es einen gebundenen Zustand eingehen kann. Das Kriterium dafür ist, dass die restliche kinetische Energie des Positrons in der Größenordnung der thermischen Anregungen innerhalb des vorliegenden Festkörpers ist \cite{Augsten08}. Damit moduliert die Zeitspanne von dem Ereignis des Zerfalls bis zur Detektion der Photonen aus der Vernichtung. Sie wird zu einer Funktion der Materie- bzw. Elektronendichte $n\ix{-}\left(\vec{r}\right)$. Mit der Positronendichte $n\ix{+}\left(\vec{r}\right)$, dem klass. Elektronenradius $r\ix{0}$ und der Lichtgeschwindigkeit in dem vorliegenden Medium $c$ ergibt sich für die Annihilationsrate $\lambda$ bzw. die Lebensdauer $\tau$
+			Da ein emittiertes Positron von seinem Entstehungsort bis zu seiner Annihilation eine endliche Wegstrecke zurücklegt und dessen Lebenszeit nicht $\unit[0]{s}$ beträgt, ist es naheliegend, vor der Paarvernichtung eine Streuung innerhalb von Materie anzunehmen. Des weiteren kann man dies auch als Forderung für die beobachtete Ausbildung von Positronium ansehen: das $\textbf{e}^+$ muss erst verlangsamt werden, bevor es einen gebundenen Zustand eingehen kann. Das Kriterium dafür ist, dass die restliche kinetische Energie des Positrons in der Größenordnung der thermischen Anregungen innerhalb des vorliegenden Festkörpers ist \cite{Augsten08}.\\
+			Damit moduliert die Zeitspanne von dem Ereignis des Zerfalls bis zur Detektion der Photonen aus der Vernichtung. Sie wird zu einer Funktion der Materie- bzw. Elektronendichte $n\ix{-}\left(\vec{r}\right)$. Mit der Positronendichte $n\ix{+}\left(\vec{r}\right)$, dem klass. Elektronenradius $r\ix{0}$ und der Lichtgeschwindigkeit in dem vorliegenden Medium $c$ ergibt sich für die Annihilationsrate $\lambda$ bzw. die Lebensdauer $\tau$
 
 				\begin{align}
 					\lambda=\frac{1}{\tau}=\pi r\ix{0}^{2}c\int n\ix{+}\left(\vec{r}\right)\left(1+\frac{\Delta n\ix{-}\left(\vec{r}\right)}{n\ix{-}\left(\vec{r}\right)}\right)\diff \vec{r} \,\, .
@@ -130,13 +133,39 @@
 				T\left(t\right)=\sum_{k}\frac{I\ix{k}}{\tau\ix{k}}\exp\left(\frac{-t}{\tau\ix{k}}\right)
 			\end{align}
 
-			hervor. 
+			hervor. Dieser Ausdruck ist darauf begründet, dass die Zahl der Photonen für die verschiedenen \tilt{Koinzidenzen}, welche für die Zeitmessung essentiell sind, einer exponentiellen Extinktion vor ihre Detektion folgen.
 
 		\subsection{Start-Stop-Koinzidenzmessungen}\label{subsec:koinz}
 
+			Wie bereits in \ref{subsec:psoitronen} erwähnt, benötigt man die Unterscheidung und Energie-aufgelöste Detektion von 2 $\gamma$-Quanten innerhalb einiger Nano- bzw. Pico-Sekunden. Damit sind enorme Anforderungen an die Empfindlichkeit und Geschwindigkeit der Messtechnik gestellt. Um diese zu erfüllen, bedient man sich einiger Tricks und komplizierter Elektronik.Das Startsignal wird als das, von der $Na$-Probe ausgesandte $\unit[1,274]{MeV}$-Photon angenommen (quasi-instantane Aussendung mit dem Positron). Der Stop-Puls sei \underline{\textbf{eines}} der beiden $\unit[511]{keV}$-Quanten der Annihilation.\\
+			Auf gegenüberliegenden Seiten der $^{22}Na$-Probe befinden sich 2 Szintillationsschirme - Kristalle, in denen durch energiereiche Strahlung Lichtblitze aus Grundzustandsübergänge erzeugt werden -, an welche wiederum eine Photokathode folgt. Die Kristalle haben eine sehr geringe Totzeit, können also dicht aufeinander folgende Signale unterscheiden und eigenen sich daher gut für diese Untersuchung. Ein weiterer Vorteil ist, dass ab einer spezifischen Minimalenergie das Photoelektrische Signal proportional zur Energie der eingestrahlten Photonen ist. Damit erschließt sich eine Energieauflösung der erfassten $\gamma$-Quanten. Die Photokathode wandelt, die in den Szintillatoren durch die Photonen erzeugten Lichtsignale in einige Elektronen um. Ein Dynodensystem beschleunigt jene dann so, dass etwa $\tenpo{7}$ Sekundärelektronen pro Initialelektron entstehen. Ein zwischengeschalteter Verstäker (\tilt{amplifier}) soll für eine möglichst steile Signal-Flanke für die digitale Detektion sorgen.\\
+			Der erhaltene Puls geht in einen sog. \tilt{constant-fraction-discriminator} (\textbf{CFD}). Dieser gibt, falls der Eingang eine bestimmte Schwelle überschreitet, ein logisches Signal mit fester Höhe und Breite aus. Um zu verhindern, dass gleichzeitige Signale mit unterschiedlichen Amplituden verschiedene Ergebnisse dieser Zeit-Auflösung erzeugen, verschiebt, staucht und invertiert der CFD (\tilt{konstant}) die Eingänge - demnach löst dieser den Null-Durchgang, welcher somit für alle Ereignisse gleich wird, auf \cite{TUDarmstadtPET}.\\
+			Bisher erhält man aus einem Ereignis (Positronen-Erzeugung und Annihilation) 2 (maximal 3) Energie-aufgelöste - hierbei interessiert nur, ob es das Start- oder Stop-Photon war -, logische Rechteck-Pulse. Ein \tilt{time-to-amplitude-converter} (TAC) kann über die variierende Entladung von Kondensatoren an seinem "`Start"'- und "`Stop"'-Eingang die Zeit zwischen diesen Signalen in eine Spannungsspitze mit variabler Höhe umwandeln. Dieses korrespondiert dann mit der dazwischen verstrichenen Zeit.\\
+			Um "`verschluckte"' Koninzidenzen oder falsche Zuordnungen von zeitnahen Emissionen/Annihilationen auszuschließen, schaltet man einen \tilt{delay} zwischen die Kanäle von Start und Stop am TAC, weil nicht festgelegt ist, welcher Detektor welches Event aufnimmt. Um dies zu verhindern, legt man zwischen Detektion und TAC-Stop-Kanal eine Delay-Box, welche über verschiedene Kabellängen einige Nano-Sekunden Verzögerung erzeugen kann.\\
+			Mehrere \tilt{analog-to-digital-converter} (ADC) und ein \tilt{multichannel-analyzer} (MCA) konvertieren die Zeit-Signale in digitale Rechteck-Pulse, welche von dem MCA je nach Höhe (Lebensdauer) gespeichert und ausgegeben werden. Damit ist der Weg von, idealer Weise 2 koinzidenten $\gamma$-Quanten bis zu einer digitalen Auswertung gemacht. Fehlermöglichkeiten bestehen trotz der fortschrittlichen Technik: nicht-koinzidente Signale können einander zugeordnet werden (\tilt{trues}, \tilt{randoms}, \tilt{singles} usw., siehe \cite{Wiki:PET}), zusammengehörige Ereignisse liegen dennoch innerhalb der Totzeit der Elektronik, \dots . 
+
 	\newpage
 	\section{Durchführung}
-	
+
+		Wie es in \ref{subsec:koinz} beschrieben wurde, galt es den Versuch aufzubauen und entsprechend zu kalibrieren. Mit der Kenntnis aus diesem Abschnitt über die verwendete Elektronik vereinfacht sich diese Herleitung.\\
+		Vorerst wurde sichergestellt, dass beide Detektoren mit Hilfe der Szintillatoren, Dynoden und \tilt{amplifier} ohne weitere Einschränkungen in etwa gleiche Spektren zeigen (Forderung, dass die Positronen-Emission und Annihilation isotrop war). Anschließend daran musste die Relation: Kanal-Energie festgelegt werden. Einhergehend damit war die Unterteilung des Spektrums in den Teil des Start-Photons aus der $\beta^+$-Quelle und den Vernichtungs-$\gamma$-Strahlen. \\
+		Die Einstellung des CFD wurde danach vorgenommen - jeweilige Ergebnisse wurden mit einem Oszilloskop beobachtet. Ein weiter wichtiger schritt war die Kalibrierung der Kanäle des MCA mit den ADC und der Delay-Box: mit Hilfe der festen Zeitverschiebungen konnten die Kanäle des MCA leicht nach der Zeit aufgelöst werden.\\
+		Wurde dies getan, konnten die jeweiligen Messungen beginnen. Dafür war es lediglich notwendig die Kalibrierten Start-/Stop-Kanäle des TAC (zwischengeschalteten \tilt{delay}) mit den Signalen der CFD zu versorgen und somit Messergebnisse zu erhalten. Dessen Ausgang an den MCA angeschlossen, ergab sich am PC ein ähnliches Bild wie in \autoref{img:beispielspektrum}. Den endgültigen Aufbau zeit \autoref{img:aufbau}. Für eine $^{22}Na$-Probe wurden 3 Messungen über jeweils einen $\unit[12]{h}$-Zeitraum aufgenommen.
+
+			\begin{figure}[t]
+				\centering
+				\includegraphics[width=\textwidth]{aufbau.png}
+				\caption{Schalt-Schema des Aufbaus für diesen Versuch. Die Bauteile 556 sind jeweils die Detektoren mit den Dynodensystemen. Der MCA ist an einen PC via USB angeschlossen. \cite{EMAUGreifswaldPKO}}
+				\label{img:aufbau}
+			\end{figure}
+
+			\begin{figure}[h]
+				\centering
+				\includegraphics[width=0.6\textwidth]{beispielspektrum.png}
+				\caption{Beispiehaftes Spektrum eines Positronen-Lebensdauerspektroskopie mit den unterschiedlichen Lebenszeiten für die verschiedenen "`Lebenswege"' eines $\textbf{e}^+$ $\tau\ix{1}$, $\tau\ix{2}$, \dots \cite{Augsten08}}
+				\label{img:beispielspektrum}
+			\end{figure}
+
 	\newpage
 	\section{Auswertung}
 	
@@ -144,6 +173,6 @@
 	\section{Anhang}
 
 		\bibliography{all.bib}
-		\bibliographystyle{unsrt}
+		\bibliographystyle{plain}
 
 \end{document}
