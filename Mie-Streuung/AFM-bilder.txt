@@ -1,0 +1,60 @@
+
+Betreff:
+AFM-bilder
+Von:
+"passvogelm@uni-greifswald.de" <passvogelm@uni-greifswald.de>
+Datum:
+30.10.2015 10:17
+An:
+"Hacker, Philipp" <ph123693@uni-greifswald.de>
+
+Hallo nochmal,
+
+anbei zunaechst die AFM Bilder...
+
+LG Malte
+--------------------
+Malte Paßvogel
+Dipl. Physiker
+Universität Greifswald
+Institut für Physik
+Biophysik und Weiche Materie
+Felix-Hausdorffstraße 6
+D-17487 Greifswald
+Tel: +49 (0)3834 864728
+Email: passvogelm@uni-greifswald.de
+
+
+
+
+Am Donnerstag, den 29-10-2015 um 17:41 schrieb passvogelm@uni-greifswald.de:
+
+    hallo Phillipp,
+
+    anbei zunächst eure UV-Vis Daten dann könnt ihr schon mal anfangen. Morgen bekommt ihr dann den Rest. Also die UV Vis Daten sind A= lg(I0/I). Am Besten Daten einzelnd 10^ nehmen Intensitäten subtrahieren (AUu-H2o z.B.) und dann wieder logarithmieren zur weiteren Verwendung. Kleine Hilfestellung Logarithmusgesetz log_b(x)=log_a(x)/log_a(b) benutzen.
+
+    LG Malte
+
+
+    --------------------
+    Malte Paßvogel
+    Dipl. Physiker
+    Universität Greifswald
+    Institut für Physik
+    Biophysik und Weiche Materie
+    Felix-Hausdorffstraße 6
+    D-17487 Greifswald
+    Tel: +49 (0)3834 864728
+    Email: passvogelm@uni-greifswald.de
+
+
+
+au90min500n.jpg
+
+
+au90min1u.jpg
+
+
+Anhänge:
+au90min500n.jpg	69,9 KB
+au90min1u.jpg	81,1 KB
