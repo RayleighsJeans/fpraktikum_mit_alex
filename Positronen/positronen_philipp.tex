@@ -144,6 +144,13 @@
 			Um "`verschluckte"' Koninzidenzen oder falsche Zuordnungen von zeitnahen Emissionen/Annihilationen auszuschließen, schaltet man einen \tilt{delay} zwischen die Kanäle von Start und Stop am TAC, weil nicht festgelegt ist, welcher Detektor welches Event aufnimmt. Um dies zu verhindern, legt man zwischen Detektion und TAC-Stop-Kanal eine Delay-Box, welche über verschiedene Kabellängen einige Nano-Sekunden Verzögerung erzeugen kann.\\
 			Mehrere \tilt{analog-to-digital-converter} (ADC) und ein \tilt{multichannel-analyzer} (MCA) konvertieren die Zeit-Signale in digitale Rechteck-Pulse, welche von dem MCA je nach Höhe (Lebensdauer) gespeichert und ausgegeben werden. Damit ist der Weg von, idealer Weise 2 koinzidenten $\gamma$-Quanten bis zu einer digitalen Auswertung gemacht. Fehlermöglichkeiten bestehen trotz der fortschrittlichen Technik: nicht-koinzidente Signale können einander zugeordnet werden (\tilt{trues}, \tilt{randoms}, \tilt{singles} usw., siehe \cite{Wiki:PET}), zusammengehörige Ereignisse liegen dennoch innerhalb der Totzeit der Elektronik, \dots . 
 
+			\begin{figure}[h]
+				\centering
+				\includegraphics[width=0.6\textwidth]{beispielspektrum.png}
+				\caption{Beispiehaftes Spektrum eines Positronen-Lebensdauerspektroskopie mit den unterschiedlichen Lebenszeiten für die verschiedenen "`Lebenswege"' eines $\textbf{e}^+$ $\tau\ix{1}$, $\tau\ix{2}$, \dots \cite{Augsten08}}
+				\label{img:beispielspektrum}
+			\end{figure}
+
 	\newpage
 	\section{Durchführung}
 
@@ -159,20 +166,90 @@
 				\label{img:aufbau}
 			\end{figure}
 
-			\begin{figure}[h]
-				\centering
-				\includegraphics[width=0.6\textwidth]{beispielspektrum.png}
-				\caption{Beispiehaftes Spektrum eines Positronen-Lebensdauerspektroskopie mit den unterschiedlichen Lebenszeiten für die verschiedenen "`Lebenswege"' eines $\textbf{e}^+$ $\tau\ix{1}$, $\tau\ix{2}$, \dots \cite{Augsten08}}
-				\label{img:beispielspektrum}
-			\end{figure}
+	\newpage
 
-	\newpage
-	\section{Auswertung}
-	
-	\newpage
-	\section{Anhang}
+\section{Auswertung}
+
+\subsection{Zeitkalibrierung}
+
+Aus der Kalibrierungsmessung (vgl. Abb.\eqref{abb:Zeitkal}) werden zu den entsprechenden Zeitschritten die Maxima des Signals ausgelesen und durch Anwendung einer linearen Regression kann den Kanälen eine eindeutige Zeit zugeordnet werden. Der Fehler Regression wird durch die Standartabweichung der Messwerte zur Regressionsgraden angegeben. Die Kalibrierung gibt die Zeit $t$ in Abhängigkeit der Kanalnummer $n_\textrm{K}$
+
+\begin{equation}
+t(n_\textrm{K}) = (6,2\cdot 10^{-3}\cdot n_\textrm{K} - 7,83) \,\mathrm{ns} \pm 0,04\,\mathrm{ns}\label{eq:Zeitkal}
+\end{equation}
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.7\columnwidth]{Zeitkal}
+	\caption{Messung zur Kalibrierung der Kanäle pro Zeit. Es ist die gemessene Zeit $t$ über die Kanalnummern $n_\textrm{K}$ aufgetragen. Die Grade durch die Messwerte ist eine lineare Regression.}
+	\label{abb:Zeitkal}
+\end{figure}
+\newpage
+\subsection{Bestimmung der Zerfallskonstanten}
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.7\columnwidth]{Messung1}
+	\caption{Logarithmisch skalierte Signalintensität der Koinzidenzmessung der bei der Rekombination entstandenen $\gamma$-Photonen. Die X-Achse ist nach \eqref{eq:Zeitkal} die Zeit abgetragen.}
+	\label{abb:Messung1}
+\end{figure}
+
+In der Abb.\ref{abb:Messung1} ist die logarithmisch skalierte Signalintensität der koinzident gemessenen $\gamma$-Photonen über die Vergangene Zeit aufgetragen.
+In dem Graphen sind drei verschiedene Zerfälle zu erkennen. Der erste liegt ungefähr im Zeitintervall von $21,8\,\mathrm{ns}$ bis $23,3\,\mathrm{ns}$ (Abschnitt 1), der zweite zwischen $23,3\,\mathrm{ns}$ und $24,5\,\mathrm{ns}$ (Abschnitt 2), und der letzte zwischen $24,5\,\mathrm{ns}$ und $28,0\,\mathrm{ns}$ (Abschnitt 3). Dabei ist anzumerken, dass der zweite Abschnitt den stärksten Abfall aufweist, während der dritte den schwächsten hat. Dies ist ungewöhnlich, da zu erwarten ist, das der erste Abschnitt den steilsten Abfall aufweisen sollte. 
+Für die Zerfälle wird jeweils ein exponentielles Zerfallsgesetz angenommen.
+\begin{equation}
+N_\mathrm{i}(t) = N_{\mathrm{i}0} \exp\left(-\lambda_\mathrm{i} t\right)
+\end{equation}
+Aus den Ansätzen lassen sich 3 Zerfallskonstanten $\lambda_\mathrm{i}$ bestimmen. Der Fehler dieser Konstanten ist gleich dem Fehler der Steigung der logarithmischen Darstellung
+\begin{equation}
+\ln\left(N_\mathrm{i}\right) = \ln\left(N_{\mathrm{i}0}\right) - \lambda_\mathrm{i}t
+\end{equation}
+berechnet. Die $\lambda_\mathrm{i}$ für die drei Intervalle sind
+\begin{align}
+\lambda_1 =& 1,425(4)\,\mathrm{ns}^{-1}, \nonumber \\
+\lambda_{2} =& 2,10(4)\,\mathrm{ns}^{-1},  \\
+\lambda_{3} =& 0,76(3)\,\mathrm{ns}^{-1}. \nonumber 
+\end{align}
+Die zu den Zerfallskonstanten gehörende Lebenszeit ist ihr Reziprokes
+\begin{equation}
+\tau_\mathrm{i} = \frac{1}{\lambda_\mathrm{i}}.
+\end{equation}
+Die resultierenden Lebenszeiten der beobachteten Zerfälle und deren Fehler ergibt sich zu
+\begin{align}
+\tau_{1} =& 0,702(2)\,\mathrm{ns} \nonumber \\
+\tau_{2} =& 0,476(9)\,\mathrm{ns} \\
+\tau_{3} =& 1,32(5)\,\mathrm{ns} \nonumber 
+\end{align}
+\subsection{Fazit}
+Die gemessenen Lebenszeiten $\tau_1$ und $\tau_2$ stimmen von der Größenordnung mit der des Parapositroniums überein ($0,142\,\mathrm{ns}$). Die verbleibenden Unterschiede können dadurch erklärt werden, da in der Messung nicht die Zeit berücksichtigt wird, welche das Positron braucht um genügend Energie abzugeben, um eine Bindung mit einem Elektron einzugehen. Die Lebenszeit des Orthopositroniums liegt jedoch mehrere Größenordnungen über den gemessenen Zeiten ($142\,\mathrm{ns}$) und kann keiner Lebensdauer zugeordnet werden.\\
+
+
+Zusammenfassend kann gesagt werden, dass der Versuch einen Einblick in den Aufbau von anspruchsvollerer Messelektronik gegeben hat und vor allem das Prinzip der Koinzidensmessung verdeutlicht hat, aber die eigentliche Messung leider nicht zu Ende ausgewertet werden konnte. 
+\newpage
+
+\section{Anhang}
 
 		\bibliography{all.bib}
 		\bibliographystyle{plain}
+
+		Programm zur linearen Regression "REGRESSION.exe", B. Pompe 07.11.2002
+
+\subsection{Weitere Graphen}
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.7\columnwidth]{Messung2a}
+	\caption{Ausschnitt 1 aus der zeitaufgelösten Messung der Positronenlebensdauer. Die Kurve im Graphen ist ein exponentieller Fit.}
+\end{figure}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.7\columnwidth]{Messung2b}
+	\caption{Ausschnitt 2 aus der zeitaufgelösten Messung der Positronenlebensdauer. Die Kurve im Graphen ist ein exponentieller Fit.}
+\end{figure}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.7\columnwidth]{Messung2c}
+	\caption{Ausschnitt 3 aus der zeitaufgelösten Messung der Positronenlebensdauer. Die Kurve im Graphen ist ein exponentieller Fit.}
+\end{figure}
 
 \end{document}
