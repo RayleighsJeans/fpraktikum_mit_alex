@@ -32,6 +32,8 @@
 \usepackage[backref=page]{hyperref}
 \usepackage{cleveref}
 \usepackage{csquotes}
+\usepackage{listings}
+\usepackage{color}
 
 \renewcommand{\headrulewidth}{0.1pt}
 \renewcommand{\footrulewidth}{0.1pt}
@@ -87,6 +89,10 @@
 	\vfill
 	\newpage
 	\section{Motivation}
+
+		Gold-Suspensionen und i.A. Metall-Nanopartikel nutzen die Menschen schon seit mehreren Jahrhunderten. In der Kunst beispielsweise verwendete man Lösungen mit feinsten Edelmetall-Teilchen um besonderen Glanz oder atemberaubende Effekte auf Bildern, Vasen oder sonstigem zu erzeugen.\\
+		Zwischen 1902 und 1917 beschäftigte sich der Greifswalder Professor Gustav Mie mit der Streuung von elektromagnetischen Wellen an Kleinstteilchen, speziell kolloidaler Lösungen mit Metallen. Seine exakte Lösung der Maxwell-Gleichungen für eine Sphäre mit dielektrischen Eigenschaften wurde zur (Lorentz-)Mie-Theorie der Streuung von Licht an Nanopartikeln und zählt bis heute zur meistzitierten Fachliteratur auf dem Gebiet der Optik.\\
+		Aber heute lassen sich nicht nur durch spektroskopische/optische Experimente die Eigenschaften von Nano-Teilchen untersuchen. Die Messauflösung und Feinheit von mechanischen Verfahren wie zum Beispiel der \tilt{AFM} oder \tilt{STM} ermöglichen auch diesen Weg der direkten Beobachtung des zu untersuchenden Objekts.
 
 	\newpage
 	\section{Physikalische Grundlagen}
@@ -188,7 +194,7 @@
 					n=&1-\delta+\imag\beta\approx 1-\frac{\rho\ix{e}r\ix{0}\lambda^2}{2\pi} \label{eq:brechung}
 				\end{align}
 
-				\begin{figure}[h]
+				\begin{figure}[H]
 					\centering
 					\includegraphics[width=0.6\textwidth]{rontgenreflekt.png}
 					\caption{Reflektion an einer Schicht der Dicke $\Delta$ mit Wellenvektor-Übertrag zwischen A1, A2, A3... \cite{USiegenMIE}}
@@ -211,15 +217,404 @@
 		Schließlich galt es, die im \tilt{tapping mode} aufgenommen Höhenprofil-Daten der AFM auszuwerten. Eine Bestimmung eines Einzelteilchen-Radius mittels der vorliegenden Software und einer mittleren Dichte wurde vorgenommen.
 
 	\newpage
-	\section{Auswertung}
+	\section{Auswertung}\label{sec:auswertung}
 
-		
+		\subsection{Spektrometrie mit dem \tilt{UV-Vis}}\label{subsec:uvvis}
 
+			\subsection*{Vergleich mit der Theorie}
+
+			Zuerst wurden die theoretischen Rechnung zu den spektroskopischen Größen aus \autoref{subsec:miestreu} durchgeführt. Mit den Daten der AFM über Teilchendichte in der Monoschicht und Partikelradius (siehe \autoref{subsec:auswerafm}) konnte ein Füllfaktor von
+
+				\begin{align}
+					f=V\ix{0}N=\frac{4}{3}\pi \overline{R}^3 N= \frac{4\pi}{3}(\unit[15]{nm})^3\cdot\frac{54,5}{(\unit[500]{nm})^2\cdot\overline{R}}=0,2198(03)
+				\end{align}
+
+			berechnet werden. Mit den Kenntnissen über die Wertepaare Photonenenergie - $n(\lambda)$ bzw. $\kappa(\lambda)$ und diesem Füllfaktor bzw. den angegebenen Dielektrizitätskonstanten $\varepsilon\ix{m}$ der umgebenden Medien konnten die erwähnten Kalkulationen durchgeführt werden (siehe \autoref{sec:anhang} für den entsprechenden Quellcode).\\
+			Zuerst galt es die Imaginär- und Realteile der einfachen Dielektrizitätskonstanten $\varepsilon(\lambda)$, des Maxwell-Garnett-Koeffizienten nach \autoref{eq:maxwellgarnett} und daraus folgend der effektiven Größe $\varepsilon\ix{eff}$ aus \autoref{eq:effektdielektr} darzustellen. Die Ergebnisse repräsentieren \autoref{img:epsilon}, \autoref{img:kappaun} sowie \autoref{img:epsilon_eff}. Die Darstellung erfolgte über einen Wellenlängenbereich von $\unit[400]{nm}<\lambda<\unit[720]{nm}$.
+
+				\begin{figure}[H]
+					\includegraphics[width=0.9\textwidth]{epsilon_uber_lambda.png}
+					\caption{Dielektrizitätskonstante für Gold-Kolloide in einer wässrigen Lösung mit $\varepsilon\ix{m}\approx1,77$, Imaginär- und Realteil aufgetrennt (theoretisch).}
+					\label{img:epsilon}
+				\end{figure}
+
+				\begin{figure}[H]
+					\includegraphics[width=\textwidth]{kappaun_uber_lambda.png}
+					\caption{Imaginär- und Realteil des Brechnungsindex $\tilde{n}(\lambda)=\sqrt{\varepsilon(\lambda)}$ in Form von $n(\lambda)$,$\kappa(\lambda)$ (theoretisch).}
+					\label{img:kappaun}
+				\end{figure}
+
+				\begin{figure}[H]
+					\includegraphics[width=\textwidth]{epsilon_eff_uber_lambda.png}
+					\caption{Effektive Dielektrizitätskonstante für $f=0,2198$ unter Rücksichtnahme auf eine endliche Teilchendichte der Kolloide und deren Wechselwirkung (theoretisch).}
+					\label{img:epsilon_eff}
+				\end{figure}
+
+			Der gemachten Rechnungen schließt sich der Vergleich von Theorie und Messung an. Geeigneter Weise wurde eine Lösung von kolloidalem Gold der Dichte $\unit[2,4]{\frac{nmol}{L}}$ spektroskopisch untersucht. In \autoref{img:vergleich} sind Extinktions-Koeffizienten-Verläufe für die Berechnung nach \autoref{eq:extinkt-intens} und der Differenz aus $Au$-Suspension und Wasser zu sehen.  Die Darstellung erfolgte über ein Spektrum von $\unit[400]{nm}<\lambda<\unit[720]{nm}$. Hierbei wurde die Küvettenlänge (das heißt die Weite des Durchgangsmediums) auf $D=\unit[1]{cm}$ angesetzt. Auffällig ist die Verschiebung des Wellenlängen-abhängigen Maximums. Für $\gamma\ix{theo}$ liegt dieses bei $\gamma\ix{max,theo}\approx\unit[3,77(49)]{m^{-1}}$ bei $\lambda\ix{max,theo}\approx\unit[537,7(19)]{nm}$, aus der Messung folgt $\gamma\ix{Mess,theo}\approx\unit[4,39(35)]{m^{-1}}$ um $\lambda\ix{max,Mess}\approx\unit[400,8(59)]{nm}$. Des weiteren sind die Ausprägungen der Maxima und Abszissen-Abschnitte beider Graphen unterschiedlich.
+
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=\textwidth]{theo_gamma_abs_goldloes.png}
+					\caption{Vergleich von Theorie und Messung der Extinktionskoeffizienten für eine Kolloid-Lösung von Gold als Funktion der Wellelänge.}
+					\label{img:vergleich}
+				\end{figure}
+
+			\subsection*{Spektren von Gold-Monoschichten in Luft und Lösungen}
+
+			Im Folgenden werden die Spektren und insbesondere die Extinktionskoeffizienten der Gold-Adsoprtionen in verschiedenen Umgebungen/Lösungsmitteln präsentiert und mit den theoretischen Zusammenhängen verglichen.\\
+			Beginnend mit den Messungen in Luft, stellt \autoref{img:luft} die Ergebnisse dar. Lediglich die Zeit, welche die PEI-beschichteten Proben in der Gold-Lösung verbracht haben (45 und 90 Minuten), unterscheidet sie. \autoref{tab:luft} listet die Daten der Maxima auf.\\
+			Obwohl die erhaltenen Punkte der Extrema sich sehr ähneln, sehen die Spektren doch stark unterschiedlich aus. Der Graph zur 150-minütigen Probe gleicht in Näherung der Theorie bzw. den bisher betrachteten Ergebnisse, wohingegen die Messung der früheren Ablagerung einen sehr unterschiedlichen Absorptions-Verlauf ergibt. Für niedrigere Wellenlängen ist der Anstieg ähnlich - die verwendeten Küvetten waren gleich und deswegen ist die Auslöschung des Nah-UV- bzw. UV-Lichts vergleichbar. Ein angedeutetes Minimum vor dem Maximum tritt für die 45-minütige Probe viel stärker hervor, als es das für die andere tut. Ebenso ist schemenhaft ein Peak nahe des, im Spektrum der $\unit[150]{min}$-Probe klar hervortretenden Maximums zu sehen. Dieser geht jedoch für größere Wellenlängen im restlichen Verlauf unter.
+
+			\begin{table}[H]
+				\centering
+				\begin{tabular}{c|c|c|}
+					Zeit zur Adsorption & $\gamma\ix{max}/\unit{m^{-1}}$ & $\lambda\ix{max}/\unit{nm}$ \\ 
+					\hline\hline $\unit[45]{min}$ & 0,940(73) & 399,9(70)  \\
+					\hline $\unit[150]{min}$ & 0,446(22) & 400,8(80)
+				\end{tabular} 
+			\caption{Daten der Maxima zu \autoref{img:luft}. Maximaler Extinktionskoeffizient mit seiner Resonanz-Wellenlänge.}
+			\label{tab:luft}
+			\end{table}
+
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=\textwidth]{absorp_spektren_luft.png}
+					\caption{Vergleich des gemessenen Extinktions-Spektrum in Luft zwischen 2 unterschiedlich lange behandelten Proben (unterschiedliche Monoschichten-Dichten).}
+					\label{img:luft}
+				\end{figure}
+
+			Abschließend betrachtet und wertet man die Extinktions-Koeffizienten für Gold-Adsorptionen über $\unit[90]{min}$ in den Lösungsmitteln Propandiol, Brombenzol, Nitromethan und Toluol aus. Die \autoref{tab:loesungen} zeigt wie im Vorherigen die Zusammenhänge der Extrema, welche in \autoref{img:loesgemess} der gemessenen und \autoref{img:loestheo} der theoretischen Spektren zu erkennen sind.\\
+			Der gravierende Unterschied zwischen den Werten in der Tabelle kann u.a. auf den Einfluss der Oberfläche, auf welcher sich die Monoschicht befindet, begründet werden. Die angeführte Streutheorie aus \autoref{subsec:miestreu} geht auf 2-D-System zurück. Dies ist offensichtlich eine große Vernachlässigung der elektronischen Wechselwirkung mit dem PEI oder der Glasplatte. Insbesondere ist der Einfluss des umgebenden Mediums nur auf die Höhe der Extinktions-Resonanz beschränkt, verändert also nicht die Position (Wellenlänge) des Verlaufs. Die Spektrometrischen Eigenschaften der Gold-Monoschicht allgemeine werden nicht beeinflusst.
+
+				\begin{table}[H]
+					\centering
+					\begin{tabular}{c|c|c|c|c|c}
+						Lösungsmittel & $\varepsilon\ix{m}$ & $\gamma\ix{max,mess}/\unit{m^{-1}}$ & $\lambda\ix{max,mess}/\unit{nm}$ & $\gamma\ix{max,theo}/\unit{m^{-1}}$ & $\lambda\ix{max,theo}/\unit{nm}$ \\ 
+						\hline\hline Wasser & 1,77 & 1,2599 &  401,84 & 0,0377 & 537,719 \\
+						\hline Brombenzol & 1,5602 & 3,666 & 401,849 & 0,0354 & 537,719 \\
+						\hline Propandiol & 1,43 & 1,30455 & 401,84 & 0,0339 & 537,719 \\
+						\hline Toluol & 1,496 & 0,968 & 400,77 & 0,0347 & 537,719 \\
+						\hline Nitromethan & 1,3818 & 12,776 & 401,62 & 0,0335 & 537,719
+					\end{tabular} 
+					\caption{Daten der Maxima - sowohl theoretisch als auch gemessen - für die angegebenen Lösungsmittel.}
+					\label{tab:loesungen}
+				\end{table}
+	
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=\textwidth]{absorp_spektren_loesungen.png}
+					\caption{Extinktions-Spektren der $\unit[90]{min}$-Adsorption in verschiedenene Lösungsmitteln (siehe \autoref{tab:loesungen}).}
+					\label{img:loesgemess}
+				\end{figure}
+	
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=\textwidth]{theoret_maxima_loesung.png}
+					\caption{Extinktions-Spektren der theoretischen Absorption verschiedenene Lösungsmittel (siehe \autoref{tab:loesungen}).}
+					\label{img:loestheo}
+				\end{figure}
+
+		\subsection{AFM und Röntgenreflexion - Größenbestimmungen}\label{subsec:auswerafm}
+
+			Zuerst wird die Messung mit der Röntgenreflexion ausgewertet.\\
+			Die \autoref{img:rontgen} zeigt das Spektrum $R(q\ix{z})/R\ix{F}(q\ix{z})$ in Abhängigkeit des Wellenvektor-Übertrags $q\ix{z}$. Der Graph erlaubt nur die Entnahm eines $\Delta q\ix{z}$ zwischen 2 Maxima des Resonanzverlaufs nach \autoref{eq:vektoruber}. Mit eine $\Delta q\ix{z}= |0.3307-0.4339|\cdot\unit[\tenpo{9}]{nm^{-1}}$ ergibt sich nach \autoref{eq:vektoruber} die Schichtdicke in \autoref{eq:rontgendick}. Dieses Ergebnis ist besonders auffällig, da im Vergleich zu denen aus \autoref{tab:radien} hier in etwa der doppelte Wert vorliegt.
+
+				\begin{align}
+					d=\frac{\pi}{\Delta q\ix{z}}=\unit[30,044(17)]{nm} \,\,.
+				\end{align}
+
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=\textwidth]{rontgenreflexion.png}
+					\caption{Quotient aus gemessener Relektivität zu fresnel'scher Reflektivität über dem Wellenvektor-Übertrag.  Verwendet wurde die Probe mit 90-minütiger Adsorption.}
+					\label{img:rontgen}
+				\end{figure}
+
+			Abschließend gilt es, die Messungen mit dem AFM zu betrachten. Die erhaltenen Höhen-Profile zeigt \autoref{img:afm}, einmal für einen Ausschnitt von $\unit[1]{\mu m^2}$ und für $\unit[25000]{nm^2}$. Mit Hilfe der vorhandenen Software war es möglich, die Teilchenhöhe, dh. $2\cdot R$ zu bestimmen. Die erhaltenen Wert enthält \autoref{tab:radien}. Darauf ergibt sich ein durchschnittlicher Kolloid-Radius von $\unit[15.5297]{nm}$. Nach der Auswertung - e.g. Auszählen der "`echten"'  Partikel der Schicht - von allen 4 Quadranten im linken Teil von \autoref{img:afm}, erhält man eine mittlere Teilchendichte von 54,5 Kolloiden je Monoschicht und $\unit[25000]{nm^2}$. Diese Daten konnten damit in den Berechnungen für die UV-Vis-Untersuchungen verwendet werden.
+
+			\begin{table}[H]
+				\centering
+				\begin{tabular}{|c||c|c|c|c|c}
+					Partikel-Nr. & 1 & 2 & 3 & 4 & 5  \\ 
+					\hline  Radius R/$\unit{nm}$ & 16,173 & 18,584 & 15,472 & 14,281 & 15,106 
+				\end{tabular}
+				\begin{tabular}{c|c|c|c|c|c}
+					6 & 7 & 8 & 9 & 10 & $\overline{R}$ \\
+					\hline 14,191 & 13,824 & 14,038 & 16,784 & 16,844 & 15,5297
+				\end{tabular}
+				\caption{Ausgemessene Radien an den Aufnahmen in \autoref{img:afm} und der mittlere Teilchenradius in der Monoschicht $\overline{R}$.}
+				\label{tab:radien}
+			\end{table}
+
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=\textwidth]{au90minbeide.jpg}
+				\caption{Aufnahmen des Höhen-Profils der Gold-Monoschicht einer 90-minütigen Adsorption. Links ist ein $500\times500\,\unit{nm^2}$-Abschnitt zu sehen, rechts der dazugehörige $\unit[1]{\mu m^2}$-Bereich.}
+				\label{img:afm}
+			\end{figure}
+
+		\subsection{Fazit}
+
+			Der Versuch zur Mie-Streuung gewährte viele Eindrücke in die Oberflächen- und Nano-Physik. Insbesondere die beeindruckende Messauflösung von rein mechanischen Verfahren wie der AFM erzielte gute Ergebnisse. Wiederum war der Erfolg mit Röntgenreflexion - e.g. der Verlauf des Spektrums - und dem UV-Vis ernüchternd. Entgegen der Voraussagen aus Theorie , welche u.a. direkt zum Vergleich gesetzt wurde, konnten einige Eigenschaften nicht nachvollzogen werden. Jedoch sind generell die Annahmen bestätigt worden - speziell im Hinblick auf die allgemeine Form der Absorptions-Spektren.\\
+			Fehlerquellen wie die, in der Theorie gemachte Vernachlässigung der dritten Dimension in der Beschreibung von Absorption und Extinktion einer Gold-Monoschicht auf einem Glas-Träger und die nicht-ideale Adsorption auf den Platten (vor allem mit Einbau von deformierten Fehlstellen, e.g. Staub) verhinderten bessere Ergebnisse.
 
 	\newpage
-	\section{Anhang}
+	\section{Anhang}\label{sec:anhang}
+
+		Hier folgt auf den nächsten Seiten ebenso der Quellcode des verwendeten Programms zur Berechnung der Real- und Imaginärteile der Koeffizienten für die Spektroskopie sowie die gemachte Auswertung.
 
 		\bibliography{all.bib}
 		\bibliographystyle{unsrt}
+
+	\newpage
+
+
+	\lstset{
+		flexiblecolumns=true,
+		numbers=left
+	}
+
+\begin{lstlisting}
+function [] = mie_spektren_rechner
+
+clear all;
+
+%Wellenlaenge (aus Energie der Photonen ueber lambda=h*c/E) und Vektor
+lambda=(1239.841974)./[1.2:0.2:2.0 2.1 2.2 2.4 2.5 2.6 2.7 2.8 2.9 3.0 3.1]';
+lambi=[min(lambda):0.01:max(lambda)]';
+
+%Werte von n und Interpolation dazwischen
+n=[0.1 0.08 0.08 0.09 0.13 0.18 0.24 0.5 0.82 1.24 1.43 1.46 1.5 1.54 1.54]';
+ni=interp1(lambda,n,lambi,'spline');
+
+%Werte von k und Interpolation dazwischen
+k=[6.54 5.44 4.56 3.82 3.16 2.84 2.54 1.86 1.59 1.54 1.72 1.77 1.79 1.8 1.81]';
+ki=interp1(lambda,k,lambi,'spline');
+
+%e_m fuer waessrige Loesung mit Glasplatte, f=0.2
+e_m=1.77;
+f=0.219803437590171;
+
+figure;
+hold all;
+grid on;
+title('Real- und Imaginaerteil der Brechnung');
+xlabel('\lambda/nm');
+ylabel('\kappa,n');
+plot(lambi,ki,'LineWidth',2.5);
+plot(lambi,ni,'LineWidth',2.5);
+legend('\kappa','n');
+set(gca, 'FontSize', 20);
+axis([400 720 0 6.5]);
+hold off;
+
+%Berechnen des Imaginaer- und Realteils von epsilon
+e_re=-(ki.^2-ni.^2);
+e_im=sqrt(4*(ni.^2-e_re/2).^2-e_re.^2);
+
+figure;
+hold all;
+grid on;
+title('Real- und Imaginaerteil der dielektrischen Funktion');
+xlabel('\lambda/nm');
+ylabel('\epsilon_{Re/Im}');
+plot(lambi,e_re,'LineWidth',2.5);
+plot(lambi,e_im,'LineWidth',2.5);
+legend('\epsilon_{Re}','\epsilon_{Im}');
+set(gca, 'FontSize', 20);
+axis([400 720 min(e_re)-0.1*min(e_re) max(e_im)+0.1*max(e_im)]);
+hold off;
+
+%Lambda(Maxwell-Garnett) in imag und real aufteilen
+L_re=(e_re.^2+e_im.^2-2.*e_m.^2+e_re.*e_m)./((e_re+2*e_m).^2+e_im.^2);
+L_im=(3*e_im.*e_m)./((e_re+2*e_m).^2+e_im.^2);
+
+%Real und Imag von effektiver dielektrischen Funktion
+e_effre=e_m*(L_re*f+1-2*f^2.*L_re.^2-2*f^2.*L_im.^2)./((1-L_re*f).^2+L_im.^2*f^2);
+e_effim=e_m*(3*f.*L_im)./((1-L_re*f).^2+L_im.^2*f^2);
+
+figure;
+hold all;
+grid on;
+title('Real- und Imaginaerteil der effektiven dielektrischen Funktion');
+xlabel('\lambda/nm');
+ylabel('\epsilon_{eff,Re/Im}');
+plot(lambi,e_effre,'LineWidth',2.5);
+plot(lambi,e_effim,'LineWidth',2.5);
+legend('\epsilon_{eff,Re}','\epsilon_{eff,Im}');
+set(gca, 'FontSize', 20);
+axis([400 720 min(e_effim) max(e_effre)]);
+hold off;
+
+kap=sqrt(-e_effre./2+sqrt(e_effre.^2+e_effim.^2)./(2));
+
+figure;
+hold on;
+grid on;
+title('exp(-\kappa)');
+plot(lambi, exp(-kap),'LineWidth',2.5);
+legend('exp(\kappa)');
+xlabel('\kappa');
+ylabel('exp(-\kappa)');
+set(gca, 'FontSize', 20);
+axis([400 1000 min(exp(-kap))-0.1 max(exp(-kap))+0.1]);
+hold off;
+
+figure;
+hold on;
+grid on;
+xlabel('\lambda/nm');
+ylabel('\kappa');
+plot(lambi, kap,'LineWidth',2.5);
+legend('\kappa');
+set(gca, 'FontSize', 20);
+axis([400 1000 min(kap)-0.1*min(kap) max(kap)+0.1*max(kap)]);
+hold off;
+
+gamma =4*pi*kap./lambi;
+
+load('C:\Users\Philipp Hacker\Desktop\Uni\git\fpraktikum_mit_alex\Mie-Streuung\Peiauair150minedit.txt');
+load('C:\Users\Philipp Hacker\Desktop\Uni\git\fpraktikum_mit_alex\Mie-Streuung\Peiaubr90minedit.txt');
+load('C:\Users\Philipp Hacker\Desktop\Uni\git\fpraktikum_mit_alex\Mie-Streuung\Peiauh2o90minedit.txt');
+load('C:\Users\Philipp Hacker\Desktop\Uni\git\fpraktikum_mit_alex\Mie-Streuung\Peiauni90minedit.txt');
+load('C:\Users\Philipp Hacker\Desktop\Uni\git\fpraktikum_mit_alex\Mie-Streuung\Peiaupro90minedit.txt');
+load('C:\Users\Philipp Hacker\Desktop\Uni\git\fpraktikum_mit_alex\Mie-Streuung\Peiautol90minedit.txt');
+load('C:\Users\Philipp Hacker\Desktop\Uni\git\fpraktikum_mit_alex\Mie-Streuung\PEIBRedit.txt');
+load('C:\Users\Philipp Hacker\Desktop\Uni\git\fpraktikum_mit_alex\Mie-Streuung\PEIedit.txt');
+load('C:\Users\Philipp Hacker\Desktop\Uni\git\fpraktikum_mit_alex\Mie-Streuung\PEIH2Oedit.txt');
+load('C:\Users\Philipp Hacker\Desktop\Uni\git\fpraktikum_mit_alex\Mie-Streuung\PEINIedit.txt');
+load('C:\Users\Philipp Hacker\Desktop\Uni\git\fpraktikum_mit_alex\Mie-Streuung\PEIPROedit.txt');
+load('C:\Users\Philipp Hacker\Desktop\Uni\git\fpraktikum_mit_alex\Mie-Streuung\PEITOLedit.txt');
+load('C:\Users\Philipp Hacker\Desktop\Uni\git\fpraktikum_mit_alex\Mie-Streuung\AULSGedit.txt');
+load('C:\Users\Philipp Hacker\Desktop\Uni\git\fpraktikum_mit_alex\Mie-Streuung\Peiauair45minedit.txt');
+load('C:\Users\Philipp Hacker\Desktop\Uni\git\fpraktikum_mit_alex\Mie-Streuung\H2Oedit.txt');
+
+figure;
+hold on;
+grid on;
+fprintf(1,'Maxima des Theorie-Vergleichs\n');
+plot(lambi,100*gamma,'LineWidth',2.5);
+
+[gamma_m,x] = max(100*gamma);
+lamb_max = lambi(x);
+fprintf(1,'Gamma -- e_m = 1.77, gamma_max = %d m^{-1}, lambda_max = %d nm\n', gamma_m, lamb_max);
+
+plot(H2Oedit(:,1),log(1/min((10.^(AULSGedit(:,2))-10.^(H2Oedit(:,2))))*(10.^(AULSGedit(:,2))-10.^(H2Oedit(:,2)))),'LineWidth',2.5);
+
+[gamma_m,x] = max(log(1/min((10.^(AULSGedit(:,2))-10.^(H2Oedit(:,2))))*(10.^(AULSGedit(:,2))-10.^(H2Oedit(:,2)))));
+lamb_max = lambi(x);
+fprintf(1,'Au-Lsg -- e_m = 1.77, gamma_max = %d m^{-1}, lambda_max = %d nm\n', gamma_m, lamb_max);
+
+axis([400 720 0 4.5]);
+xlabel('\lambda/nm');
+ylabel('\gamma in m^{-1}, Absorptionskoeff.');
+legend('\gamma_{theo}','Abs(Au-Loes.)-Abs(H_{2}O)');
+set(gca, 'FontSize', 20);
+hold off;
+
+figure;
+hold on;
+grid on;
+%plot(lambi,100*gamma,'LineWidth',2.5);
+fprintf(1,'gemessene Maxima\n');
+plot(H2Oedit(:,1),log(1/min(10.^(Peiauh2o90minedit(:,2))-10.^(PEIH2Oedit(:,2)))*(10.^(Peiauh2o90minedit(:,2))-10.^(PEIH2Oedit(:,2)))),'LineWidth',2.5);
+
+[gamma_m,x] = max(log(1/min(10.^(Peiauh2o90minedit(:,2))-10.^(PEIH2Oedit(:,2)))*(10.^(Peiauh2o90minedit(:,2))-10.^(PEIH2Oedit(:,2)))));
+lamb_max = lambi(x);
+fprintf(1,'PEI_au, H2O. 90min. -- e_m = 1.77, gamma_max = %d m^{-1}, lambda_max = %d nm\n', gamma_m, lamb_max);
+
+plot(H2Oedit(:,1),log(1/min((10.^(Peiautol90minedit(:,2))-10.^(PEITOLedit(:,2))))*(10.^(Peiautol90minedit(:,2))-10.^(PEITOLedit(:,2)))),'LineWidth',2.5);
+
+[gamma_m,x] = max(log(1/min((10.^(Peiautol90minedit(:,2))-10.^(PEITOLedit(:,2))))*(10.^(Peiautol90minedit(:,2))-10.^(PEITOLedit(:,2)))));
+lamb_max = lambi(x);
+fprintf(1,'PEI_au,Toluol. 90min. -- e_m = 1.496, gamma_max = %d m^{-1}, lambda_max = %d nm\n', gamma_m, lamb_max);
+
+plot(H2Oedit(:,1),log(1/min((10.^(Peiaubr90minedit(:,2))-10.^(PEIBRedit(:,2))))*(10.^(Peiaubr90minedit(:,2))-10.^(PEIBRedit(:,2)))),'LineWidth',2.5);
+
+[gamma_m,x] = max(log(1/min((10.^(Peiaubr90minedit(:,2))-10.^(PEIBRedit(:,2))))*(10.^(Peiaubr90minedit(:,2))-10.^(PEIBRedit(:,2)))));
+lamb_max = lambi(x);
+fprintf(1,'PEI_au,Brombenzol. 90min. -- e_m = 1.5602, gamma_max = %d m^{-1}, lambda_max = %d nm\n', gamma_m, lamb_max);
+
+plot(H2Oedit(1:168,1),log(1/min((10.^(Peiauni90minedit(1:168,2))-10.^(PEINIedit(1:168,2))))*(10.^(Peiauni90minedit(1:168,2))-10.^(PEINIedit(1:168,2)))),'LineWidth',2.5);
+
+[gamma_m,x] = max(log(1/min((10.^(Peiauni90minedit(1:168,2))-10.^(PEINIedit(1:168,2))))*(10.^(Peiauni90minedit(1:168,2))-10.^(PEINIedit(1:168,2)))));
+lamb_max = lambi(x);
+fprintf(1,'PEI_au,Nitromethan. 90min. -- e_m = 1.3818, gamma_max = %d m^{-1}, lambda_max = %d nm\n', gamma_m, lamb_max);
+
+plot(H2Oedit(:,1),log(1/min((10.^(Peiaupro90minedit(:,2))-10.^(PEIPROedit(:,2))))*(10.^(Peiaupro90minedit(:,2))-10.^(PEIPROedit(:,2)))),'LineWidth',2.5);
+
+[gamma_m,x] = max(log(1/min((10.^(Peiaupro90minedit(:,2))-10.^(PEIPROedit(:,2))))*(10.^(Peiaupro90minedit(:,2))-10.^(PEIPROedit(:,2)))));
+lamb_max = lambi(x);
+fprintf(1,'PEI_au, Propandiol 90min. -- e_m = 1.43, gamma_max = %d m^{-1}, lambda_max = %d nm\n', gamma_m, lamb_max);
+
+xlabel('\lambda/nm');
+ylabel('\gamma in m^{-1}');
+axis([400 700 0 1]);
+legend('Abs(PEI-Au, 90 min., H_{2}O)-Abs(PEI, H_{2}O)','Abs(PEI-Au, 90 min., Toluol)-Abs(PEI, Toluol)','Abs(PEI-Au, 90 min., Bromb.)-Abs(PEI, Bromb.)','Abs(PEI-Au, 90 min., Nitr.)-Abs(PEI, Nitr.)','Abs(PEI-Au, 90 min., Propandiol)-Abs(PEI, Prop.)');
+set(gca, 'FontSize', 20);
+hold off;
+
+figure;
+hold on;
+grid on;
+fprintf(1,'Maxima aus Luft\n');
+
+plot(H2Oedit(:,1),log(1/min((10.^(Peiauair150minedit(:,2))-10.^(PEIedit(:,2))))*(10.^(Peiauair150minedit(:,2))-10.^(PEIedit(:,2)))),'LineWidth',2.5);
+
+[gamma_m,x] = max(log(1/min((10.^(Peiauair150minedit(1:126,2))-10.^(PEIedit(1:126,2))))*(10.^(Peiauair150minedit(1:126,2))-10.^(PEIedit(1:126,2)))));
+lamb_max = lambi(x);
+fprintf(1,'PEI Au Luft 150min. -- e_m = 1, gamma_max = %d m^{-1}, lambda_max = %d nm\n', gamma_m, lamb_max);
+
+plot(H2Oedit(:,1),log(1/min((10.^(Peiauair45minedit(:,2))-10.^(PEIedit(:,2))))*(10.^(Peiauair45minedit(:,2))-10.^(PEIedit(:,2)))),'LineWidth',2.5);
+
+[gamma_m,x] = max(log(1/min((10.^(Peiauair45minedit(1:126,2))-10.^(PEIedit(1:126,2))))*(10.^(Peiauair45minedit(1:126,2))-10.^(PEIedit(1:126,2)))));
+lamb_max = lambi(x);
+fprintf(1,'PEI Au Luft 45min. -- e_m = 1, gamma_max = %d m^{-1}, lambda_max = %d nm\n', gamma_m, lamb_max);
+
+xlabel('\lambda/nm');
+ylabel('\gamma in m^{-1}');
+axis([320 700 0 1]);
+legend('Abs(PEI-Au, 150 min., Luft)-Abs(PEI, Luft)','Abs(PEI-Au, 45 min., Luft)-Abs(PEI, Luft)');
+set(gca, 'FontSize', 20);
+hold off;
+
+figure;
+hold on;
+grid on;
+set(gca,'FontSize',20);
+xlabel('\lambda');
+ylabel('\gamma(\lambda) in m^{-1}')
+fprintf(1,'Theoretische Werte\n');
+for e_m = [1.77 1.3818 1.43 1.496 1.5602];
+e_effre=e_m*(L_re*f+1-2*f^2.*L_re.^2-2*f^2.*L_im.^2)./((1-L_re*f).^2+L_im.^2*f^2);
+e_effim=e_m*(3*f.*L_im)./((1-L_re*f).^2+L_im.^2*f^2);
+kap=sqrt(-e_effre./2+sqrt(e_effre.^2+e_effim.^2)./(2));
+gamma =4*pi*kap./lambi;
+plot(lambi,100*gamma,'LineWidth',2.5);
+[gam_max,x] = max(gamma);
+lam_max = lambi(x);
+fprintf(1,'e_m = %d -- gamma_max = %d 1/m, lambda_max = %d nm\n', e_m, gam_max, lam_max); 
+end;
+legend('\epsilon_{m}=1.77, Wasser','\epsilon_{m}=1.3818, Nitromethan','\epsilon_{m}=1.5602, Brombenzol','\epsilon_{m}=1.496, Toluol','\epsilon_{m}=1.43, Propandiol');
+axis([528 546 2.8 3.8]);
+hold off;
+
+load('xray150.DAT');
+
+figure;
+hold on;
+grid on;
+set(gca,'FontSize',20);
+plot(xray150(:,1)*10,xray150(:,2),'LineWidth',2.5);
+axis([0 1.2 0 max(xray150(:,2))]);
+legend('Roentgenreflektometrie-Daten');
+xlabel('q_{z}/nm^{-1}');
+ylabel('Intensitaet, a.u.');
+hold off;
+
+clear all;
+
+end
+\end{lstlisting}
 
 \end{document}
