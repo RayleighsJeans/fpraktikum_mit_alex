@@ -87,7 +87,9 @@
 	\vfill
 	\newpage
 	\section{Motivation}
-	
+
+		Die Messungen von Präzisionsmassenspektrometer sind ein wichtiger Bestandteil der Zusammenarbeit von Theorie und Praxis. Insbesondere gilt dies für astrophysikalische Zusammenhänge (siehe: Experiment \tilt{ISOLTRAP} am Kernforschungszentrum \tilt{CERN}). Die Genauigkeit mit welcher Massen heute bestimmt werden - und das geschieht auf die verschiedensten Weisen mit den unterschiedlichen Hintergründen - macht es möglich, Voraussagen aus bspw. der Kernphysik experimentell nachzuvollziehen und Vorausblicke in die zukünftige Entdeckung von Isotopen/Isobaren \dots zu tätigen.
+
 	\newpage
 	\section{Physikalische Grundlagen}
 
@@ -102,7 +104,7 @@
 				v\ix{2}=U\ix{th,x}+&E\left(\frac{d\ix{1}}{2}-\Delta x\right)
 			\end{align}
 
-		Das Prinzip der \tilt{tof-MS} greift darauf zurück, das unterschiedlich schnelle Teilchen für eine feldfreie Strecke verschiedene Flugzeiten $t\ix{1}(m\ix{1},q\ix{1}),t\ix{2}(m\ix{2},q\ix{2}),\dots$ benötigen. Das Beispiel in \autoref{eq:tof} kann auf verschiedene Weisen erweitert und verbessert werden. Um den Ortsfokus zu verbessern, dh. den Einfluss von $\Delta x$ und Ablenkungen von der Aufbau-Achse zu minimieren, benutzt man mehrstufige \tilt{tof-MS}und Ionen-Optiken, welche den Teilchenstrom kanalisieren. Wegen der Ortsunschärfe von gleichen Teilchen in der Quelle liegen auch jeweils unterschiedliche Beschleunigungsstrecken vor, weswegen eine 'Verschmierung' der Flugzeit von einzelnen Spezies in Kombination mit der thermischen Verteilung auftritt. Damit dieser Zeitfokus gegeben ist (gleiche Ionen sind zu einer bestimmten Zeit am gleichen Ort), baut man mehrstufige \tilt{tof-MS} mit kleinen und sehr großen Potentialgradienten. Die Auswirkungen von $E\ix{kin,th}$ und $\Delta x$ verschwinden (min. näherungsweise bis zur 2. Ordnung), wobei sich die Gesamtflugdauer um eine Zeit auf der zweiten \dots n-ten Beschleunigungsstrecke erhöht. Insbesondere ist dies der Fall für $d=d\ix{1}$  in der \autoref{eq:tof}.
+		Das Prinzip der \tilt{tof-MS} greift darauf zurück, das unterschiedlich schnelle Teilchen für eine feldfreie Strecke verschiedene Flugzeiten $t\ix{1}(m\ix{1},q\ix{1}),t\ix{2}(m\ix{2},q\ix{2}),\dots$ benötigen. Das Beispiel in \autoref{eq:tof} kann auf verschiedene Weisen erweitert und verbessert werden. Um den Ortsfokus zu verbessern, dh. den Einfluss von $\Delta x$ und Ablenkungen von der Aufbau-Achse zu minimieren, benutzt man mehrstufige \tilt{tof-MS} und Ionen-Optiken, welche den Teilchenstrom kanalisieren. Wegen der Ortsunschärfe von gleichen Teilchen in der Quelle liegen auch jeweils unterschiedliche Beschleunigungsstrecken vor, weswegen eine 'Verschmierung' der Flugzeit von einzelnen Spezies in Kombination mit der thermischen Verteilung auftritt. Damit dieser Zeitfokus gegeben ist (gleiche Ionen sind zu einer bestimmten Zeit am gleichen Ort), baut man mehrstufige \tilt{tof-MS} mit kleinen und sehr großen Potentialgradienten. Die Auswirkungen von $E\ix{kin,th}$ und $\Delta x$ verschwinden (min. näherungsweise bis zur 2. Ordnung), wobei sich die Gesamtflugdauer um eine Zeit auf der zweiten \dots n-ten Beschleunigungsstrecke erhöht. Insbesondere ist dies der Fall für $d=d\ix{1}$  in der \autoref{eq:tof}.
 
 			\begin{figure}[t]
 				\centering
@@ -116,7 +118,7 @@
 			\begin{figure}[b]
 				\centering
 				\includegraphics[width=\textwidth]{zweispiegel.png}
-				\caption{text}
+				\caption{Zwei-Spiegel Reflektron mit internen Abmessungen. Eingezeichnet ist die Ionenbewegung mit 2 unterschiedlichen Geschwindigkeiten $v\ix{2}>v\ix{1}$ durch den Aufbau. Das schnellere Teilchen tritt dabei ohne Reflektion aus (siehe \autoref{eq:speicher}). \cite{EMAUGreifswaldReflektron}}
 				\label{img:reflektron2}
 			\end{figure}
 
@@ -133,11 +135,52 @@
 				R=\frac{m}{\Delta m} \label{eq:aufloes}
 			\end{align}
 
-		definiert wird. Dabei ist $\Delta m$ unterschiedlich interpretierbar: nach der FWHM-Methode (\tilt{full width at half maximum}) entspricht dieser Wert der Halbwertsbreite des \tilt{gauß'schen} Normalverteilungs-Peaks um die Wahre Masse im Spektrum.
+		definiert wird. Dabei ist $\Delta m$ unterschiedlich interpretierbar: nach der FWHM-Methode (\tilt{full width at half maximum}) entspricht dieser Wert der Halbwertsbreite des \tilt{gauß'schen} Normalverteilungs-Peaks um die Wahre Masse im Spektrum. Über die 10\% bzw. 50\%-Methode definiert man die kleinstmögliche, unterscheidbare Massendifferenz $\Delta m$ als den Abstand zweier \tilt{Gauß}-Peaks die sich bei einem Zehntel bzw. der Hälfte ihrer Höhe schneiden.\\
+		Insbesondere wird $R$ für einen Reflektron-Versuch, mit der Reflexions-Zeit $t\ix{n}$, der Zeit von Quelle zur Falle $t\ix{s}$, sowie $\Delta t\ix{s}$ und $\Delta T$ den Fehlern der Flugzeiten bei $n$-facher Reflexion zu
+
+			\begin{align}
+				R=\frac{t\ix{s}+t\ix{n}}{2\sqrt{\Delta t\ix{s}^2+n^2\Delta T}}\,\, . \label{eq:fehler}
+			\end{align}
+
+		Um ein \tilt{tof-MS} zu kalibrieren, misst man in dem Aufbau das Spektrum zweier sehr genau bekannter Massen $m\ix{1}$,$m\ix{2}$. Der Zusammenhang zwischen den gemessenen Flugzeiten$t\ix{1}$,$t\ix{2}$, den systematischen Fehlern (zusammengefasst) $t\ix{0}$ und den skalierenden Faktoren $\sigma\ix{tof}$ ergibt sich in \autoref{eq:zeit}. Eine Messung einer unbekannten Masse setzt damit aus den aufgelösten Größen der Fehler und dem erhaltenen Spektrum zusammen, was in \autoref{eq:abszeit} angeführt ist.
+
+			\begin{align}
+				t\ix{1}=\sigma\ix{tof}&\sqrt{m\ix{1}}+t\ix{0}\,\,, \,\,\,\, t\ix{2}=\sigma\ix{tof}\sqrt{m\ix{2}}+t\ix{0} \label{eq:zeit}\\
+				\sigma\ix{tof}=\frac{t\ix{1}-t\ix{2}}{\sqrt{m\ix{1}-\sqrt{m\ix{2}}}}\,\,& , \,\,\,\, t\ix{0}=\frac{1}{2}\left(t\ix{1}+t\ix{2}-\frac{\sqrt{m\ix{1}}+\sqrt{m\ix{1}}}{\sqrt{m\ix{1}}-\sqrt{m\ix{1}}}\left(t\ix{1}-t\ix{2}\right)\right) \nonumber \\
+				&\sqrt{m}=\frac{t-t\ix{0}}{\sigma\ix{tof}} \label{eq:abszeit}
+			\end{align}
 
 	\newpage
 	\section{Durchführung}
-	
+
+		Der Aufbau dieses Versuches ist in \autoref{img:aufbau} gezeigt. Nach der Erzeugung in der Quelle treten die geladenen Teilchen in ein Kondensator-Feld zur Beschleunigung in Richtung einer Ionenfalle ein. Dabei ist eine sogenannte \tilt{Paulfalle} verwendet worden, um die zu untersuchenden Ionen aus der Quelle zu speichern und zu selektieren. Dies geschieht mittels des Schemas aus \autoref{img:paulfalle}, wobei sich die Potentiale auf der Hauptkammer und den Endkappen aus dem Gleichspannungsanteil $U$ und der Wechselspannung $\tilde{V}$ zusammen setzen. Diese sind so kalibriert, das sie nur einen kleinen Bereich aus dem Spektrum von $\sqrt{m/q}$ im Inneren halten, der Rest driftet auf die Elektroden. Die Paulfalle ermöglicht es also, gespeicherte Teilchen - sofern die Lebensdauer ausreicht - auf gewünschte Arten zu manipuliere, e.g. Ionisieren.
+
+		\begin{figure}[h]
+			\centering
+			\begin{subfigure}{0.35\textwidth}
+				\includegraphics[width=\textwidth]{paulpotential.png}
+				\caption{}
+				\label{img:potential}
+			\end{subfigure}
+			\begin{subfigure}{0.4\textwidth}
+				\includegraphics[width=\textwidth]{paulfalle.png}
+				\caption{}
+				\label{img:paulfalle}
+			\end{subfigure}
+			\caption{\fett{(a):} Potential der Paulfalle mit gyrierendem Teilchen. \fett{(b):} Allgemeiner Aufbau einer Paulfalle mit Endkappen und Potentialen $U$,$\tilde{V}$ \cite{UMainzReflektron}}
+		\end{figure}
+
+		\begin{figure}[t]
+			\centering
+			\includegraphics[width=\textwidth]{aufbau.png}
+			\caption{Gyration eines Ions innerhalb des Paulfallen-Potentials. \cite{UMainzReflektron}}
+			\label{img:aufbau}
+		\end{figure}
+
+		Nach der Speicherung gelangt die Probesubstanz in die bereits besprochene mehrstufige Beschleunigungssektion. Dort erhalten die Teilchen ihre kinetische Energie in Abhängigkeit von der Masse und Ladung. Dieser Bereich ist ebenso mit komplizierten Wechselfelder (explizit gegenläufig, um den Strahl um die optische Achse zu 'halten') beschaltet, da die Ionen ansonsten auf die Wände der Kammer treffen würde und kein Signal auf dem Detektor erzeugen könnten. Ionen-optische Linsen fokussieren den austretenden Teilchenstrahl auf den Eintrittsort des \tilt{Lifts}: dieser schaltet vom Potential der Beschleunigungssektion auf ein günstigeres, für den weiteren Aufbau geeigneteres Potential (i.A. niedriger, da bis hierher Spannung von mehreren Hundert Volt bis hin zu Kilo-Volt angelegt wurden) sobald die Ionen in diesen eintreten. Somit erhalten die Teilchen ein neues Bezugspotential, ohne dabei Konsequenzen für ihre Geschwindigkeit zu erfahren.\\
+		Anschließend tritt die Probesubstanz in den eigentlichen Reflektron ein. Zum Eingang ist dessen interner Lift - und auch später die eigentliche Driftstrecke - und der vordere Spiegel abgeschaltet bzw. auf Bezugspotential. Danach wird wie zuvor verfahren: die Ionen werden nach Eintritt über den Lift 'angehoben', damit sie in der elektrostatischen Flasche nicht austreten können. Das heißt explizit, dass deren Bezugspotential kleiner als die Reflexionsspannung ist. Nach einer endlichen Zeit können die reflektierenden Teilchen durch das erneute 'hochschalten' des Lifts austreten und auf einen Detektor treten.\\
+		Während der Durchführung des Versuchs wurde sich mit den unterschiedlichen Bauteilen und Steuerfunktionen vertraut gemacht. Dafür wurden die verschiedenen Zeiten zum Speichern, Lift-Anheben und Reflexionen variiert. Insbesondere war es die Aufgabe, Flugzeit und damit Masse des Stickstoff-Ions zu bestimmen. Dafür verwendet werden die geeichten Massen (als exakt angenommenen) anderer Ionensorten aus der Luft. Die Aufgabe dafür war , die Reflexionszeit der Probesubstanz bis auf eine Genauigkeit von 100 Umläufen, dh. das hundertfache der einfachen Durchlaufzeit, zu bestimmen. Im Spektrum erhält man dadurch einen sehr deutlichen und weit von anderen Massen getrennten Peak für das gesuchte Ion. Die Resultate (dreimalige Aufnahme) der anderen Teilchen werden zur Eichung genutzt (siehe \autoref{eq:abszeit}).
+
 	\newpage
 	\section{Auswertung}
 	
