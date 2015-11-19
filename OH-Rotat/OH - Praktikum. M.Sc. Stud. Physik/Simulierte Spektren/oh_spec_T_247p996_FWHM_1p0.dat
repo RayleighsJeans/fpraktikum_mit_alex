@@ -1,5 +1,5 @@
-# Temperature = 247.997 K, FWHM = 1.00000 nm
-# Wavelength (nm), unconv. spectr., convolv. spectr.
+%# Temperature = 247.997 K, FWHM = 1.00000 nm
+%# Wavelength (nm), unconv. spectr., convolv. spectr.
 1515.00   1.2285E+000   6.2347E-002
 1515.05   0.0000E+000   6.1676E-002
 1515.10   0.0000E+000   6.0259E-002
