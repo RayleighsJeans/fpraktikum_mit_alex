@@ -1,0 +1,43 @@
+Intensitäten der Peaks 1-3, Spektrum A
+   1.0e+02 *
+   2.572600000000002
+   2.502600000000002
+   1.762600000000002
+Wellenlängen der Peaks 1-3, Spektrum A
+   1.0e+03 *
+   1.505880000000000
+   1.505490000000000
+   1.505880000000000
+Intensitäten der Peaks 1-3, Spektrum B
+   1.0e+02 *
+   1.995299999999997
+   1.945299999999997
+   1.615299999999998
+Wellenlängen der Peaks 1-3, Spektrum B
+   1.0e+03 *
+   1.505680000000000
+   1.505680000000000
+   1.505490000000000
+Fehler im Spektrum A, Gauß
+   0.074844834812700
+  45.800254802514743
+   0.328195512232080
+Fehler im Spektrum B, Gauß
+   0.223224938958269
+   0.547043638438509
+   0.242946701505745
+T_rot
+ Reihenfolge: Spektrum A (Mies, T.u.L., Langh.) --> Spektrum B ...
+   1.0e+02 *
+   2.610794657830724
+   2.579522051831340
+   5.407601974831026
+   2.417525957959442
+   2.390688202135568
+   4.639386674688433
+Fehler durch Abweichung in linearer Regression
+ Reihenfolge: Spektr. 1(+,-) --> Spektr. 2(+,-)
+ 2.612998e+02
+ 2.608593e+02
+ 2.419290e+02
+ 2.415763e+02
