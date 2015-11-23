@@ -147,18 +147,24 @@ lam_oh = [1524 1533 1543];
 I = zeros(6,1);
 lam_max = zeros(6,1);
 
-[I(1),x] = max(s_1_or(100:110));
-lam_max(1) = lambda(x);
-[I(2),x] = max(s_1_or(147:157));
-lam_max(2) = lambda(x);
-[I(3),x] = max(s_1_or(200:210));
-lam_max(3) = lambda(x);
-[I(4),x] = max(s_2_or(100:110));
-lam_max(4) = lambda(x);
-[I(5),x] = max(s_2_or(147:157));
-lam_max(5) = lambda(x);
-[I(6),x] = max(s_2_or(200:210));
-lam_max(6) = lambda(x);
+[I(1),x] = max(s_1_or(85:137));
+lam_max(1) = lambda(85+x);
+clear x
+[I(2),x] = max(s_1_or(138:189));
+lam_max(2) = lambda(138+x);
+clear x
+[I(3),x] = max(s_1_or(190:242));
+lam_max(3) = lambda(190+x);
+clear x
+[I(4),x] = max(s_2_or(85:137));
+lam_max(4) = lambda(85+x);
+clear x
+[I(5),x] = max(s_2_or(138:189));
+lam_max(5) = lambda(138+x);
+clear x
+[I(6),x] = max(s_2_or(190:242));
+lam_max(6) = lambda(190+x);
+clear x
 
 t_rot = zeros(6,1);
 
