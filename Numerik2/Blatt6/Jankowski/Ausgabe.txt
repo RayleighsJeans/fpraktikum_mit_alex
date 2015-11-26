@@ -1,0 +1,13 @@
+p	m	Ausgabe
+------------------------------------------------------------------
+1	8	Maximale Abweichung an den Knotenpunkten: 1.340943
+	16	Maximale Abweichung an den Knotenpunkten: 0.485577
+	32	Maximale Abweichung an den Knotenpunkten: 0.140817
+	64	Maximale Abweichung an den Knotenpunkten: 0.036862 
+------------------------------------------------------------------
+2	4	Maximale Abweichung an den Knotenpunkten: 1.032594
+	8	Maximale Abweichung an den Knotenpunkten: 0.230301
+	16	Maximale Abweichung an den Knotenpunkten: 0.035897
+	32	Maximale Abweichung an den Knotenpunkten: 0.004033 <--- Beste Lösung
+
+Die Lösungen mit den quadratischen Formfunktionen ist um eine Größenordnung besser (bei hoher Zahl von Elementen)

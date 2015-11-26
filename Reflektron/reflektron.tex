@@ -85,12 +85,12 @@
 	\vspace*{\fill}
 	\tableofcontents
 	\vfill
-	\newpage
+	\clearpage
 	\section{Motivation}
 
 		Die Messungen von Präzisionsmassenspektrometer sind ein wichtiger Bestandteil der Zusammenarbeit von Theorie und Praxis. Insbesondere gilt dies für astrophysikalische Zusammenhänge (siehe: Experiment \tilt{ISOLTRAP} am Kernforschungszentrum \tilt{CERN}). Die Genauigkeit mit welcher Massen heute bestimmt werden - und das geschieht auf die verschiedensten Weisen mit den unterschiedlichen Hintergründen - macht es möglich, Voraussagen aus bspw. der Kernphysik experimentell nachzuvollziehen und Vorausblicke in die zukünftige Entdeckung von Isotopen/Isobaren \dots zu tätigen.
 
-	\newpage
+	\clearpage
 	\section{Physikalische Grundlagen}
 
 		Die in diesem Versuch benutzte Methode der Auflösung und Messung von Massen oder Masse-zu-Ladungs-Verhältnissen ist die der Massenspektrometrie, insbesondere der \tilt{time of flight-Massenspektromertie}.\\
@@ -150,7 +150,7 @@
 				&\sqrt{m}=\frac{t-t\ix{0}}{\sigma\ix{tof}} \label{eq:abszeit}
 			\end{align}
 
-	\newpage
+	\clearpage
 	\section{Durchführung}
 
 		Der Aufbau dieses Versuches ist in \autoref{img:aufbau} gezeigt. Nach der Erzeugung in der Quelle treten die geladenen Teilchen in ein Kondensator-Feld zur Beschleunigung in Richtung einer Ionenfalle ein. Dabei ist eine sogenannte \tilt{Paulfalle} verwendet worden, um die zu untersuchenden Ionen aus der Quelle zu speichern und zu selektieren. Dies geschieht mittels des Schemas aus \autoref{img:paulfalle}, wobei sich die Potentiale auf der Hauptkammer und den Endkappen aus dem Gleichspannungsanteil $U$ und der Wechselspannung $\tilde{V}$ zusammen setzen. Diese sind so kalibriert, das sie nur einen kleinen Bereich aus dem Spektrum von $\sqrt{m/q}$ im Inneren halten, der Rest driftet auf die Elektroden. Die Paulfalle ermöglicht es also, gespeicherte Teilchen - sofern die Lebensdauer ausreicht - auf gewünschte Arten zu manipuliere, e.g. Ionisieren.
@@ -181,11 +181,161 @@
 		Anschließend tritt die Probesubstanz in den eigentlichen Reflektron ein. Zum Eingang ist dessen interner Lift - und auch später die eigentliche Driftstrecke - und der vordere Spiegel abgeschaltet bzw. auf Bezugspotential. Danach wird wie zuvor verfahren: die Ionen werden nach Eintritt über den Lift 'angehoben', damit sie in der elektrostatischen Flasche nicht austreten können. Das heißt explizit, dass deren Bezugspotential kleiner als die Reflexionsspannung ist. Nach einer endlichen Zeit können die reflektierenden Teilchen durch das erneute 'hochschalten' des Lifts austreten und auf einen Detektor treten.\\
 		Während der Durchführung des Versuchs wurde sich mit den unterschiedlichen Bauteilen und Steuerfunktionen vertraut gemacht. Dafür wurden die verschiedenen Zeiten zum Speichern, Lift-Anheben und Reflexionen variiert. Insbesondere war es die Aufgabe, Flugzeit und damit Masse des Stickstoff-Ions zu bestimmen. Dafür verwendet werden die geeichten Massen (als exakt angenommenen) anderer Ionensorten aus der Luft. Die Aufgabe dafür war , die Reflexionszeit der Probesubstanz bis auf eine Genauigkeit von 100 Umläufen, dh. das hundertfache der einfachen Durchlaufzeit, zu bestimmen. Im Spektrum erhält man dadurch einen sehr deutlichen und weit von anderen Massen getrennten Peak für das gesuchte Ion. Die Resultate (dreimalige Aufnahme) der anderen Teilchen werden zur Eichung genutzt (siehe \autoref{eq:abszeit}).
 
-	\newpage
+	\clearpage
 	\section{Auswertung}
+
+	\subsection{Bestimmung der Umlaufzeiten der Ionensorten}
 	
-	\newpage
+	Um die verbesserte Massenauflösung des Multireflektrons nutzen zu können, muss zuerst die Umlaufzeit $t_\mathrm{U}$ der einzelnen Ionensorten bestimmt werden. Die Umlaufzeit gibt an wie lange das Ion braucht um eine volle Periode im Multireflektron zu vollführen. Hierfür wird die Schaltdauer des Liftes zwischen den Ionenspiegeln solange variiert, bis das Ionensignal wieder auf dem Detektor gemessen wird. Es wird ein Signalpeak betrachtet und seine Position notiert. Für die nächste Messung wird die Liftzeit Schrittweise um das $n$-fache erhöht, so dass die Ionen im Reflektron weitere Perioden vollführen. Wurde die Zeit richtig gewählt, so verschiebt sich der Peak im Flugzeitspektrum bei mehreren Perioden nicht. Ist dies doch der Fall wird die Liftzeit angepasst, bis das Signal bei $100$ Umläufen noch an der selben Stelle im Flugzeitspektrum ist. Dies wird für die Ionen N$_2^+$, O$_2^+$ und N$^2$H$^+$ durchgeführt. Die Umlaufzeiten sind in Tab.\ref{tab:umlauf} dargestellt. Die Abb.\ref{abb:N2}-\ref{abb:N2H} zeigen ein Spektrum der jeweiligen Ionensorte.
+	
+	\begin{table}[h]
+		\centering
+		\caption{Die gemessenen Umlaufzeiten $t_\mathrm{U}$ für verschiedenen Ionensorten.}
+		\begin{tabular}{c|c c c}
+			Ionensorte & N$_2^+$ & O$_2^+$ & N$_2$H$^+$  \\ \hline
+			$t_\mathrm{U}\, /\,\mathrm{\mu s}$ & 7,265 & 7,769 & 7,3985 \\ 
+		\end{tabular}
+		\label{tab:umlauf}
+	\end{table}
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.8\textwidth]{pics/N2}
+		\caption{Flugzeitspektrum für N${}_2^+$-Ionen mit 100 Umläufen im Multireflektron. Der Fehler ist der statistische Fehler der Messwerte. Die durchgelegte Kurve ist ein fehlergewichteter Gaußfit.}
+		\label{abb:N2}
+	\end{figure}
+	
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=0.8\textwidth]{pics/O2}
+		\caption{Flugzeitspektrum für O${}_2^+$-Ionen mit 100 Umläufen im Multireflektron. Der Fehler ist der statistische Fehler der Messwerte. Die durchgelegte Kurve ist ein fehlergewichteter Gaußfit.}
+		\label{abb:O2}
+	\end{figure}
+	
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=0.8\textwidth]{pics/N2H}
+		\caption{Flugzeitspektrum für N${}_2$H$^+$-Ionen mit 100 Umläufen im Multireflektron. Der Fehler ist der statistische Fehler der Messwerte. Die durchgelegte Kurve ist ein fehlergewichteter Gaußfit.}
+		\label{abb:N2H}
+	\end{figure}
+	\clearpage
+	
+	\subsection{Massenbestimmung von N$_2^+$-Ionen}
+	
+	Für die berechneten Umlaufzeiten der drei angegebenen Ionen werden nun jeweils drei Spektren bei $100$ Umläufen im Multireflektron aufgenommen. Die Abb.\ref{abb:N2}-\ref{abb:N2H} sind beispielhaft die Spektren der ersten Messung versehen mit einem Gaußfit zur Bestimmung der Position des zeitlichen Peaks $\mu$, sowie dem Faktor $\sigma$, welcher über die Relation
+	\begin{equation}
+	b_\mathrm{FWHM} = 2 \sigma\sqrt{2 \ln 2}
+	\end{equation}
+	die Halbwertsbreite $b_\mathrm{FWHM}$ des Peaks angibt. Diese gibt den Fehler für die Positionsbestimmung des Peaks $\Delta t$ an. Die gemessene Positionen der Peaks im Flugzeitspektrum sind in Tab.\ref{tab:zeit} angegeben. Die Massen für O${}_2^+$- und N${}_2$H$^+$-Ionen werden als bekannt angenommen und es werden Werte aus der Literatur verwendet. Weiterhin wird angenommen, dass für die Fehlerrechnung der Fehler dieser Massen also $\Delta m_\mathrm{i} = 0$ gilt.
+	\begin{table}[t]
+		\centering
+		\caption{Die gemessene Peakpostion $\mu$ für verschiedenen Ionensorten.}
+		\begin{tabular}{c|c c c} 
+			& N$_2^+$ & O$_2^+$ & N$_2$H$^+$ \\
+			Nummer & $\mu\,/\,\mathrm{\mu s}$ & $\mu\,/\,\mathrm{\mu s}$ & $\mu\,/\,\mathrm{\mu s}$ \\ \hline
+			1 & $6,339$ & $7,807$ & $6,583$ \\
+			2 & $6,738$ & $7,208$ & $6,584$ \\
+			3 & $6,340$ & $7,208$ & $6,583$ 
+		\end{tabular}
+		\label{tab:zeit}
+	\end{table}
+	Aus diesen Werten lässt sich mit \eqref{eq:abszeit} und \eqref{eq:abszeit} die Masse von N$_2^+$ berechnen, wobei $t_1$, $t_2$, $m_1$, $m_2$ die Massen und Flugzeiten der bekannten Ionensorten sind. Weiterhin ist die Zeit $t$ ist die Summe aus der Zeit im Flugzeitspektrum $\mu$, der Zeit in Multireflektron $n\cdot t_\mathrm{U}$ und der Flugzeit von der Ionenquelle bis zum Reflektron, hier als $7\,\mathrm{\mu s}$ gemessen. Der Fehler für die gemessenen Massen ist nach der gaußschen Fehlerfortpflanzung berechnet (Formeln: siehe Anhang). Beides ist in Tab.\ref{tab:masse} angegeben. In der Abb.\ref{abb:masse} sind die Messwerte mit dem jeweiligen absoluten Massenfehler abgebildet. Die erste und die dritte errechnete Masse liegt jeweils weit unterhalb dem erwarteten Massenbereich von $28,05\,\mathrm{u}$. Bei der Messung Tab.\ref{tab:zeit} ist aufgefallen, dass die Peaks der Flugzeitspektren von gleichen Ionensorten bei verschiedenen Messungen weit auseinander liegen. Es ist also anzunehmen, dass bei der Aufnahme der Messdaten ein Fehler unterlaufen ist. Wahrscheinlich wurden die Schaltzeiten für das Reflektron, welche ebenfalls den Start der Datenaufnahme kennzeichnet, zwischen den Messungen falsch gesetzt, was zur Verschiebung der Peaks führte. Die Auswertung wird dennoch fortgesetzt, da die zweite Messung Ergebnisse in einem akzeptablen Massenbereich liefert.
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width = 1.0\textwidth]{pics/Masse}
+		\caption{Experimentell errechnete Werte zur Bestimmung der Masse von N$_2^+$-Ionen. Jeder Messpunkt korrespondiert zu einer eigenden Kalibrierung. Die rote Makierung im Graphen repräsentiert den Literaturwert der Ionenmasse. Der Fehler ist durch gaußsche Fehlerfortpflanzung errechnet.}
+		\label{abb:masse}
+	\end{figure}
+	
+	
+	\begin{table}[h]
+		\centering
+		\caption{Berechnete Massen $m$ für N$^+_2$-Ionen mit absoluten und relativen Fehler}
+		\begin{tabular}{c|c c c} 
+			
+			Nummer & $m\,/\,\mathrm{u}$ & $\Delta m\,/\,\mathrm{u}$ & $\frac{\Delta m}{m}$ \\ \hline
+			1 & $27,991$ & $4,89\cdot 10^{-4}$ & $1,75\cdot 10^{-5}$ \\
+			2 & $28,004$ & $5,09\cdot 10^{-4}$ & $1,82\cdot 10^{-5}$ \\
+			3 & $27,975$ & $4,43\cdot 10^{-4}$ & $1,58\cdot 10^{-5}$ 
+		\end{tabular}
+		\label{tab:masse}
+	\end{table}
+	\clearpage
+	
+	\subsection{Bindungsenergie und Neutronenseparationsenergie}
+	
+	Mit der gemessenen Masse von $^{14}$N$^+_2$-Ionen und den Literaturwerten der Protonen-, Neutronenmasse lässt sich die, durch den Massendefekt verursachte, Diskrepanz zwischen der Ionenmasse und der Masse aller Kernteilchen des Ions bestimmen. Die Bindungsenergie $\mathrm{BE}$ ist dann gegeben über die Ruheenergie
+	\begin{equation}
+	\Delta E = \Delta m\cdot c^2
+	\end{equation}
+	Die berechneten Bindungsenergien sind in Tab.\ref{tab:bind} mit Vergleich zum Literaturwert aufgeführt. Da die gemessenen Massen i.A. niedriger waren als der Literaturwert ist hier ebenfalls eine Abweichung zu beobachten, jedoch zu höheren Bindungsenergien.
+	\begin{table}[h]
+		\centering
+		\caption{Berechnete Bindungsenergien $\mathrm{BE}$ für $^{14}$N-Atome mit Vergleich zum Literaturwert.}
+		\begin{tabular}{c|c} 
+			
+			Nummer & $\mathrm{BE}\,/\,\mathrm{MeV}$ \\ \hline
+			1 & $111,38$ \\
+			2 & $104,87$ \\
+			3 & $118,81$ \\
+			Literatur & $104,66$
+		\end{tabular}
+		\label{tab:bind}
+	\end{table}
+	Weiterhin lässt sich auch die Neutronenseparationsenergie $S_\mathrm{n}$ bzw. die Zwei-Neutronenseparationsenergie $S_\mathrm{2n}$ bestimmen. Es gilt
+	\begin{align}
+	S_\mathrm{n}(N,Z) = \mathrm{BE}(N,Z) - \mathrm{BE}(N-1,Z), \nonumber \\
+	S_\mathrm{2n}(N,Z) = \mathrm{BE}(N,Z) - \mathrm{BE}(N-2,Z).
+	\end{align}
+	Es werden die Separationsenergien für $^{14}$N und $^{15}$N und die Zwei-Neutronenseparationsenergien für $^{16}$N und $^{14}$N bestimmt. Für die unbekannten Bindungsenergien werden Literaturwerte verwendet. Die errechneten Ergebnisse sind in Tab.\ref{tab:sep} aufgeführt. Weiterhin sind die Werte zur ersten und zweiten Messung abseits der erwarteten Literaturwerte.
+	\begin{table}[h]
+		\centering
+		\caption{Berechnete Separationsenergien $S_\mathrm{n}$/$S_\mathrm{2n}$ für N-Atome mit Vergleich zum Literaturwert.}
+		\begin{tabular}{c c|c} 
+			Isotop & Nummer & $S_\mathrm{n}\,/\,\mathrm{MeV}$ \\ \hline
+			& 1 & $4,11$ \\
+			$^{15}$N & 2 & $10,62$ \\
+			& 3 & $-3,32$ \\ \hline
+			$^{15}$N & Literatur & $10,83$ \\ \hline
+			& 1 & $17,27$ \\
+			$^{14}$N & 2 & $10,76$ \\
+			& 3 & $24,71$ \\ \hline
+			$^{14}$N & Literatur & $10,56$ \\ \hline
+		\end{tabular}
+		\quad
+		\begin{tabular}{c c|c} 
+			Isotop & Nummer & $S_\mathrm{2n}\,/\,\mathrm{MeV}$ \\ \hline
+			& 1 & $6,60$ \\
+			$^{16}$N & 2 & $13,11$ \\
+			& 3 & $-0,83$ \\ \hline
+			$^{16}$N & Literatur & $13,32$ \\ \hline
+			& 1 & $37,32$ \\
+			$^{14}$N & 2 & $30,81$ \\
+			& 3 & $44,75$ \\ \hline
+			$^{14}$N & Literatur & $30,60$ \\ \hline
+		\end{tabular}
+		\label{tab:sep}
+	\end{table}
+	
+	\subsection{Fazit}
+	
+	Es ist trotz einiger Abweichung der Messungen von den Literaturwerten gelungen die Prinzipien des Versuches gut nachzuvollziehen. Eine der Messreihen war sogar erfolgreich und lieferte einen Wert, welcher vergleichbar mit den Literaturangaben ist.
+
+	\clearpage
 	\section{Anhang}
+
+	\subsection{Fehlerrechnung}
+
+	Die Fehlerrechnung für den absoluten Massenfehler $\Delta m$ ergibt sich durch gaußsche Fehlerfortpflanzung der Formel \autoref{eq:abszeit} und den Fehlerwerten von $t_1$,$t_2$ und $t$
+	\begin{equation}
+	\Delta m = \sqrt{\left(\frac{\partial m}{\partial t_1}\cdot \Delta t_1\right)^2+\left(\frac{\partial m}{\partial t_2}\cdot \Delta t_2\right)^2+\left(\frac{\partial m}{\partial t}\cdot \Delta t \right)^2}
+	\end{equation}
+	Die Ableitungen nach den Referenzmassen $m_1$ und $m_2$ werden als fehlerlos betrachtet, da deren Fehlerwert im Vergleich zu denen des Experimentes hinreichend klein sind. Die partiellen Ableitungen sind gegen durch
+	\begin{align}
+	\frac{\partial m}{\partial t_1} =& 2 \left(C_\mathrm{ToF}\cdot \Delta_\mathrm{ref}+\frac{\Sigma_\mathrm{ref}}{2}\right) \cdot \Delta_\mathrm{ref}\frac{t_2-t}{\left(t_1-t_2\right)^2} \nonumber \\
+	\frac{\partial m}{\partial t_2} =& 2 \left(C_\mathrm{ToF}\cdot \Delta_\mathrm{ref}+\frac{\Sigma_\mathrm{ref}}{2}\right) \cdot \Delta_\mathrm{ref}\frac{t-t_1}{\left(t_1-t_2\right)^2} \\
+	\frac{\partial m}{\partial t} =& 2 \left(C_\mathrm{ToF}\cdot \Delta_\mathrm{ref}+\frac{\Sigma_\mathrm{ref}}{2}\right) \cdot \Delta_\mathrm{ref}\frac{1}{\left(t_1-t_2\right)^2} \nonumber
+	\end{align}
 
 		\bibliography{all.bib}
 		\bibliographystyle{unsrt}
