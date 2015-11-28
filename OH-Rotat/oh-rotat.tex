@@ -86,12 +86,12 @@
 	\vspace*{\fill}
 	\tableofcontents
 	\vfill
-	\newpage
+	\clearpage
 	\section{Motivation}
 
 		Mit der Theorie zur Beschreibung quantenmechanischer Übergänge auf atomarer und molekularer Ebene ist es möglich, die Thermodynamik höherer Atmosphärenschichten vom Boden aus zu untersuchen. Die theoretische Physik liefert hierbei die Vorschrift für die Auswertung der Intensitätsmaxima auf kleinsten Wellenlängenintervallen, vorausgesetzt man hat Kenntnis über die Probensubstanzen entlang der Sichtlinie. Anhand dieses Versuchs soll das Prinzip der Temperaturbestimmung in der Mesopause - mit Hilfe von Rotationszuständen im großkanonischen Ensemble der Atmosphärenschicht - nachvollzogen werden.
 
-	\newpage
+	\clearpage
 	\section{Physikalische Grundlagen}
 
 			\begin{figure}[b]
@@ -139,21 +139,25 @@
 
 			\begin{figure}[h]
 				\centering
-				\includegraphics[width=0.5\textwidth]{Rotational_spectrum_example.png}
+				\includegraphics[width=0.75\textwidth]{Rotational_spectrum_example.png}
 				\caption{Beispiel-Spektrum von Rotationsübergängen. \cite{WikiRotat}}
 				\label{img:bspspektr}
 			\end{figure}
 
-	\newpage
+	\clearpage
 	\section{Durchführung}
 
 		Zur Untersuchung der Rotationsbande aus dem Spektrum der Übergänge $\fett{OH}^\ast(\nu=3-1)$ wurde ein Gitterspektrograph benutzt. Dieser ist auf den Bereich der zu erwartenden Wellenlängen zwischen $\unit[1500]{nm}$ und $\unit[1600]{nm}$ kalibriert und feinjustiert. Dessen Computer-gestützter Shutter ermöglicht die Aufnahme von Referenz-Messungen in Form von Dunkelströmen aus dem Array. Diese werden des Weiteren als Korrektur verwendet.\\
 		Der Aufbau ist für eine feste, positive Neigung gegen den Horizont im nordwestlichen Himmel orientiert. Eine Einzelmessung beträgt $\unit[15]{s}$, wobei alle $\unit[15]{min}$ ein Dunkelstrom.Spektrum aufgenommen wird. Eine Erhöhung der Genauigkeit wird durch die Integration mehrerer Messungen eines eingeschränkten Zeitraums erreicht. Die verwendeten Daten entstammen den wolkenlosen Nächten des 25.05.2015 (\fett{Spektrum A}) und 19.03.2015 (\fett{Spektrum B}).
 
-	\newpage
+	\clearpage
 	\section{Auswertung}
 
 		\subsection{Simulierte Spektren}
+
+			Die Graphen in \autoref{sec:anha} der \autoref{img:p1up2} bis \autoref{img:p5} zeigen jene Peaks des P-Zweiges einer simulierten \fett{OH}-Rotationsspektroskopie in einem festen Wellenlängenintervall ($\unit[1515-1545]{nm}$), welche einen signifikanten Unterschied für die Atmosphärentemperaturen $T_1=\unit[149]{K}$, $T_2=\unit[200]{K}$ und $T_3=\unit[251]{K}$ untereinander aufweisen. Gezeigt werden darin $P\ix{1}(2-4)$ und $P\ix{2}(3-4)$, welche den Intensitätsmaxima der verschiedenen Besetzung von Elektronen-Spin-Zuständen eines freien Elektrons des Moleküls entsprechen. $P\ix{1}$ und $P\ix{2}$ unterscheiden sich dabei durch Spin $\uparrow$ und $\downarrow$, wobei deren 'Argument' der Rotations-Quantenzahl $J$ entspricht.\\
+			Des Weiteren konnte die FWHM, d.h. Breite der Übergänge (deren Gauß-Peaks) eingestellt werden. Größere $\Delta\ix{FWHM}$ verkleinern und verbreitern die charakteristischen Intensitäten, kleiner erwirken das Gegenteil. Die Einstellung der FWHM simuliert die Shutterweite des Gitterspektrographen.\\
+			Die Variation der Temperatur erzwang dabei die Besetzungsinversion der Zustände für die Spin-Einstellungen. Größere Temperaturen befördern mehr Teilchen in den energetische höheren Zustand des Spin-Up, wobei deren korrespondiere Peaks im Spektrum größer werden. Die Intensität wird mit der Besetzungszahl in Relationen zur Gesamt-Zustandssumme moduliert (\autoref{eq:intens}). Dementsprechend sinkt die Höhe der Spin-Down-Peaks ab, da deren Besetzung abnimmt. Durch ausprobieren findet man sogar, das für $T\approx\unit[50]{K}$ der Peak $P\ix{2}(4)$ 'einfriert' - die Besetzung und damit verbundene Übergänge verschwinden in der Simulation für diese Atmosphärentemperatur.
 
 		\subsection{Reale Spektren}
 
@@ -169,7 +173,7 @@
 					\text{und} \quad &y^{(s)}\ix{N}=\frac{y\ix{N-3}+y\ix{N-2}+y\ix{N-1}+y\ix{N}}{4} \nonumber
 				\end{align}
 
-				\begin{figure}[h]
+				\begin{figure}
 					\centering
 					\includegraphics[width=0.9\textwidth]{spektr_unsmooth.png}
 					\caption{Betrag der Differenz aus gemessenem Spektrum und Dunkelstrom-Intensität $|I-I\ix{0}|$. Gezeigt sind Verläufe vom 25.05. und 19.03.2015.}
@@ -179,14 +183,14 @@
 			Die \autoref{img:spektr2} zeigt die geglätteten, normierten Messwerte. Insbesondere die Struktur der $P\ix{1}(j)$- und $P\ix{2}(i)$-Peaks, welche nur durch das ungepaarte Elektron unterschieden werden, kann sehr gut beobachtet werden. Jedoch ist durch die Glättung natürlich eine gewisse Einbuße an Peak-Höhe zu verzeichnen, was für die Betrachtung der Rotationsbande aber keine Rolle spielt.\\
 			Links und rechts im Spektrum sind deutlich die Maxima der ersten Q-Zweige $\fett{OH}(4-2)$ bzw. $\fett{OH}(3-1)$ zu sehen. Zwischen den hier betrachteten P-Zweigen und dem rechten Rand finden sich die Flachen Linien des R-Zweiges $\fett{OH}(4-2)$. Sogar die Emissionslinie für $P\ix{1}(1)$ kann um $\unit[1600]{nm}$ beobachtet werden.
 
-				\begin{figure}[h]
+				\begin{figure}
 					\centering
 					\includegraphics[width=0.9\textwidth]{spektr_smooth.png}
 					\caption{Gleiche Daten wie in \autoref{img:spektr1} (Spektrum A, Spektrum B). Hier mit Hilfe einer polynomischen Glättung, maximal der Ordnung 7 verbessert. Der Zusammenhang kommt auf \autoref{eq:glatt}}
 					\label{img:spektr2}
 				\end{figure}
 
-				\begin{table}[h]
+				\begin{table}
 					\centering
 					\begin{tabular}{c|c|c|c}
 						Peaknummer & $\lambda/\unit[\tenpo{3}]{nm}$, aus \cite{EMAUGreifswaldOHRot} & $\lambda/\unit[\tenpo{3}]{nm}$, A & $\lambda/\unit[\tenpo{3}]{nm}$, B\\
@@ -200,7 +204,7 @@
 
 			Die Positionen der Peaks $P\ix{1}(j)$ der Rotationsübergänge sind in \autoref{tab:wellen} aufgeführt. Deren Intensitäten - ohne Normierung und Glättung, nur nach Korrektur mit Dunkelströmen - finden sich in \autoref{tab:intens}.
 
-				\begin{table}[h]
+				\begin{table}
 					\centering
 					\begin{tabular}{c|c|c}
 						Peaknummer & $|I-I\ix{0}|/\tenpo{2}$, zu A & $|I-I\ix{0}|/\tenpo{2}$, zu B\\
@@ -212,7 +216,7 @@
 					\label{tab:intens}
 				\end{table}
 
-				\begin{figure}[h]
+				\begin{figure}
 					\centering
 					\includegraphics[width=0.9\textwidth]{linear_reg.png}
 					\caption{Lineare Regression über die Rotationsenergie und Daten aus \autoref{tab:intens}.}
@@ -221,7 +225,7 @@
 
 			Schließlich wurde aus den gemessenen Daten die Rotationstemperatur bestimmt. Dabei gehen die verschiedenen, theoretisch begründeten Einsteinkoeffizienten $A(\lambda\rightarrow\lambda^\prime)$ ein (siehe Mies, Langhoff usw.). Jeweils für Spektrum A und B wurde die lineare Regression nach dem Vorbild aus \autoref{eq:linreg} für 3 verschiedene Übergangswahrscheinlichkeiten durchgeführt. Das graphische Resultat findet sich in \autoref{img:regress}, die daraus erhaltenen Temperaturen in \autoref{tab:trot}.
 
-				\begin{table}[h]
+				\begin{table}
 					\centering
 					\begin{tabular}{c|c|c}
 						Einsteinkoeffizienten, aus \cite{EMAUGreifswaldOHRot} & $T\ix{rot}/\unit{K}$, zu A & $T\ix{rot}/\unit{K}$, zu B\\
@@ -260,8 +264,27 @@
 					&T^{(B)}\ix{rot,true}\in\left[241,57(63)\unit{K},241,92(90)\unit{K}\right] \nonumber
 				\end{align}
 
-	\newpage
-	\section{Anhang}
+	\clearpage
+	\section{Anhang}\label{sec:anha}
+
+					\begin{figure}
+						\centering
+						\includegraphics[width=\textwidth]{p1up2_sim_spektr.png}
+						\caption{$P\ix{1}(2)$ (oben) und $P\ix{2}(3)$ (unten) aus einer simulierten \fett{OH}-Rotationsspektroskopie für unterschiedliche Temperaturen. Diese Peaks kommen aus dem P-Zweig des Spektrums und liegen dicht beieinander. ($\unit[1523-1531]{nm}$)}
+						\label{img:p1up2}
+					\end{figure}
+					\begin{figure}
+						\centering
+						\includegraphics[width=\textwidth]{p3up4_sim_spektr.png}
+						\caption{$P\ix{1}(3)$ (oben) und $P\ix{2}(4)$ (unten) aus einer simulierten \fett{OH}-Rotationsspektroskopie für unterschiedliche Temperaturen. Diese Peaks kommen aus dem P-Zweig des Spektrums und liegen dicht beieinander. ($\unit[1532-1541]{nm}$)}
+						\label{img:p3up4}
+					\end{figure}
+					\begin{figure}
+						\centering
+						\includegraphics[width=\textwidth]{p5_sim_spektr.png}
+						\caption{$P\ix{1}(4)$ aus einer simulierten \fett{OH}-Rotationsspektroskopie für unterschiedliche Temperaturen. Diese Peaks kommen aus dem P-Zweig des Spektrums und liegen dicht beieinander. ($\unit[1532-1531]{nm}$)}
+						\label{img:p5}
+					\end{figure}
 
 		\bibliography{all.bib}
 		\bibliographystyle{unsrt}

@@ -10,29 +10,74 @@ spektr_2 = zeros(511,3);
 spektr_1 = load('C:\Users\Philipp Hacker\Desktop\Uni\git\fpraktikum_mit_alex\OH-Rotat\OH - Praktikum. M.Sc. Stud. Physik\Rohspektren 1 und 2\20150525_andor_data.dat');
 spektr_2 = load('C:\Users\Philipp Hacker\Desktop\Uni\git\fpraktikum_mit_alex\OH-Rotat\OH - Praktikum. M.Sc. Stud. Physik\Rohspektren 1 und 2\20150319_andor_data.dat');
 
-sim_1_247p996K_1p0 = zeros(661,3);
-sim_2_152p0_1p0 = zeros(661,3);
+sim_1_149p0_1p0 = zeros(661,3);
+sim_2_251p0_1p0 = zeros(661,3);
 sim_3_200p0_1p0 = zeros(661,3);
 
-sim_1_247p996K_1p0 = load('C:\Users\Philipp Hacker\Desktop\Uni\git\fpraktikum_mit_alex\OH-Rotat\OH - Praktikum. M.Sc. Stud. Physik\Simulierte Spektren\oh_spec_T_247p996_FWHM_1p0.dat');
-sim_2_152p0_1p0 = load('C:\Users\Philipp Hacker\Desktop\Uni\git\fpraktikum_mit_alex\OH-Rotat\OH - Praktikum. M.Sc. Stud. Physik\Simulierte Spektren\oh_spec_T_152p0_FWHM_1p0.dat');
+sim_1_149p0_1p0 = load('C:\Users\Philipp Hacker\Desktop\Uni\git\fpraktikum_mit_alex\OH-Rotat\OH - Praktikum. M.Sc. Stud. Physik\Simulierte Spektren\oh_spec_T_149p0_FWHM_1p0.dat');
+sim_2_251p0_1p0 = load('C:\Users\Philipp Hacker\Desktop\Uni\git\fpraktikum_mit_alex\OH-Rotat\OH - Praktikum. M.Sc. Stud. Physik\Simulierte Spektren\oh_spec_T_251p0_FWHM_1p0.dat');
 sim_3_200p0_1p0 = load('C:\Users\Philipp Hacker\Desktop\Uni\git\fpraktikum_mit_alex\OH-Rotat\OH - Praktikum. M.Sc. Stud. Physik\Simulierte Spektren\oh_spec_T_200p0_FWHM_1p0.dat');
 
 lambda_sim = zeros(661,1);
-lambda_sim = sim_1_247p996K_1p0(:,1);
+lambda_sim = sim_3_200p0_1p0(:,1);
 
-% figure;
-% hold all;
-% plot(lambda_sim,sim_1_247p996K_1p0(:,3),'--x','LineWidth',1.3);
-% % plot(lambda_sim,sim_2_152p0_1p0(:,3),'--o','LineWidth',1.3);
-% % plot(lambda_sim,sim_3_200p0_1p0(:,3),'--^','LineWidth',1.3);
-% legend('Sim. 1, T=247.996K, FWHM=1.0','Sim. 2, T=152.0K, FWHM=1.0','Sim. 3, T=200.0K, FWHM=1.0');
-% xlabel('\lambda/nm');
-% ylabel('normierte Intensität, a.u.');
-% grid on;
-% set(gca, 'FontSize', 22);
-% savefig('sim_spektr.fig');
-% hold off;
+
+%%Plotte mir die Peaks
+    figure;
+    hold all;
+    subplot(2,1,1);
+    plot(lambda_sim,sim_1_149p0_1p0(:,3),lambda_sim,sim_2_251p0_1p0(:,3),lambda_sim,sim_3_200p0_1p0(:,3));
+    legend('Sim. 1, T=149.0K, FWHM=1.0','Sim. 2, T=251.0K, FWHM=1.0','Sim. 3, T=200.0K, FWHM=1.0');
+    xlabel('\lambda/nm');
+    ylabel('normierte Intensität, a.u.');
+    grid on; grid minor
+    axis([1523 1526 0 7]);
+    set(gca, 'FontSize', 22);
+    subplot(2,1,2);
+    plot(lambda_sim,sim_1_149p0_1p0(:,3),lambda_sim,sim_2_251p0_1p0(:,3),lambda_sim,sim_3_200p0_1p0(:,3));
+    legend('Sim. 1, T=149.0K, FWHM=1.0','Sim. 2, T=251.0K, FWHM=1.0','Sim. 3, T=200.0K, FWHM=1.0');
+    xlabel('\lambda/nm');
+    ylabel('normierte Intensität, a.u.');
+    grid on; grid minor
+    axis([1528 1531 0 2.2]);
+    set(gca, 'FontSize', 22);
+    savefig('sim_spektrp1u2.fig');
+    hold off;
+    
+    figure;
+    hold all;
+    subplot(2,1,1);
+    plot(lambda_sim,sim_1_149p0_1p0(:,3),lambda_sim,sim_2_251p0_1p0(:,3),lambda_sim,sim_3_200p0_1p0(:,3));
+    legend('Sim. 1, T=149.0K, FWHM=1.0','Sim. 2, T=251.0K, FWHM=1.0','Sim. 3, T=200.0K, FWHM=1.0');
+    xlabel('\lambda/nm');
+    ylabel('normierte Intensität, a.u.');
+    grid on; grid minor
+    axis([1532 1535 0 6]);
+    set(gca, 'FontSize', 22);
+    subplot(2,1,2);
+    plot(lambda_sim,sim_1_149p0_1p0(:,3),lambda_sim,sim_2_251p0_1p0(:,3),lambda_sim,sim_3_200p0_1p0(:,3));
+    legend('Sim. 1, T=149.0K, FWHM=1.0','Sim. 2, T=251.0K, FWHM=1.0','Sim. 3, T=200.0K, FWHM=1.0');
+    xlabel('\lambda/nm');
+    ylabel('normierte Intensität, a.u.');
+    grid on; grid minor
+    axis([1539 1541 0 1.9]);
+    set(gca, 'FontSize', 22);
+    savefig('sim_spektrp3u4.fig');
+    hold off;
+    
+    figure;
+    hold all;
+    plot(lambda_sim,sim_1_149p0_1p0(:,3),'-^','LineWidth',1.1);
+    plot(lambda_sim,sim_2_251p0_1p0(:,3),'-x','LineWidth',1.1);
+    plot(lambda_sim,sim_3_200p0_1p0(:,3),'-s','LineWidth',1.1);
+    legend('Sim. 1, T=149.0K, FWHM=1.0','Sim. 2, T=251.0K, FWHM=1.0','Sim. 3, T=200.0K, FWHM=1.0');
+    xlabel('\lambda/nm');
+    ylabel('normierte Intensität, a.u.');
+    grid on; grid minor
+    axis([1542 1545 0 4.5]);
+    set(gca, 'FontSize', 22);
+    savefig('sim_spektrp5.fig');
+    hold off;
 
 s_1 = zeros(511,1);
 s_2 = zeros(511,1);
