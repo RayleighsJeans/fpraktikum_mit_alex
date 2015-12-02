@@ -71,8 +71,8 @@
 \begin{document}
 	\maketitle
 	\begin{center}
-		Betreuer: C. Killer\\ %TODO Name des Betreuers eintragen
-		Versuchsdatum: \\ %TODO Datum des Versuchs eintragen
+		Betreuer: Carsten Killer\\ %TODO Name des Betreuers eintragen
+		Versuchsdatum: 20.11.2015 \\ %TODO Datum des Versuchs eintragen
 		\begin{table}[h]
 			\centering
 			Note: %TODO Gute Note erhalten :)
@@ -87,6 +87,8 @@
 	\vfill
 	\newpage
 	\section{Motivation}
+	
+	In der Medizin werden bereits seit Jahren das Verfahren der Magnetresonanztomographie angewandt. Sie bietet die Möglichkeit den menschlichen (oder auch tierischen) Körper einer nicht invasiven Untersuchung zu unterziehen, wobei hoch ortsaufgelöste Bilder desselben erzeugt werden. Dieser Technologie liegt das Prinzip des Spin-Echos zu Grunde, bei welchem die Gesamtmagnetisierung eines Mediums materialabhängig durch ein gepulstes zirkulierendes Magnetfeld verändert wird und durch das Antwortsignal Rückschlüsse auf die Zusammensetzung des Mediums geschlossen werden können. In diesem Versuch wird mit Hilfe eines experimentellen Aufbaus die Prinzipien verschiedener Methoden zur Untersuchung der Kernspin-Resonanz-Spektroskopie erläutert und angewandt.
 	
 	\newpage
 	\section{Physikalische Grundlagen}
@@ -154,6 +156,11 @@
 		\newpage
 	\section{Durchführung}
 	In diesem Versuch wird ein Kernspinresonanzspektrometer der Firma verwendet, welches in der Lage ist ein konstantes Magnetfeld zu erzeugen sowie zwei verschieden Lange zirkulierende Magnetfeldpulse mit variablen zeitlichen Abstand und Wiederholungszahl. In dem Spektrometer werden verschiedene Proben (Wasser, Alkohol, Öl) untersucht, diese werden in kleinen Glasküvetten in das Spektrometer eingelagert. Die Aufnahme des Signals und Datenspeicherung erfolgt über ein Oszilloskop mit Speicherfunktion. Auf diesem wird zum einem das eigentliche oszillierende Signal der Pulse betrachtet, sowie dessen Einhüllende. Für die Ziele dieses Versuches genügt es die Zeit-aufgelösten relativen Signalamplituden zu messen. Vor den Messungen wird eine Sonde in das Magnetfeld eingelassen um und kalibriert, sowie die Resonanzfrequenz festgelegt. Dafür wird das am Oszilloskop betrachtete Signal für einen Puls so eingestellt, dass keine Schwingungen mehr vorhanden sind. Die Resonanzfrequenz wird im Folgenden auf $21,374(1)\,\mathrm{MHz}$ festgelegt. Anschließend Folgen die Inversion-Recovery-Methode und die Spin-Echo-Methode zur Bestimmung der Relaxationszeiten der einzelnen Proben.
+				\begin{figure}[h]
+					\centering
+					\includegraphics[width=\textwidth]{pics/aufbau.png}
+					\caption{Versuchsaufbau nach \cite{EMAUGreifswaldNMR} mit Magnetfeldgenerator, Oszilloskop, Feldgradient-Controller und Steuereinheit.}
+				\end{figure}
 	\newpage
 	\section{Auswertung}
 	
@@ -212,6 +219,8 @@
 		
 	\subsection{Bestimmung von $T_2$ mit Hilfe der Spin-Echo-Methode}
 	
+	Die mit Hilfe der Spin-Echo-Methode bestimmten Spin-Spin-Relaxationszeiten $T_2$ sind in Tab.\ref{tab:1T2} dargestellt. Die angegebenen Zeiten wurden durch Bestimmung des Anstieges einer exponentiellen Fitfunktion ermittelt. Die gemessenen Werte für Wasser weichen hier deutlich von den geschätzten Werden ab. Wie in Abb.\ref{abb:T2_2} zu erkennen ist, liegen die gemessenen Werte für Wasser eher auf einer Graden als auf dem exponentiellen Fit, woraus man Folgern kann, das der angenommene exponentielle Zusammenhang nicht korrekt ist. Die Werte für Öl und Alkohol liegen in einem zu erwartenden Bereich, wobei entgegen der Erwartung die Relaxationszeit für Alkohol kürzer ist als die für Öl. Jedoch liegen, wie in Abb.\ref{abb:T2_1} zu erkennen, die Messwerte für Alkohol nicht unbedingt auf einer exponentiellen Linie, was eine hohe Ungenauigkeit für diese Messung nahelegt.
+	
 	\begin{table}[h]
 		\centering
 		\caption{Durch Spin-Echo-Methode gemessene Zeiten für $T_2$ für die verschiedenen Medien}
@@ -236,6 +245,53 @@
 	\label{abb:T2_2}
 	\end{figure}
 
+	\subsection{Bestimmung von $T_2$ mit Hilfe von multiplen Spin-Echos}
+	
+	Aus den Messungen für die multiplen Spin-Echo-Pulse konnten für Wasser und Öl die Relaxationszeiten ebenfalls bestimmt werden. Die errechneten Größen sind in Tab.\ref{tab:multiT2} und die dazugehörigen Spektren in Abb.\ref{abb:T2_H2O} bis \ref{abb:T2_Oel_MG} dargestellt. Im Vergleich zu einander und zu den vorherigen Messwerten weichen die Zeiten für Wasser weit von einander ab. Der Grund dafür kann eine Fehleinstellung des Pulsabstandes, welche zu einer Verfälschung des Signals führen würde. Die Werte für Öl liegen alle in der selben Größenordnung jedoch mit einem Faktor $2$ in den Werten. Für Alkohol konnten mit dieser Methode keine Zeiten angegeben werden, da das aufgenommene Signal eine oszillierende Einhüllende aufweist und kein exponentieller Fit an die Messdaten angelegt werden konnte. Im Zeitrahmen dieses Versuches ist es nicht gelungen diese Einhüllende zu beseitigen. Der Grund für diese Fehlmessung ist wahrscheinlich eine zu große Abweichung der eingestellten Frequenz $\omega$ zur eigentlichen Resonanzfrequenz, da vor der ersten Einstellung dieser Frequenz ein ähnliches Phänomen am Oszilloskop beobachtet wurde.
+	
+	\begin{table}[h]
+		\centering
+		\caption{Durch Multi-Spin-Echo-Methode gemessene Zeiten für $T_2$ ohne MG-Korrektur und  $T_{2}^\mathrm{MG}$ mit MG-Korrektur für die verschiedenen Medien}
+		\begin{tabular}{c c c}
+			Material & $T_2\,/\,\mathrm{ms}$ & $T_{2}^\mathrm{MG}\,/\,\mathrm{ms}$ \\ \hline
+			Wasser 	& $457$ & $1389$ \\
+			Alkohol & - & -  \\
+			Öl 		& $32,2$ & $43,5$ 
+		\end{tabular}
+		\label{tab:multiT2}
+	\end{table}
+	
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=1\textwidth]{pics/T2_H2O}
+		\caption{Es sind die gemessenen Magnetisierung in der x-y-Ebene in arbiträren Einheiten über die Zeit zwischen einem $90^\circ$-Puls und multiblen $180^\circ$-Puls (Spin-Echos) für Wasser ohne Meiboom-Gill-Korrektur. Die durchgelegten Linien entsprechen exponentiellen Fitfunktionen.}
+		\label{abb:T2_H2O}
+	\end{figure}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=1\textwidth]{pics/T2_H2O_MG}
+		\caption{Es sind die gemessenen Magnetisierung in der x-y-Ebene in arbiträren Einheiten über die Zeit zwischen einem $90^\circ$-Puls und multiblen $180^\circ$-Puls (Spin-Echos) für Wasser mit Meiboom-Gill-Korrektur. Die durchgelegten Linien entsprechen exponentiellen Fitfunktionen.}
+		\label{abb:T2_H2O_MG}
+	\end{figure}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=1\textwidth]{pics/T2_Oel}
+		\caption{Es sind die gemessenen Magnetisierung in der x-y-Ebene in arbiträren Einheiten über die Zeit zwischen einem $90^\circ$-Puls und multiblen $180^\circ$-Puls (Spin-Echos) für Öl ohne Meiboom-Gill-Korrektur. Die durchgelegten Linien entsprechen exponentiellen Fitfunktionen.}
+		\label{abb:T2_Oel}
+	\end{figure}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=1\textwidth]{pics/T2_Oel_MG}
+		\caption{Es sind die gemessenen Magnetisierung in der x-y-Ebene in arbiträren Einheiten über die Zeit zwischen einem $90^\circ$-Puls und multiblen $180^\circ$-Puls (Spin-Echos) für Öl mit Meiboom-Gill-Korrektur. Die durchgelegten Linien entsprechen exponentiellen Fitfunktionen.}
+		\label{abb:T2_Oel_MG}
+	\end{figure}
+
+	\section{Zusammenfassung}
+	
+	In dem Versuch wurden die Methoden zur Bestimmung von charakteristischen Relaxationszeiten bezüglich der Magnetisierung verschiedener Materialien gut verdeutlicht. Bei der Aufnahme der Messdaten sind jedoch einige Fehler aufgetreten und die Auswertung der Daten liefert in keinem Fall Werte, welche konsistent für die verschiedenen Messmethoden sind. Durch die knappe Zeit ist nur eine oberflächliche Auswertung ohne eine ausführliche Fehlerbetrachtung möglich gewesen. Jedoch konnten qualitative Unterschiede zwischen den Materialien festgestellt werden.
+	
+	\newpage
+	
 	\section{Anhang}
 	
 		\bibliography{all.bib}
