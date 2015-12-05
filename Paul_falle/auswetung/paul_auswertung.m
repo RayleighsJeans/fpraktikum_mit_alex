@@ -201,17 +201,17 @@ freqsweep_15e5Hz_ref = freqsweep_15e5Hz_ref1it;
 % savefig('freq_manip.fig');
 % hold off
 
-% figure
-% hold on
-% grid on; grid minor
-% plot(1/1000.*freq_15e5Hz(1:270),Hz15e5_diff_s./max(Hz15e5_diff_s),'-.^k','LineWidth',1.4);
-% legend('Resonanzverlauf, I_{ref}-I_{ex}');
-% xlabel('Frequenz in kHz');
-% ylabel('Normierte Intensität, a.u.');
-% axis([1 270 -.06 1.05]);
-% set(gca, 'FontSize', 22);
-% savefig('freq_diff.fig');
-% hold off
+figure
+hold on
+grid on; grid minor
+plot(1/1000.*freq_15e5Hz(1:270),Hz15e5_diff_s./max(Hz15e5_diff_s),'-.^k','LineWidth',1.4);
+legend('Resonanzverlauf, I_{ref}-I_{ex}');
+xlabel('Frequenz in kHz');
+ylabel('Normierte Intensität, a.u.');
+axis([1 270 -.06 1.05]);
+set(gca, 'FontSize', 22);
+savefig('freq_diff.fig');
+hold off
 
         %%Smoothe den Signalabfall.
         
@@ -242,22 +242,78 @@ freqsweep_15e5Hz_ref = freqsweep_15e5Hz_ref1it;
 
 %%Schaue mir das Signal über 50 äußere (10 innere) Iterationen an. Mit
 %%Anregung.
+% figure
+% hold on
+% grid on; grid minor
+% plot(1e-6.*time,dec_ex_s,':sr','LineWidth',1.5);
+
+% f = 'a*x+b';
+% wurzel = ezfit(f);
+% % showfit(wurzel);
+
+% plot(1e-6.*time,dec_ref_s,'-.^b','LineWidth',1.5);
+% xlabel('Zeit in 10^{3}ms');
+% ylabel('Intensität, Counts in 10 It.');
+% legend('Signalintens., mit Anregung','ohne Anregung');
+% set(gca, 'FontSize', 22);
+% axis([1e-6*time(1) 1e-6*time(end) min(dec_ref_s) max(dec_ref_s)]);
+% savefig('signal_abfall.fig');
+% hold off
+
+%%Versuche krassen Shit mit dem richtigen Spektrum
+Z = imread('referenz_raw.bmp');
+Z = Z(:,:,1);
+
+%%Schreibe erst mal das REF binär hin.
+for i=1:1361
+    for j=1:291
+        
+        if (Z(j,i)<127)
+            Z(j,i)=0;
+        else
+            Z(j,i)=1;
+        end
+        
+    end
+end
+
+ref_freq = linspace(0,800,1361);
+l_freq = int32(270/(800/1361));
+
+tmp = 0;
+k = 0;
+main = zeros(1361,1);
+
+%%Schreibe jetzt einen Kanal hin (definites Messsignal).
+for i=1:1361
+    for j=1:291
+        
+        if (Z(j,i)==1)
+            tmp = tmp+j;
+            k = k+1;
+        end
+        
+    end
+
+    main(i) = tmp/k;
+    
+    tmp = 0;
+    k = 0;
+end
+
+
+%%Beides zusammen plotten.
 figure
 hold on
 grid on; grid minor
-plot(1e-6.*time,dec_ex_s,':sr','LineWidth',1.5);
-
-f = 'a*x+b';
-wurzel = ezfit(f);
-% showfit(wurzel);
-
-plot(1e-6.*time,dec_ref_s,'-.^b','LineWidth',1.5);
-xlabel('Zeit in 10^{3}ms');
-ylabel('Intensität, Counts in 10 It.');
-legend('Signalintens., mit Anregung','ohne Anregung');
+plot(1/1000.*freq_15e5Hz(1:270),-Hz15e5_diff_s+2.*abs(min(-main(1:int32(270/(800/1361))))),'-.^k','LineWidth',1.4);
+plot(ref_freq(1:int32(270/(800/1361))),-main(1:int32(270/(800/1361)))+2.*abs(min(-main(1:int32(270/(800/1361))))),':xr','LineWidth',1.4)
+xlabel('Frequenz in kHz');
+ylabel('Normierte Intensität, a.u.');
+axis([0 270 min(-main(1:int32(270/(800/1361)))+2.*abs(min(-main(1:int32(270/(800/1361))))))-10 max(-Hz15e5_diff_s+2.*abs(min(-main(1:int32(270/(800/1361))))))+10])
+legend('Messdaten der Resonanz','Literaturwerte, Leuthner et. al.');
 set(gca, 'FontSize', 22);
-axis([1e-6*time(1) 1e-6*time(end) min(dec_ref_s) max(dec_ref_s)]);
-savefig('signal_abfall.fig');
+savefig('freq_vergleich.fig');
 hold off
 
 keyboard
