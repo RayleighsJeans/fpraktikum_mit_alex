@@ -85,10 +85,13 @@
 	\vspace*{\fill}
 	\tableofcontents
 	\vfill
-	\newpage
+	\clearpage
 	\section{Motivation}
-	
-	\newpage
+
+		Ionenfallen werden in der modernen Physik in sehr vielen Bereichen verwendet. Man nutzt sie als Hilfen in der Massenspektrometrie, für die Analyse von Eigenschaften geladener Nanoteilchen oder zur Erzeugung und Manipulation von komplexeren Molekülen. Insbesondere in der Cluster-Physik sind Fallen der wichtigste Bestandteil in der Methodik. Dabei greift man auf Kombinationen von elektrostatischen, magnetischen oder Wechselfeldern in einem endlichen, meist sehr kleinen Raumbereich , welcher verschiedenste, dem Problem angepasste Geometrien vorweist, zurück. Im Rahmen dieses Versuches sollen die Speichereigenschaften von Stickstoff-Ionen in einer hyperbolischen Paul-Falle untersucht werden. 
+
+
+	\clearpage
 	\section{Physikalische Grundlagen}
 
 		Bei einer sogenannten \tilt{Paul-Falle} handelt es sich um eine zylindersymmetrische Ionenfalle, welche über komplexe elektrische Wechselfelder in ihrem Inneren den Einfang und die Speicherung von geladenen Partikeln, e.g. Ionen ermöglicht. Die physikalischen Grundlagen und Beispiele folgen in diesem Abschnitt.
@@ -171,6 +174,12 @@
 					\omega\ix{n,i}=\frac{(2n\pm\beta\ix{i})\Omega}{2} \label{eq:spektr}
 				\end{align}
 
+			\begin{figure}
+				\centering
+				\includegraphics[width=\textwidth]{referenz.png}
+				\caption{Literatur-Spektrum aus \cite{Paul-FalleREF} für $\fett{N}_2$-Ionen. Angetragen sind die jeweiligen Resonanzfrequenzen für die Differenz aus Signalen einer Referenz ohne und mit Anregung.}\label{img:referenz}
+			\end{figure}
+
 		\subsection{Arten von Ionenfallen}
 
 			Ionenfallen werden im Allgemeinen nach ihrer Methodik und dem Ziel der Untersuchungen, welche damit durchgeführt werden, kategorisiert. Im folgenden sollen kurz einige (wichtige) Typen vorgestellt werden.
@@ -191,7 +200,7 @@
 					In einer Orbitrap werden Ionen durch die Balancierung von Zentrifugal- und elektrischen Kräften auf Bahnen um eine innere Elektrode gefangen. Diese Trajektorien sind i.A. elliptisch. Zusätzlich pendeln die Teilchen auf der Elektroden-Achse hin und her, weswegen letztendlich ein Helix von einem Partikel beschrieben wird. Die Bewegung in dieser Richtung ist harmonisch und demnach invariant unter der Gyration um die Elektrode.  Insbesondere wird diese nur von dem Masse-zu-Ladungsverhältnis und den Anfangsbedingungen beeinflusst .\\
 					Die Signal besteht letzendlich aus dem Bildladungsstrom der eingefangenen Ionen, welcher aufgenommen und in ein Massenspektrum durch die Fourier-Transformation überführt wird.
 
-	\newpage
+	\clearpage
 	\section{Durchführung}
 
 		Den verwendeten Versuchsaufbau zeigt \autoref{img:aufbau}. Druckmessköpfe und Nadelventile ermöglichen die Justierung des internen Fallen-Drucks im Bereich von $\unit[\tenpo{-7}]{bar}$. Zwei Elektronenkanonen ionisieren das einströmende $\fett{N}_2$-Molekül, welches in der Falle gespeichert wird. Dafür sind geeignete Parameter gewählt worden. Der Channeltron-Detektor liefert ein signifikantes Signal selbst bei kleinen Ionenintensitäten.\\
@@ -201,50 +210,77 @@
 
 			\begin{figure}
 				\centering
-				\includegraphics[width=0.8\textwidth]{aufbau.png}
+				\includegraphics[width=0.7\textwidth]{aufbau.png}
 				\caption{Schematischer Aufbau des Versuchs. \cite{EMAUGreifswaldPaul}}\label{img:aufbau}
 			\end{figure}
 
-	\newpage
+	\clearpage
 	\section{Auswertung}
 
 		\subsection{Variation der Speicherzeit}
 
-			Nachdem man sich mit dem Aufbau und der dazugehörigen Steuerung vertraut gemacht hatte, wurde ein Scan für die Speicherzeit in der Falle durchgeführt. Das heißt, dass die Zeit zwischen Ionisation (Elektronenkanone an) und Auswurf-Anregung durch den ersten Manipulationsgenerator variiert wurde. Die Ergebnisse sind in \autoref{img:zeit} zu sehen. Zu erwarten ist ein exponentielle Zusammenhang nach \tilt{Lamber-Beer}, da die kollektive Ionenbewegung und die Lebensdauerverteilung statistisch sind. Eine logarithmische Auftragung liefert die Bestätigung mit \autoref{img:lin}. Die 'Lebensdauer' bzw. die mittlere Verweildauer in der Falle bestimmte sich zu $\unit[5,1408]{ms}$.\\
+			Nachdem man sich mit dem Aufbau und der dazugehörigen Steuerung vertraut gemacht hatte, wurde ein Scan für die Speicherzeit in der Falle durchgeführt. Das heißt, dass die Zeit zwischen Ionisation (Elektronenkanone an) und Auswurf-Anregung durch den ersten Manipulationsgenerator variiert wurde. Die Ergebnisse sind in \autoref{img:zeit} zu sehen. Zu erwarten ist ein exponentielle Zusammenhang nach \tilt{Lambert-Beer}, da die kollektive Ionenbewegung und die Lebensdauerverteilung statistisch sind. Eine logarithmische Auftragung liefert die Bestätigung mit \autoref{img:lin}. Die 'Lebensdauer' bzw. die mittlere Verweildauer in der Falle bestimmte sich zu $\unit[5,1408]{ms}$.\\
 			Eine Einzelmessung bestand jeweils als 10 'inneren' Iterationen, d.h. Messzyklen, welche in ihrer Intensität aufsummiert wurden. 50 äußere Iteration wiederholen den gesamten Vorgang von einer Wartezeit 0 bis $\unit[500]{\mu s}$ in chronologischer Reihenfolge, um eventuelle Zeitabhängige Fehler in der Messung zu eliminieren.
 
-				\begin{figure}[h]
+				\begin{figure}
 					\includegraphics[width=\textwidth]{wartezeit.png}
-					\caption{text}\label{img:zeit}
+					\caption{Norm. Signalintensität über Variation der Wartezeit zwischen Ionisation und Auswurf auf den Detektor.}\label{img:zeit}
 				\end{figure}
 
-				\begin{figure}[h]
+				\begin{figure}
 					\includegraphics[width=\textwidth]{linear_fit_wartezeit.png}
-					\caption{text}\label{img:lin}
+					\caption{Fit eines Polynoms erster Ordnung an den Logartihmus der Intensität. Die erhaltene Funktion ist eingezeichnet. Der Koeffizient $a_1$ gibt die Lebens- oder Speicherdauer in Fall wieder.}\label{img:lin}
 				\end{figure}
 
 		\subsection{Frequenzvariation der primären Anregung}
 
 			In dieser Messung wurde die Frequenz der primären Anregung zum Auswurf aus der Falle auf den Detektor verändert. Es wurde das gleiche Mess- und Datenaufnahmeprinzip wie zuvor verwendet. Die Messparameter sind insbesondere die selben. In $\unit[10]{kHz}$-Schritten wurde ein Bereich von $\unit[\tenpo{5}]{Hz}$ bis $\unit[5\cdot\tenpo{5}]{Hz}$ abgerastert. Das Ergebnis zeigt \autoref{img:auswurf}. Damit sind des weiteren die bereits verwendeten Einstellungen der Manipulation bestätigt, da sich ein deutliches, unter anderem auch globales Maximum der Intensität des Ionenstromes auf den Detektor bei $\unit[350]{kHz}$ findet. Außerdem sind Nebenmaxima - bei ca. $\unit[110]{kHz}$, $\unit[140]{kHz}$ und $\unit[210]{kHz}$ - zu sehen, wie sie von den Vorbetrachtungen vorhergesagt wurden. Auf die Untersuchung dieser zielt die nächste Messung ab (siehe \autoref{subsec:mess}).
 
-				\begin{figure}[h]
+				\begin{figure}
 					\includegraphics[width=\textwidth]{freq_auswurf.png}
-					\caption{text}\label{img:auswurf}
+					\caption{Signalintensität als Funktion der Frequenz des primären Auswurfs vor der Datenaufnahme. Strukturen sind deutlich, welche die Überlegungen der Grundlagen bestätigen und die Wahl einer Auswurf-Frequenz von $\unit[350]{kHz}$ nahe legen.}\label{img:auswurf}
 				\end{figure}
 
 		\subsection{Untersuchung der Eigenfrequenzen von ionisiertem Stickstoff}\label{subsec:mess}
 
 			Bei dieser Messung ist es wichtig, das vollständige Spektrum der Anregung zu betrachten, da viele Frequenzen und deren lineare Kombinationen darin eingehen. Deswegen wurde ein Intervall von 0 bis $\unit[1,5]{MHz}$ gewählt, da bei der Führungsfeldfrequenz und in dessen Umgebung eine verstärkte Dynamik zu erwarten ist.\\
-			Ein einzelner Zyklus startet mit der Elektronenkanone für 10000µs, worauf eine sekundäre Manipulation mit dem Frequenzschritt $f\ix{n}$ für 1000µs folgt. Danach 'ruht' die Messung für weitere 10000µs, wobei die Ionen einfach in der Falle verweilen. Schließlich läuft für 2000µs die Datenaufnahme des Detektors zusammen mit der primären Anregung mit $\unit[350]{kHz}$. Für jeweils einen solchen Zyklus gibt es einen Referenzverlauf, welcher im Anschluss dazu jedoch ohne die sekundäre Anregung erfolgt. Dieser dient der Eichung und Fehlerminderung. Das Ergebnis für 10 innere und 50 äußere Iterationen zeigt \autoref{img:bullshit}.
+			Ein einzelner Zyklus startet mit der Elektronenka none für 10000\,µs, worauf eine sekundäre Manipulation mit dem Frequenzschritt $f\ix{n}$ für 1000\,µs folgt. Danach 'ruht' die Messung für weitere 10000\,µs, wobei die Ionen einfach in der Falle verweilen. Schließlich läuft für 2000\,µs die Datenaufnahme des Detektors zusammen mit der primären Anregung mit $\unit[350]{kHz}$. Für jeweils einen solchen Zyklus gibt es einen Referenzverlauf, welcher im Anschluss dazu jedoch ohne die sekundäre Anregung erfolgt. Dieser dient der Eichung und Fehlerminderung. Das Ergebnis für 10 innere und 50 äußere Iterationen bei einer Schrittweite von $\unit[1]{kHz}$ zeigt \autoref{img:bullshit}.\\
+			Ziel dieser Messung ist es, die Ionenintensität in Abhängigkeit von der Anregungsfrequenz aufzunehmen, um daraus ein Spektrum für die Eigenfrequenzen der Ionen zu erhalten. Man erwartet einen Verlauf nach dem Vorbild von \autoref{img:referenz}, wobei jedoch anderen Parameter verwendet wurden \cite{Paul-FalleREF}. Das Signal als Differenz von Referenz und sekundärer Anregung erhält demnach ein lokales Minimum, wenn mit einer Resonanzfrequenz der Probesubstanz angeregt wurde. Für den primären Auswurf auf den Detektor stehen dann weniger Ionen zur Verfügung.
 
-				\begin{figure}[h]
+				\begin{figure}
 					\includegraphics[width=\textwidth]{volle_daten.png}
-					\caption{text}\label{img:bullshit}
+					\caption{Frequenziteration einer sekundären Anregung in $1\,kHz$-Schritten bis $1,5\,MHz$. Volles Spektrum der 50 aüßeren und 10 inneren Iterationen.}\label{img:bullshit}
 				\end{figure}
 
-			
+			Die \autoref{img:resonanz} - und außerdem \autoref{limg:1itsm} für die erste äußere Iteration bis $\unit[270]{kHz}$ - zeigt das letztendlich gesuchte Spektrum der Resonanzfrequenzen von $\fett{N}_2$-Ionen als die Differenz von Referenz- und Manipulationssignal.  Im Vergleich dazu ist der Verlauf aus \autoref{img:referenz} eingetragen, welcher für die selbe Ionensorte in \cite{Paul-FalleREF} aufgenommen wurde und hier als Literaturwert angenommen werden soll.\\
+			Insgesamt scheint es so, als seien alle Resonanzen zu höheren Frequenzen verschoben worden. Angenommen dies sei der Fall, so wurden die Anregungen von $\omega_r$, $\omega_z$ und $\omega_z-\omega_r$ mit einem Fehler von $\pm\unit[20]{kHz}$ gefunden. Die ist aber insgesamt ein schwaches Kriterium, da bereits von einem Shift des gesamten Spektrums um etwa $+\unit[25]{kHz}$ auszugehen war. Eine Betrachtung der Fehler, welche konsequenter Weise aus dem Verlauf des Signals, insbesondere dem aus \autoref{img:bullshit} folgen, schließt sich im folgenden an.
 
-	\newpage
+				\begin{figure}
+					\includegraphics[width=\textwidth]{freq_diff_vergleich.png}
+					\caption{Differenz von Referenz und Manipulation. Vergleich mit der Literatur \cite{Paul-FalleREF} bei geringfügiger Übereinstimmung.}\label{img:resonanz}
+				\end{figure}
+
+			Die \autoref{img:bullshit} vermittelt außerdem ein indiskutables Problem: das Messsignal ist nach $\sim\unit[300]{kHz}$ quasi nicht mehr existent und wird von da an nur noch von der Nullzählrate oder anderen zufälligen Ereignissen bestimmt. Es liegt der Gedanke nahe, dass bei dieser großen Messdauer das Experiment nach einer bestimmen Aufnahmedauer versagt hat. Deshalb zeigt \autoref{img:1it} die erste äußere Iteration im vollen Spektrum  - und \autoref{limg:1itsm} - , woraus durch einen Vergleich der Intensitäten ersichtlich wird, das bereits dort die vollständigen Informationen der Messung enthalten sind.
+
+				\begin{figure}
+				\includegraphics[width=\textwidth]{erste_it.png}
+				\caption{Signal der ersten Iteration. Im Vergleich zum Vollen Spektrum erkennt man leicht, das hier die vollständigen, erhaltenen Daten stecken.}\label{img:1it}
+				\end{figure}
+
+				\begin{figure}
+					\includegraphics[width=\textwidth]{freq_smooth.png}
+					\caption{Abfall der Signalstärke in Referenz und Manipulation. Unbearbeitete Daten für \autoref{img:resonanz}.}\label{img:1itsm}
+				\end{figure}
+
+			Nach dieser ernüchternden Erkenntnis wurde versucht, das Problem des Signalverlusts zu erkennen und zu beheben. Dafür betrachtete man das verbliebene Signal über der Experiment-Dauer. Wieder stehen dabei ein Manipulations- und ein Referenz-Zyklus im Vergleich: 10000\,µs E-Kanone für Ionisation, 1000\,µs sekundäre Anregung bzw. Warten, 10000\,µs Warten und 20000\,µs primäre Anregung mit Auswurf und Datenaufnahme. Der signifikante Unterschied zu vorherigen Messungen ist die, bei beiden Verfahren eingeführte Verweildauer von 50000\,µs nach der Detektor-Aufnahme - sozusagen als Pause des Experimentes zwischen Messungen. Ziel dabei war es, den möglichen Einfluss von Aufladungseffekten auf den Bauteilen und Raumladungen in der Falle zu minimieren. Die \autoref{img:abnahme} zeigt das Resultat von 50 äußeren und 10 inneren Iterationen.\\
+			Bei einer anfänglich, bereits außergewöhnlich niedrigen Intensität von $\unit[207]{Cnts./10 It.}$ fällt das Signal mit rund $\unit[2]{Cnts./1000\,ms}$ ab. Nicht aber, dass dies nur der Fall für die sekundäre Anregung wäre, sondern auch für das Signal der Referenzmessung. Dies zeigt an, dass ein konzeptionelles Problem mit dem Aufbau bzw. der Falle selbst vorliegen muss. Weitere Messungen ergaben sich als nicht aussagekräftig, da bei nachfolgenden Zyklen das Signal sogar noch schwächer wurde oder sogar in das statistische Rauschen aus \autoref{img:bullshit} über ging. Im Rahmen dieses Praktikums und eines einzelnen Versuches über 2 Tage war es uns leider nicht möglich, tiefer greifende Fehleranalysen und Problembehebungen für die vorgestellten Hindernisse durchzuführen.
+
+				\begin{figure}
+					\includegraphics[width=\textwidth]{signal_abfall.png}
+					\caption{Untersuchung des Intensitäts-Abfalls über der Experimentdauer. Sehr geringen Signalstärken gegenüber den Intensitäten aus \autoref{img:zeit}, welche im Bereich bon 5000-10000 lagen (dort nur normiert).}\label{img:abnahme}
+				\end{figure}
+
+	\clearpage
 	\section{Anhang}
 
 		\bibliography{all.bib}
