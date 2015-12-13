@@ -21,6 +21,20 @@ sim_3_200p0_1p0 = load('C:\Users\Philipp Hacker\Desktop\Uni\git\fpraktikum_mit_a
 lambda_sim = zeros(661,1);
 lambda_sim = sim_3_200p0_1p0(:,1);
 
+figure;
+hold on;
+plot(lambda_sim,sim_1_149p0_1p0(:,3),'Linewidth',2);
+plot(lambda_sim,sim_2_251p0_1p0(:,3),'Linewidth',2);
+plot(lambda_sim,sim_3_200p0_1p0(:,3),'Linewidth',2);
+legend('Sim. 1, T=149.0K, FWHM=1.0','Sim. 2, T=251.0K, FWHM=1.0','Sim. 3, T=200.0K, FWHM=1.0');
+xlabel('\lambda/nm');
+ylabel('normierte Intensität, a.u.');
+grid on; grid minor
+axis([1515 1548 0 7]);
+set(gca, 'FontSize', 22);
+savefig('sim_spektr.fig');
+hold off;
+
 
 %%Plotte mir die Peaks
     figure;
@@ -97,18 +111,18 @@ s_1 = s_1_or*1/max(abs(spektr_1(1:end-1,2)-spektr_1(1:end-1,3)));
 s_2 = s_2_or*1/max(abs(spektr_2(1:end-1,2)-spektr_2(1:end-1,3)));
 
 %PLOT DER UNSMOOTHIGEN SPEKTREN
-% figure;
-% hold all;
-% plot(lambda(1:end-1),s_1(1:end-1),'--xr','Linewidth',1.8);
-% plot(lambda(1:end-1),s_2(1:end-1),'--ob','Linewidth',1.8);
-% axis([1503.92 1599.98 0 1 ]);
-% legend('OH(3-1), 25.05.2015','OH(3-1), 19.03.2015');
-% xlabel('\lambda/nm');
-% ylabel('normierte Intensität, a.u.');
-% grid on;
-% set(gca, 'FontSize', 22);
-% savefig('spektr_unsmooth.fig');
-% hold off;
+figure;
+hold all;
+plot(lambda(1:end-1),s_1(1:end-1),'--r','Linewidth',1.8);
+plot(lambda(1:end-1),s_2(1:end-1),':b','Linewidth',1.8);
+axis([1503.92 1599.98 0 1 ]);
+legend('OH(3-1), 25.05.2015','OH(3-1), 19.03.2015');
+xlabel('\lambda/nm');
+ylabel('normierte Intensität, a.u.');
+grid on; grid minor;
+set(gca, 'FontSize', 22);
+savefig('spektr_unsmooth.fig');
+hold off;
 
 %SMOOTHING; Polynomische Form (7.Ordnung)
 
@@ -135,40 +149,40 @@ s_2(510) = (s_2(508)+s_2(509)+s_2(510))/3;
 %DIFFERENZ
 diff(1:end-1) = abs((spektr_2(1:end-1,2)-spektr_2(1:end-1,3))-(spektr_1(1:end-1,2)-spektr_1(1:end-1,3)));
 
-for i=3:508
-    diff(i) = (diff(i-2)+diff(i-1)+diff(i)+diff(i+1)+diff(i+2))/5;
-end
-diff(1) = (diff(1)+diff(2)+diff(3))/3;
-diff(2) = (diff(1)+diff(2)+diff(3)+diff(4))/4;
-diff(509) = (diff(507)+diff(508)+diff(509)+diff(510))/4;
-diff(510) = (diff(508)+diff(509)+diff(510))/3;
+% for i=3:508
+%     diff(i) = (diff(i-2)+diff(i-1)+diff(i)+diff(i+1)+diff(i+2))/5;
+% end
+% diff(1) = (diff(1)+diff(2)+diff(3))/3;
+% diff(2) = (diff(1)+diff(2)+diff(3)+diff(4))/4;
+% diff(509) = (diff(507)+diff(508)+diff(509)+diff(510))/4;
+% diff(510) = (diff(508)+diff(509)+diff(510))/3;
 
 % %PLOT DER SMOOTHEN SPEKTREN
-% figure;
-% hold all;
-% plot(lambda(1:end-1),s_1(1:end-1),'--xr','Linewidth',1.8);
-% plot(lambda(1:end-1),s_2(1:end-1),'--ob','Linewidth',1.8);
-% axis([1503.92 1599.98 0 1 ]);
-% legend('OH(3-1), 25.05.2015','OH(3-1), 19.03.2015');
-% xlabel('\lambda/nm');
-% ylabel('normierte Intensität, a.u.');
-% grid on;
-% set(gca, 'FontSize', 22);
-% savefig('spektr_smooth.fig');
-% hold off;
+figure;
+hold all;
+plot(lambda(1:end-1),s_1(1:end-1),'--xr','Linewidth',1.8);
+plot(lambda(1:end-1),s_2(1:end-1),'--ob','Linewidth',1.8);
+axis([1503.92 1599.98 0 1 ]);
+legend('OH(3-1), 25.05.2015','OH(3-1), 19.03.2015');
+xlabel('\lambda/nm');
+ylabel('normierte Intensität, a.u.');
+grid on; grid minor;
+set(gca, 'FontSize', 22);
+savefig('spektr_smooth.fig');
+hold off;
 
 %PLOT DER DIFFERENZ
-% figure;
-% hold all;
-% plot(lambda(1:end-1),diff(1:end-1),'--xk','Linewidth',1.8);
-% axis([lambda(85) lambda(242) min(diff(85:242))-10 max(diff(85:242))+10]);
-% legend('|I/I_{0}(25.05.2015)-I/I_{0}(19.03.2015)|');
-% xlabel('\lambda/nm');
-% ylabel('Intensität, a.u.');
-% grid on;
-% set(gca, 'FontSize', 22);
-% savefig('diff_smooth.fig');
-% hold off;
+figure;
+hold all;
+plot(lambda(1:end-1),diff(1:end-1),'--xk','Linewidth',1.8);
+axis([lambda(85) lambda(242) min(diff(85:242))-10 max(diff(85:242))+10]);
+legend('|I/I_{0}(25.05.2015)-I/I_{0}(19.03.2015)|');
+xlabel('\lambda/nm');
+ylabel('Intensität, a.u.');
+grid on; grid minor;
+set(gca, 'FontSize', 22);
+savefig('diff_smooth.fig');
+hold off;
 
 
 %AUSWERTUNG
@@ -225,10 +239,6 @@ a_m = -log(I(1:3)./(2.*(2.*J(1:3)'+1).*ek_m(1:3)'));
 a_tul = -log(I(1:3)./(2.*(2.*J(1:3)'+1).*ek_tul(1:3)'));
 a_lang = -log(I(1:3)./(2.*(2.*J(1:3)'+1).*ek_lang(1:3)'));
 
-t_rot(1) = 1./(energie'\a_m);
-t_rot(2) = 1./(energie'\a_tul);
-t_rot(3) = 1./(energie'\a_lang);
-
 %Lösen für 2. Spektrum
 b_m = zeros(3,1);
 b_tul = zeros(3,1);
@@ -237,10 +247,6 @@ b_lang = zeros(3,1);
 b_m = -log(I(4:6)./(2.*(2.*J(1:3)'+1).*ek_m(1:3)'));
 b_tul = -log(I(4:6)./(2.*(2.*J(1:3)'+1).*ek_tul(1:3)'));
 b_lang = -log(I(4:6)./(2.*(2.*J(1:3)'+1).*ek_lang(1:3)'));
-
-t_rot(4) = 1./(energie'\b_m);
-t_rot(5) = 1./(energie'\b_tul);
-t_rot(6) = 1./(energie'\b_lang);
 
 fprintf(1,'Intensitäten der Peaks 1-3, Spektrum A\n');
 disp(I(1:3))
@@ -251,22 +257,125 @@ disp(I(4:6))
 fprintf(1,'Wellenlängen der Peaks 1-3, Spektrum B\n');
 disp(lam_max(4:6))
 
-% figure;
-% hold on;
-% plot(energie,a_m,'-.xr','Linewidth',2);
-% plot(energie,a_tul,'-.ob','Linewidth',2);
-% plot(energie,a_lang,'-.sg','Linewidth',2);
-% plot(energie,b_m,':dy','Linewidth',2);
-% plot(energie,b_tul,':^m','Linewidth',2);
-% plot(energie,b_lang,':pc','Linewidth',2);
-% axis([-61 201 -1.2 0.8]);
-% xlabel('Rotationsenergie, (hcF(J)_{\nu,i})/k_{B} in K');
-% ylabel('ln(I_{J,\nu}/(2(2J+1)*A_{J,\nu}))');
-% legend('n. Mies (Spektr. A)','n. T.u.L. (Spektr. A)','n. Langh. (Spektr. A)','n. Mies (Spektr. B)','n. T.u.L. (Spektr. B)','n. Langh. (Spektr. B)');
-% grid on;
-% set(gca, 'FontSize', 22);
-% savefig('lin_reg.fig');
-% hold off;
+figure;
+hold on;
+plot(energie,a_m,'-.x','Linewidth',2);
+
+    fit_a_m = ezfit('poly1');
+%     showfit(fit_a_m,'LineWidth',2,'dispeqboxmode','off');
+    t_rot(1) = 1/fit_a_m(1).m(2);
+    lin_a_m = energie.*1/t_rot(1)+fit_a_m(1).m(1);
+
+hold off;
+close;
+
+figure;
+hold on;
+    
+plot(energie,a_tul,'-.o','Linewidth',2);
+
+    fit_a_tul = ezfit('poly1');
+%     showfit(fit_a_tul,'LineWidth',2,'dispeqboxmode','off');
+    t_rot(2) = 1/fit_a_tul(1).m(2);
+    lin_a_tul = energie.*1/t_rot(2)+fit_a_tul(1).m(1);
+
+hold off;
+close;
+
+figure;
+hold on;
+    
+plot(energie,a_lang,'-.s','Linewidth',2);
+
+    fit_a_lang = ezfit('poly1');
+%     showfit(fit_a_lang,'LineWidth',2,'dispeqboxmode','off');
+    t_rot(3) = 1/fit_a_lang(1).m(2);
+    lin_a_lang = energie.*1/t_rot(3)+fit_a_lang(1).m(1);
+
+hold off;
+close;
+
+        figure;
+        hold on;
+        
+        plot(energie,a_m,':d','Linewidth',2);
+        plot(energie,lin_a_m,'Linewidth',2);
+        
+        plot(energie,a_tul,':^m','Linewidth',2);
+        plot(energie,lin_a_tul,'Linewidth',2);
+        
+        plot(energie,a_lang,':pc','Linewidth',2);
+        plot(energie,lin_a_lang,'Linewidth',2);;
+        
+        xlabel('Rotationsenergie, (hcF(J)_{\nu,i})/k_{B} in K');
+        ylabel('ln(I_{J,\nu}/(2(2J+1)*A_{J,\nu}))');
+        legend('n. Mies','Fit, Mies','n. T.u.L.','Fit, T.u.L.','n. Langh.','Fit,Lang.');
+        grid on; grid minor;
+        title('Spektrum A');
+        set(gca, 'FontSize', 22);
+        axis([-60.43 199.1 -1.32 0.5]);
+        savefig('lin_reg_a.fig');
+        hold off;
+
+figure;
+hold on;
+plot(energie,b_m,':d','Linewidth',2);
+
+    fit_b_m = ezfit('poly1');
+%     showfit(fit_b_m,'LineWidth',2,'dispeqboxmode','off');
+    t_rot(4) = 1/fit_b_m(1).m(2);
+    lin_b_m = energie.*1/t_rot(4)+fit_b_m(1).m(1);
+    
+hold off;
+close;
+
+figure;
+hold on;
+
+plot(energie,b_tul,':^m','Linewidth',2);
+
+    fit_b_tul = ezfit('poly1');
+%     showfit(fit_b_tul,'LineWidth',2,'dispeqboxmode','off');
+    t_rot(5) = 1/fit_b_tul(1).m(2);
+    lin_b_tul = energie.*1/t_rot(5)+fit_b_tul(1).m(1);
+
+hold off;
+close;
+
+figure;
+hold on;
+    
+plot(energie,b_lang,':pc','Linewidth',2);
+
+    fit_b_lang = ezfit('poly1');
+%     showfit(fit_b_lang,'LineWidth',2,'dispeqboxmode','off');
+    t_rot(6) = 1/fit_b_lang(1).m(2);
+    lin_b_lang = energie.*1/t_rot(6)+fit_b_lang(1).m(1);
+
+hold off;
+close;
+
+        figure;
+        hold on;
+        
+        plot(energie,b_m,':d','Linewidth',2);
+        plot(energie,lin_b_m,'Linewidth',2);
+        
+        plot(energie,b_tul,':^m','Linewidth',2);
+        plot(energie,lin_b_tul,'Linewidth',2);
+        
+        plot(energie,b_lang,':pc','Linewidth',2);
+        plot(energie,lin_b_lang,'Linewidth',2);
+        
+        xlabel('Rotationsenergie, (hcF(J)_{\nu,i})/k_{B} in K');
+        ylabel('ln(I_{J,\nu}/(2(2J+1)*A_{J,\nu}))');
+        legend('n. Mies','Fit, Mies','n. T.u.L.','Fit, T.u.L.','n. Langh.','Fit,Lang.');
+        grid on; grid minor;
+        title('Spektrum B');
+        set(gca, 'FontSize', 22);
+        axis([-60.43 199.1 -0.92 0.83]);
+        savefig('lin_reg_b.fig');
+        hold off;
 
 %Fehlerrechnung für minimale Intensitäten --> Standardabweichung
 
@@ -299,9 +408,35 @@ err1 = ((-c*h.*FJ(1:3)'./(k_b.*I(1:3).*log((I(1:3))./(2.*ek_m(1:3)'.*(2.*J(1:3)'
 fprintf(1,'Fehler im Spektrum A, Gauß\n');
 disp(err1)
 
+a_m_p = -log((I(1))./(2.*(2.*J(1)'+1).*ek_m(1)'));
+a_m_p(2:3) = -log((I(2:3)+sigma1)./(2.*(2.*J(2:3)'+1).*ek_m(2:3)'));
 
-t_1p = 1./(energie'\(-log((I(1:3)+sigma1)./(2.*(2.*J(1:3)'+1).*ek_m(1:3)'))));
-t_1m = 1./(energie'\(-log((I(1:3)-sigma1)./(2.*(2.*J(1:3)'+1).*ek_m(1:3)'))));
+figure;
+hold on;
+plot(energie,a_m_p,':d','Linewidth',2);
+
+    fit_err_a_p = ezfit('poly1');
+    showfit(fit_err_a_p,'LineWidth',2,'dispeqboxmode','off');
+    t_err_a_p = 1/fit_err_a_p(1).m(2);
+    disp(t_err_a_p);
+    
+hold off;
+close;
+
+a_m_m = -log((I(1))./(2.*(2.*J(1)'+1).*ek_m(1)'));
+a_m_m(2:3) = -log((I(2:3)-sigma1)./(2.*(2.*J(2:3)'+1).*ek_m(2:3)'));
+
+figure;
+hold on;
+plot(energie,a_m_m,':d','Linewidth',2);
+
+    fit_err_a_m = ezfit('poly1');
+    showfit(fit_err_a_m,'LineWidth',2,'dispeqboxmode','off');
+    t_err_a_m = 1/fit_err_a_m(1).m(2);
+    disp(t_err_a_m);
+    
+hold off;
+close;
 
 %FEHLER 2. SPEKTRUM
 err2 = zeros(3,1);
@@ -310,15 +445,39 @@ err2 = ((-c*h.*FJ(1:3)'./(k_b.*I(4:6).*log((I(4:6))./(2.*ek_m(1:3)'.*(2.*J(1:3)'
 fprintf(1,'Fehler im Spektrum B, Gauß\n');
 disp(err2)
 
-t_2p = 1./(energie'\(-log((I(4:6)+sigma2)./(2.*(2.*J(1:3)'+1).*ek_m(1:3)'))));
-t_2m = 1./(energie'\(-log((I(4:6)-sigma2)./(2.*(2.*J(1:3)'+1).*ek_m(1:3)'))));
+b_m_p = -log((I(4))./(2.*(2.*J(1)'+1).*ek_m(1)'));
+b_m_p(2:3) = -log((I(5:6)+sigma2)./(2.*(2.*J(2:3)'+1).*ek_m(2:3)'));
+
+figure;
+hold on;
+plot(energie,b_m_p,':d','Linewidth',2);
+
+    fit_err_b_p = ezfit('poly1');
+    showfit(fit_err_b_p,'LineWidth',2,'dispeqboxmode','off');
+    t_err_b_p = 1/fit_err_b_p(1).m(2);
+    disp(t_err_b_p);
+    
+hold off;
+close;
+
+b_m_m = -log((I(4))./(2.*(2.*J(1)'+1).*ek_m(1)'));
+b_m_m(2:3) = -log((I(5:6)-sigma2)./(2.*(2.*J(2:3)'+1).*ek_m(2:3)'));
+
+figure;
+hold on;
+plot(energie,b_m_m,':d','Linewidth',2);
+
+    fit_err_b_m = ezfit('poly1');
+    showfit(fit_err_b_m,'LineWidth',2,'dispeqboxmode','off');
+    t_err_b_m = 1/fit_err_b_m(1).m(2);
+    disp(t_err_b_m);
+    
+hold off;
+close;
 
 %TEMPERATUREN
 fprintf(1,'T_rot\n Reihenfolge: Spektrum A (Mies, T.u.L., Langh.) --> Spektrum B ...\n');
 disp(t_rot)
-
-%FINALLY
-fprintf(1,'Fehler durch Abweichung in linearer Regression\n Reihenfolge: Spektr. 1(+,-) --> Spektr. 2(+,-)\n %d\n %d\n %d\n %d\n %d\n %d\n',t_1p,t_1m,t_2p,t_2m);
 
 %SPEICHERN
 save('oh_rotat_auswertung.mat');
