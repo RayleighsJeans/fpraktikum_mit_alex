@@ -35,7 +35,7 @@
 
 \renewcommand{\headrulewidth}{0.1pt}
 \renewcommand{\footrulewidth}{0.1pt}
-\newcommand{\name}{\text{Name}} %TODO Name des Protokollanten eintragen
+\newcommand{\name}{\text{Philipp Hacker}} %TODO Name des Protokollanten eintragen
 
 \renewcaptionname{ngerman}{\figurename}{Abb. }
 \renewcaptionname{ngerman}{\tablename}{Tab.}
@@ -73,7 +73,7 @@
 	\begin{center}
 		Betreuer: Dirk Weidermann \\ %TODO Name des Betreuers eintragen
 		Versuchsdatum: 25.11.2015 \\ %TODO Datum des Versuchs eintragen
-		\begin{table}[h]
+		\begin{table}[H]
 			\centering
 			Note: %TODO Gute Note erhalten :)
 			\begin{tabularx}{1.5cm}{|X|}
@@ -206,7 +206,7 @@
 		Den verwendeten Versuchsaufbau zeigt \autoref{img:aufbau}. Druckmessköpfe und Nadelventile ermöglichen die Justierung des internen Fallen-Drucks im Bereich von $\unit[\tenpo{-7}]{mbar}$. Eine Elektronenkanone ionisiert das einströmende $\fett{N}_2$-Molekül, welches in der Falle gespeichert wird. Dafür sind geeignete Parameter gewählt worden. Der Channeltron-Detektor liefert ein signifikantes Signal selbst bei kleinen Ionenintensitäten.\\
 		Das Hauptelement dieses Versuches ist jedoch die Paul-Falle selbst. Sie besteht üblicher Weise aus einer hyperbolischen Falle aus zwei Endkappen und einer Ringelektrode. Hierbei ist die Geometrie dahingehend abgeändert, als dass sich die Ringelektrode aus vier symmetrischen Segmenten zusammensetzt. Die Segmentierung ermöglicht eine Anregung nach dem, in den Grundlagen besprochenen Vorbild der Resonanz mit Dipol- bzw. Quadrupol-Moden. Jedoch sorgt diese Abweichung von der angenommenen totalen Symmetrie für Störungen.\\
 		Alle 6 Kupferelektroden sind nach innen gerichtet hyperbolisch geformt und die Abstände zwischen den Segmenten betragen $\lesssim\unit[1]{mm}$. Der kleinste Abstand vom Fallenzentrum bis zu den Ringsegmenten beträgt $\unit[7]{mm}$,der kleinste Abstand vom Fallenzentrum bis zu den Endkappen $\unit[4,8]{mm}$. Die Ringsegmente besitzen zentrale Bohrungen mit einem Durchmesser von $\unit[3,3]{mm}$ durch welche Manipulationssignale und/oder Strahlen eingelassen werden können.\\
-		Die Elektronenkanone wurde mit $\unit[0,474]{A}$, einer Blendenspannung von $\unit[-111,6]{V}$ und einem \tilt{floating}-Potential von $\unit[-95]{V}$ betrieben. Die Spannung der Ionenoptik betrug $\unit[86]{V}$. Der Detektor lag auf $\unit[-2,4]{kV}$ und das Führungsfeld hat bei einer Frequenz von $\unit[1,29]{MHz}$ ein Peak-to-Peak-Spannung von $\unit[203]{mV}$ (nach dem Verstärker $\unit[240]{V}$). Die Manipulation ist auf $\unit[350]{kHz}$ voreingestellt.
+		Die Elektronenkanone wurde mit $\unit[0,474]{A}$, einer Blendenspannung von $\unit[-111,6]{V}$ und einem \tilt{floating}-Potential von $\unit[-95]{V}$ betrieben. Die Spannung der Ionenoptik betrug $\unit[86]{V}$. Der Detektor lag auf $\unit[-2,4]{kV}$ und das Führungsfeld hat bei einer Frequenz von $\unit[1,29]{MHz}$ ein Peak-to-Peak-Spannung von $\unit[203]{mV}$ (nach dem Verstärker $\unit[240]{V}$). Die Endkappen der Falle liegen den gesamten Versuch über auf Massepotential. Die Manipulation ist auf $\unit[350]{kHz}$ voreingestellt.
 
 			\begin{figure}
 				\centering
@@ -245,29 +245,70 @@
 
 			Bei dieser Messung ist es wichtig, das vollständige Spektrum der Anregung zu betrachten, da viele Frequenzen und deren lineare Kombinationen darin eingehen. Deswegen wurde ein Intervall von 0 bis $\unit[1,5]{MHz}$ gewählt, da bei der Führungsfeldfrequenz und in dessen Umgebung eine verstärkte Dynamik zu erwarten ist.\\
 			Ein einzelner Zyklus startet mit der Elektronenka none für 10000\,µs, worauf eine sekundäre Manipulation mit dem Frequenzschritt $f\ix{n}$ für 1000\,µs folgt. Danach 'ruht' die Messung für weitere 10000\,µs, wobei die Ionen einfach in der Falle verweilen. Schließlich läuft für 2000\,µs die Datenaufnahme des Detektors zusammen mit der primären Anregung mit $\unit[350]{kHz}$. Für jeweils einen solchen Zyklus gibt es einen Referenzverlauf, welcher im Anschluss dazu jedoch ohne die sekundäre Anregung erfolgt. Dieser dient der Eichung und Fehlerminderung. Das Ergebnis für 10 innere und 50 äußere Iterationen bei einer Schrittweite von $\unit[1]{kHz}$ zeigt \autoref{img:bullshit}.\\
-			Ziel dieser Messung ist es, die Ionenintensität in Abhängigkeit von der Anregungsfrequenz aufzunehmen, um daraus ein Spektrum für die Eigenfrequenzen der Ionen zu erhalten. Man erwartet einen Verlauf nach dem Vorbild von \autoref{img:referenz}, wobei jedoch anderen Parameter verwendet wurden \cite{Paul-FalleREF}. Das Signal als Differenz von Referenz und sekundärer Anregung erhält demnach ein lokales Minimum, wenn mit einer Resonanzfrequenz der Probesubstanz angeregt wurde. Für den primären Auswurf auf den Detektor stehen dann weniger Ionen zur Verfügung.
+			Ziel dieser Messung ist es, die Ionenintensität in Abhängigkeit von der Anregungsfrequenz aufzunehmen, um daraus ein Spektrum für die Eigenfrequenzen der Ionen zu erhalten. Man erwartet einen Verlauf nach dem Vorbild von \autoref{img:referenz}, wobei jedoch andere Parameter verwendet wurden \cite{Paul-FalleREF}. Das Signal als Differenz von Referenz und sekundärer Anregung erhält demnach ein lokales Minimum, wenn mit einer Resonanzfrequenz der Probesubstanz angeregt wurde. Für den primären Auswurf auf den Detektor stehen dann weniger Ionen zur Verfügung.
 
-				\begin{figure}
+				\begin{figure}[H]
 					\includegraphics[width=\textwidth]{volle_daten.png}
 					\caption{Frequenziteration einer sekundären Anregung in $1\,kHz$-Schritten bis $1,5\,MHz$. Volles Spektrum der 50 aüßeren und 10 inneren Iterationen.}\label{img:bullshit}
 				\end{figure}
 
-			Die \autoref{img:resonanz} - und außerdem \autoref{limg:1itsm} für die erste äußere Iteration bis $\unit[270]{kHz}$ - zeigt das letztendlich gesuchte Spektrum der Resonanzfrequenzen von $\fett{N}_2$-Ionen als die Differenz von Referenz- und Manipulationssignal.  Im Vergleich dazu ist der Verlauf aus \autoref{img:referenz} eingetragen, welcher für die selbe Ionensorte in \cite{Paul-FalleREF} aufgenommen wurde und hier als Literaturwert angenommen werden soll.\\
-			Insgesamt scheint es so, als seien alle Resonanzen zu höheren Frequenzen verschoben worden. Angenommen dies sei der Fall, so wurden die Anregungen von $\omega_r$, $\omega_z$ und $\omega_z-\omega_r$ mit einem Fehler von $\pm\unit[20]{kHz}$ gefunden. Die ist aber insgesamt ein schwaches Kriterium, da bereits von einem Shift des gesamten Spektrums um etwa $+\unit[25]{kHz}$ auszugehen war. Eine Betrachtung der Fehler, welche konsequenter Weise aus dem Verlauf des Signals, insbesondere dem aus \autoref{img:bullshit} folgen, schließt sich im folgenden an.
+			Die \autoref{img:resonanz} - und außerdem \autoref{img:1it} für die erste äußere Iteration bis $\unit[270]{kHz}$ - zeigt das letztendlich gesuchte Spektrum der Resonanzfrequenzen von $\fett{N}_2$-Ionen als die Differenz von Referenz- und Manipulationssignal.
 
-				\begin{figure}
-					\includegraphics[width=\textwidth]{freq_diff_vergleich.png}
-					\caption{Differenz von Referenz und Manipulation. Vergleich mit der Literatur \cite{Paul-FalleREF} bei geringfügiger Übereinstimmung.}\label{img:resonanz}
+				\begin{figure}[H]
+					\includegraphics[width=\textwidth]{freq_resonanz.png}
+					\caption{Differenz von Referenz und Manipulation.  Eingetragen sind die primären Resonanzen mit den jeweiligen, abgelesenen Frequenzen.}\label{img:resonanz}
 				\end{figure}
 
-			Die \autoref{img:bullshit} vermittelt außerdem ein indiskutables Problem: das Messsignal ist nach $\sim\unit[300]{kHz}$ quasi nicht mehr existent und wird von da an nur noch von der Nullzählrate oder anderen zufälligen Ereignissen bestimmt. Es liegt der Gedanke nahe, dass bei dieser großen Messdauer das Experiment nach einer bestimmen Aufnahmedauer versagt hat. Deshalb zeigt \autoref{img:1it} die erste äußere Iteration im vollen Spektrum  - und \autoref{limg:1itsm} - , woraus durch einen Vergleich der Intensitäten ersichtlich wird, das bereits dort die vollständigen Informationen der Messung enthalten sind.
 
-				\begin{figure}
+			Für eine genauere Betrachtung der Resonanzen, berechnet man aus den gegebenen Fallengrößen und bekannten Potentialen die Eigenfrequenzen der Anregung $\omega\ix{r}$ und $\omega\ix{z}$. Dafür benötigt es noch die Definition der notwendigen Parameter $a\ix{r}=-a\ix{z}/2$ und $q\ix{r}=-q\ix{z}/2$ (nach \cite{Paul-FalleREF}). Letztendlich kann man demnach, in Benutzung der \autoref{eq:bruch} und \autoref{eq:spektr} die  Frequenzen bestimmen. \autoref{tab:freqs} zeigt Ordnung 0 und 1.
+
+				\begin{table}[H]
+					\centering
+					\begin{tabular}{c|c|c}
+						\hline $(n\pm\beta\ix{i}/2)\Omega$ & $\omega\ix{r}/\unit{kHz}$ & $\omega\ix{z}/\unit{kHz}$\\
+						\hline\hline +, n=0 & -22 & -97 \\
+						\hline  -, n=0 & 22 & 97 \\
+						\hline +, n=1 & 1260 & 1190 \\
+						\hline -, n=1 & 1310 & 1380
+					\end{tabular}
+					\caption{Errechnete Frequenzen nach \autoref{eq:bruch}, \autoref{eq:spektr} mit den gegebenen Größen der Falle.}
+					\label{tab:freqs}
+				\end{table}
+
+
+			Die negativen Frequenzen in \autoref{tab:freqs} gehören offensichtlich nicht zur realen Lösung des Problems. Insbesondere die Ordnung n=1 liegt für diesen Versuch leider weit außerhalb des sinnvoll gemessenen Frequenzbereiches. Deshalb beschränkt man sich im folgenden auf die Analyse der Resonanzen mit dem gegebenen, pos. 0-ten Ordnungen.\\
+			Durch verschiedene Linearkombinationen der Frequenzen $\omega\ix{r}$ und $\omega\ix{z}$ gilt es, die beobachteten Minima zu ermitteln. Schließlich findet man:
+
+				\begin{align}
+					\omega\ix{z}=\unit[97]{kHz} \quad& \omega\ix{r}=\unit[22]{kHz} \nonumber \\
+					4\omega\ix{r}=\unit[88]{kHz} \quad& \omega\ix{r}+\omega\ix{z}=\unit[120]{kHz} \nonumber \\ \omega\ix{z}-2\omega\ix{r}=\unit[53]{kHz} \quad& \omega\ix{z}+3\omega\ix{r}=\unit[164]{kHz} \nonumber \\
+					2\omega\ix{z}-3&\omega\ix{r}=\unit[128]{kHz} \nonumber
+				\end{align}
+
+			Diese Kombinationen sind ausgewählte Additionen/Subtraktionen der Fourier-Frequenzen zu \autoref{eq:fourie}. Im Vergleich zum gemessenen Spektrum wird damit die Auswertung jedoch nicht einfacher: die axiale Anregung mit $\omega\ix{z}$ ist erwartungsgemäß eine sehr Starke, könnte demnach also dem Peak bei $\unit[87]{kHz}$ zugeordnet werden. Der errechnete Wert liegt hingegen nicht einmal in dessen Nähe. Andererseits sind einfache Zusammenstellungen der Eigenfrequenzen, wie zum Beispiel $\omega\ix{z}+3\omega\ix{r}$ oder $\omega\ix{z}-2\omega\ix{r}$ näherungsweise gut im Spektrum zu beobachten. Setzt man an, dass auch schon während der ersten Iteration (siehe \autoref{img:1it}) - wobei diese Überlegung nicht unwahrscheinlich ist - das Messsignal erheblich durch, beispielsweise die Aufladung der Endkappen gestört wurde, so sind etwaige Frequenzverschiebungen von $\pm\unit[10]{kHz}$ nicht unmöglich. Eine zweite Tabelle \autoref{tab:freqs2} zeigt 'hypothetische' Werte für $U\ix{0}=\unit[-1]{V}$ statt 0.
+
+				\begin{table}[H]
+					\centering
+					\begin{tabular}{c|c|c}
+						\hline $(n\pm\beta\ix{i}/2)\Omega$ & $\omega\ix{r}/\unit{kHz}$ & $\omega\ix{z}/\unit{kHz}$\\
+						\hline\hline +, n=0 & -25 & -91 \\
+						\hline  -, n=0 & 25 & 91 \\
+						\hline +, n=1 & 1315 & 1381 \\
+						\hline -, n=1 & 1264 & 1198
+					\end{tabular}
+					\caption{Errechnete Frequenzen nach \autoref{eq:bruch}, \autoref{eq:spektr} mit den gegebenen Größen der Falle. Hier statt $U\ix{0}=\unit[0]{V}$ auf $\unit[1]{V}$.}
+					\label{tab:freqs2}
+				\end{table}
+
+			Eine weitere Untersuchung der Eigenfrequenzen des Ions ist nicht möglich bzw. ebenso wenig aussagekräftig, da der Vergleich von Mess- und Rechenwert bereits einen Fehler im Experiment andeutet, welche im Folgenden betrachtet werden soll.\\
+			Die \autoref{img:bullshit} vermittelt ein indiskutables Problem: das Messsignal ist nach $\sim\unit[300]{kHz}$ quasi nicht mehr existent und wird von da an nur noch von der Nullzählrate oder anderen zufälligen Ereignissen bestimmt. Es liegt der Gedanke nahe, dass bei dieser großen Messdauer das Experiment nach einer bestimmen Aufnahmedauer versagt hat. Deshalb zeigt \autoref{img:1it} die erste äußere Iteration im vollen Spektrum  - und \autoref{img:1itsm} - , woraus durch einen Vergleich der Intensitäten ersichtlich wird, das bereits dort die vollständigen Informationen der Messung enthalten sind.
+
+				\begin{figure}[H]
 				\includegraphics[width=\textwidth]{erste_it.png}
 				\caption{Signal der ersten Iteration. Im Vergleich zum Vollen Spektrum erkennt man leicht, das hier die vollständigen, erhaltenen Daten stecken.}\label{img:1it}
 				\end{figure}
 
-				\begin{figure}
+				\begin{figure}[H]
 					\includegraphics[width=\textwidth]{freq_smooth.png}
 					\caption{Abfall der Signalstärke in Referenz und Manipulation. Unbearbeitete Daten für \autoref{img:resonanz}.}\label{img:1itsm}
 				\end{figure}

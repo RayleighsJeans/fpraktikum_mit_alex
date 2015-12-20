@@ -242,23 +242,23 @@ freqsweep_15e5Hz_ref = freqsweep_15e5Hz_ref1it;
 
 %%Schaue mir das Signal über 50 äußere (10 innere) Iterationen an. Mit
 %%Anregung.
-figure
-hold on
-grid on; grid minor
-plot(1e-6.*time,dec_ex_s,':sr','LineWidth',1.5);
-
-f = 'a*x+b';
-wurzel = ezfit(f);
-showfit(wurzel);
-
-plot(1e-6.*time,dec_ref_s,'-.^b','LineWidth',1.5);
-xlabel('Zeit in 10^{3}ms');
-ylabel('Intensität, Counts in 10 It.');
-legend('Signalintens., mit Anregung','ohne Anregung');
-set(gca, 'FontSize', 22);
-axis([1e-6*time(1) 1e-6*time(end) min(dec_ref_s) max(dec_ref_s)]);
-savefig('signal_abfall.fig');
-hold off
+% figure
+% hold on
+% grid on; grid minor
+% plot(1e-6.*time,dec_ex_s,':sr','LineWidth',1.5);
+% 
+% f = 'a*x+b';
+% wurzel = ezfit(f);
+% showfit(wurzel);
+% 
+% plot(1e-6.*time,dec_ref_s,'-.^b','LineWidth',1.5);
+% xlabel('Zeit in 10^{3}ms');
+% ylabel('Intensität, Counts in 10 It.');
+% legend('Signalintens., mit Anregung','ohne Anregung');
+% set(gca, 'FontSize', 22);
+% axis([1e-6*time(1) 1e-6*time(end) min(dec_ref_s) max(dec_ref_s)]);
+% savefig('signal_abfall.fig');
+% hold off
 
 %%Versuche krassen Shit mit dem richtigen Spektrum
 Z = imread('referenz_raw.bmp');
@@ -306,17 +306,79 @@ end
 % figure
 % hold on
 % grid on; grid minor
-% plot(1/1000.*freq_15e5Hz(1:270),-Hz15e5_diff_s+2.*abs(min(-main(1:int32(270/(800/1361))))),'-.^k','LineWidth',1.4);
-% plot(ref_freq(1:int32(270/(800/1361))),-main(1:int32(270/(800/1361)))+2.*abs(min(-main(1:int32(270/(800/1361))))),':xr','LineWidth',1.4)
+% plot(1/1000.*freq_15e5Hz(1:270),-Hz15e5_diff_s+2.*abs(min(-main(1:int32(270/(800/1361))))),'-.xr','LineWidth',1.4);
+% % plot(ref_freq(1:int32(270/(800/1361))),-main(1:int32(270/(800/1361)))+2.*abs(min(-main(1:int32(270/(800/1361))))),':xr','LineWidth',1.4)
 % xlabel('Frequenz in kHz');
 % ylabel('Normierte Intensität, a.u.');
 % axis([0 270 min(-main(1:int32(270/(800/1361)))+2.*abs(min(-main(1:int32(270/(800/1361))))))-10 max(-Hz15e5_diff_s+2.*abs(min(-main(1:int32(270/(800/1361))))))+10])
-% legend('Messdaten der Resonanz','Literaturwerte, Leuthner et. al.');
+% legend('Messdaten der Resonanz');
 % set(gca, 'FontSize', 22);
 % savefig('freq_vergleich.fig');
 % hold off
 
-keyboard
+
+%% Auswertung der Peaks
+
+freqs = [15 36 59 87 109 130 168];
+
+    for U0 = [-1 -0.5 0 0.5 1]
+        
+            q = -1.602*1e-19;
+            r0 = 0.007;
+            z0 = 0.0049;
+            Om = 1.29*1e6*2*pi;
+            d0 = sqrt((r0^2)/2+z0^2);
+            V0 = 120;
+            m = 2*14.0067*1.660538*1e-27+1.901*1e-31;
+
+            az = -8*q*U0/(m*d0^2*Om^2);
+            ar = -az/2;
+
+            qz = 4*q*V0/(m*d0^2*Om^2);
+            qr = -qz/2;
+
+        Q = [qz qr];
+        A = [az ar];
+
+            %betax = ax-(ax-1)*qx^2/(2*(ax-1)^2-qx^2)-(5*ax+7)*qx^4/(32*(ax-1)^3*(ax-4))-(9*ax^2+58*ax+29)*qx^6/(64*(ax-1)^5*(ax-4)*(ax-9));
+            betar = ar-(ar-1)*qr^2/(2*(ar-1)^2-qr^2)-(5*ar+7)*qr^4/(32*(ar-1)^3*(ar-4))-(9*ar^2+58*ar+29)*qr^6/(64*(ar-1)^5*(ar-4)*(ar-9));
+            betaz = az-(az-1)*qz^2/(2*(az-1)^2-qz^2)-(5*az+7)*qz^4/(32*(az-1)^3*(az-4))-(9*az^2+58*az+29)*qz^6/(64*(az-1)^5*(az-4)*(az-9));
+
+        beta = [betaz betar];
+
+            omega = zeros(2,2);
+            omegap = omega;
+            omegam = omega;
+
+        for n = [1 2]
+            omegap(:,n) = 1/2*(2*(n-1)+beta)*Om;
+            omegam(:,n) = 1/2*(2*(n-1)-beta)*Om;
+        end
+        
+        fprintf(1,'U_0 = %d V\n',U0);
+        fprintf(1,'Omega_+\n');
+        disp(omegap/(2*pi*1e3));
+        fprintf(1,'Omega_-\n');
+        disp(omegam/(2*pi*1e3));
+        %fprintf(1,'Peak-Frequenzen\n');
+        %disp(freqs);
+        
+        if (U0 == 0)
+            op = omegap;
+            om = omegam;
+        end
+        
+    end
+
+for i=1:5
+    for j=1:5
+        combp(i,j) = (i-1)*op(1,1)+(j-1)*op(2,1);
+        combm(i,j) = (i-1)*op(1,1)-(j-1)*op(2,1);
+        combm2(i,j) = (i-1)*op(2,1)-(j-1)*op(1,1);
+    end
+end
+
+%keyboard
 save('all_paul-trap.mat');
 clear all
 end
