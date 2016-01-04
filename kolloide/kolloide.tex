@@ -109,7 +109,7 @@
 		Der in diesem Versuch genutzte Aufbau entspricht dem eines kapazitiv gekoppelten Niederdruck-Radiofreuquenz-Plasmas.\\
 		Befindet sich ein Fremdteilchen, ein Festkörper oder eine weitere Ladungsträgerspezies in so einer Entladung (nicht nur), so spricht man von komplexen Plasmen. Für das Experiment ist dies der Fall, da hierbei in das Plasma homogene Melamin-Formaldehyd-Partikel mit dem Radius $a=\unit[7.1]{\upmu m}$ eingebracht werden. Diese erfahren, in Abhängigkeit der Parameter der Gasentladung, verschiedenste Wechselwirkungen mit den Ladungsträgern und externen Feldern. Inhalt des Experimentes, welches diesem Protkoll zu Grunde liegt, ist die Bestimmung der Staubladung, -temperatur sowie dem mittleren Abstand zwischen den Teilchen einer Schicht.
 
-		\section{Aufladung von Staubpartikeln}\label{sub:ströme}
+		\subsection{Aufladung von Staubpartikeln}\label{sub:ströme}
 
 		Die Ladung eines Fremdteilchens (Staub) in einem Plasma ist eine dynamische Größe. Sie ist sowohl zeitlich veränderlich, als auch abhängig von den Plasmaparametern, den Partikeleigenschaften sowie deren Trajektorie in der Entladung. Die Ladung eines Teilchens zum Zeitpunkt $t$ ergibt sich, näherungsweise, aus den Ladungsströmen $I\ix{k}$ der Plasmaspezies auf das Partikel bis zu diesem Zeitpunkt. Im folgenden genügt es, dieses Problem auf einer Zeitskala zu betrachten, in der man die Ladung als konstant unter dem Einfluss der Ströme annehmen kann. Diese werden damit stationär.
 
@@ -189,7 +189,7 @@
 					\caption{}
 					\label{img:gamma}
 				\end{subfigure}
-				\caption{\fett{(a)}: Harmonischer Einfang des Potentials $V$ in $\unit{eVs}$ mit globalem Minimum (dunkel). Darstellung für eine Elektrodenhöhe  von $\unit[1,5]{cm}$. \fett{(b)}: Phasendiagramm nach \cite{Melzer12} für eine effektive Coulomb-Kopplung nach \autoref{eq:kopplung}.}
+				\caption{\fett{(a)}: Harmonischer Einfang des Potentials $V$ in $\unit{eVs}$ mit globalem Minimum (dunkel). Darstellung für eine Höhe  von $\unit[1,5]{cm}$. \fett{(b)}: Phasendiagramm nach \cite{Melzer12} für eine effektive Coulomb-Kopplung nach \autoref{eq:kopplung}.}
 			\end{figure}
 
 
@@ -332,18 +332,18 @@
 			\end{align}
 
 		Im Hinblick auf die Kopplungsparameter und Staubtemperaturen erscheinen diese Ergebnisse sinnvoller, als die obigen. Der Wert von $\Gamma$ deutet eine sehr starke, aber noch keine kristalline Kopplung an. Der Effektiv-Wert repräsentiert das ebenfalls. Die Beobachtungen am System - schwache Amplituden, kleines thermisches Schwanken - stimmen mehr mit den neuen Größenintervallen überein, als die vorherigen. Das Modell des gedämpften, getriebenen harmonischen Oszillators als Staubteilchen kann also als ungenügend betrachtet werden.\\
-		Für die benutzerdefinierte Eingaben kann man einen Fehler von $\pm\unit[2]{px}$ ansetzen.Die Abweichungen pflanzen sich folgendermaßen fort:
+		Für die benutzerdefinierte Eingaben kann man einen Fehler von $\pm\unit[2]{px}$ ansetzen. Die Abweichungen pflanzen sich folgendermaßen fort:
 
 			\begin{align}
-				b\ix{WS}\in&\left[\unit[0.781]{mm}; \unit[0.698]{mm}\right] \nonumber \\
+				b\ix{WS}\in&\left[\unit[0,781]{mm}; \unit[0,698]{mm}\right] \nonumber \\
 				Z\ix{S}\in&\left[5831; 5012\right] \nonumber \\
 				T\ix{S}\in&\left[\unit[9,68]{eV}; \unit[11,67]{eV}\right] \nonumber \\
 				v\ix{th,S}\in&\left[\unit[1,319]{mm/s}; \unit[1,448]{mm/s}\right] \nonumber \\
 				\Gamma\in&\left[5,624; 5,253\right] \nonumber \,\,.
 			\end{align}
 
-		Die Auswirkungen der Fehler in einer GUI sind allgemein gering. Sie verändern die Interpretationsmöglichkeiten der errechneten Werte nicht.\\
-		Abschließend bleibt die Frage, ob und in welcher Ordnung ein Fehler in der Ermittlung von $\overline{b}$ und dem mittleren Schwankungsquadrat in \tilt{KristallAuswertung.m} vorliegt.
+		Die Auswirkungen der Fehler in einer GUI sind im Allgemeinen sehr gering. Sie verändern die Interpretationsmöglichkeiten der errechneten Werte nicht.\\
+		Abschließend bleibt die Frage, ob und in welcher Ordnung ein Fehler in der Ermittlung von $\overline{b}$ und dem mittleren Schwankungsquadrat in \tilt{KristallAuswertung.m} vorliegt. Dieses Programm lag bereits vor und entzieht sich der Fehlerabschätzung.
 
 	\newpage
 	\section{Anhang}
