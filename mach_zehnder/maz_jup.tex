@@ -59,6 +59,8 @@
 \newcommand{\einnup}{\hspace{0.2cm}}
 \newcommand{\einnum}{\hspace{-0.2cm}}
 \newcommand{\zentriert}[1]{\begin{center}#1\end{center}}
+\newcommand{\ket}[1]{|#1\rangle}
+\newcommand{\bra}[1]{\langle#1|}
 
 \title{Protokoll: Mach-Zehnder Interferometer\\Quantenradierer} %TODO Name des Versuchs eintragen
 \author{Alexander Jankowski, Philipp Hacker}
@@ -90,6 +92,8 @@
 	\clearpage
 	\section{Motivation}
 
+		Ein sogenanntes \tilt{Mach-Zehnder}-Interferometer ist ein simpler, dennoch vielseitig einsetzbarer Aufbau zur Untersuchung von verschiedenen optischen Eigenschaften einer Probesubstanz. Des Weiteren kann ein MZI außerdem für die Visualisierung von Quantenmechanischen Phänomenen, wie bspw. dem Kollaps der Wellenfunktion und dem "`Welcher-Weg"'-Problem genutzt werden.\\
+		Für diese Zwecke reicht es vollkommen aus, Bauteile mittlerer Güte mit einander geschickt zu kombinieren, um den gewünschten Effekt zu erhalten. Dabei verwendete man Strahlteiler, Polarisationsfilter, optische aktive Teile wie ein $\lambda/4$-Plättchen und einfache Spiegel.
 	\clearpage
 	\section{Physikalische Grundlagen}
 
@@ -109,7 +113,7 @@
 				Nach \autoref{img:aufbau} durchläuft jeweils ein Strahl den Weg \fett{W1} und \fett{W2} mit den Weglängen $s\ix{W1}$ bzw. $s\ix{W2}$. Offensichtlich erfahren beide eine unterschiedliche Phasenverschiebung aufgrund der Probe bzw. den Reflexionen an Spiegeln und dem Durchgang durch die Strahlteiler.\\
 				Bei der Reflexion eines Lichtstrahls einem optisch dichteren Medium - unter Annahme einer, zur Einfallsebene senkrecht polarisiert einlaufenden Welle und nicht-absorbierender Medien - tritt \enquote{für die zur Einfallsebene senkrechte Komponente ein Phasensprung von $\pi$ auf.} (aus \cite{MZdemt}, S. 239). Gleiches gilt auch für die Parallelkomponente und jeden Einfallswinkel (exc. den \tilt{Brewster-Winkel}) womit man annehmen kann: \enquote{Die Welle macht dann einen Phasensprung von $\pi$ bei der Reflexion.}\\
 				Untersucht man nun die einzelnen Wege des Lichtstrahls - \fett{W1} oder \fett{W2} zum Detektor \fett{A} oder \fett{B} - so findet man, dass der gesamte Phasenunterschied jeweils $2\pi$ beträgt und man somit auf beiden Schirmen konstruktive Interferenz, e.g. \tilt{kohärente} Überlagerung  erwarten muss.\\
-				Augenscheinlich muss zusätzlich die, bisher vernachlässigte Richtungsabhängigkeit eines Strahlteilers und der daran stattfindenden Reflexion beachtet werden. Es kommt demnach zu keinem Phasensprung bei einer Reflexion an der 'Rückseite', dem halb-durchlässigen Spiegel eines realen Strahlteilers.\\
+				Augenscheinlich muss zusätzlich die, bisher vernachlässigte Richtungsabhängigkeit eines Strahlteilers und der daran stattfindenden Reflexion beachtet werden. Es kommt demnach zu keinem Phasensprung bei einer Reflexion an der 'Rückseite', dem halb-durchlässigen Spiegel eines realen Strahlteilers. Andererseits: es findet keinen Phasensprung bei einer Reflexion an einem Medium, welches optisch Dünner ist.\\
 				Tatsächlich nimmt eine durchlaufende Welle im Glas des Bauteils eine zusätzliche Phase von $2\pi s/\lambda$ auf, wobei $\lambda$ die Wellenzuglänge und $s$ der optische Weg im Medium - respektive Brechungsindex und Einfallswinkel - ist. Damit wird entlang des Pfades \fett{W1} zum Detektor \fett{A} die Gesamt-Phasenverschiebung zu $\varphi\ix{A}$ in \autoref{eq:phas1a}. Analog gilt dies für den anderen Detektor \fett{B} und den zweiten Pfad \fett{W2} in \autoref{eq:phas1b} - \autoref{eq:phas2b}.
 
 					\begin{align}
@@ -126,19 +130,69 @@
 					\varphi\ix{B}-\vartheta\ix{B}=&\pi+\delta \label{eq:phasrel2}
 				\end{align}
 
+			Das Verhältnis ist nun sehr offensichtlich: für exakt gleiche optische Wegstrecken, dh. $\delta=0$ liegt auf \fett{A} konstruktive und an \fett{B} destruktive Interferenz vor! Jede Abweichung von diesem Idealfall verändert die Interferenzmuster auf beiden Schirmen. Des weiteren wandelt ein Unterschied in den Strahlteilern oder Spiegeln das Ergebnis nur dahingehend, als dass eine konstante Phase hinzu- oder abgezogen wird, was sich aber wiederum in $\delta$ verarbeiten lässt. Außerdem: liegen keine idealen 50:50-Strahlteiler vor, so gilt trotzdem die Regel des Phasensprungs, da damit die Energieerhaltung einher geht. Lediglich totale destruktive/konstruktive Interferenz wird damit verhindert \cite{MZwork}.\\
+			Man kann die unterschiedlichen Interferenzerscheinung auf den Detektoren mit Hilfe der, bereits von \tilt{Albert A. Michelson} definierten Kontrastfunktion (\tilt{Sichtbarkeit}, 'visibility') in \autoref{eq:kontrastalt} mathematisch erfassen \cite{MZcohe}. Mit Hilfe der komplexen Selbst-Kohärenz-Funktion $\Gamma(\tau)$ für die Interferenz von 2 gleichsam intensive Wellen mit einer zeitlichen Beziehung $\tau$ - in Abhängigkeit ihrer Phasenverschiebung - einer monochromatischen Lichtquelle und dem dazugehörigen komplexen Grad der Selbst-Kohärenz $\gamma(\tau)$ ergibt sich\autoref{eq:kontrast}.
+
+				\begin{align}
+					&K=\frac{I\ix{max}-I\ix{min}}{I\ix{max}-I\ix{min}} \label{eq:kontrastalt} \\
+					I\ix{max}(\tau)=2I\ix{1}+&2|\Gamma(\tau)| \,\, ;\quad I\ix{min}(\tau)=2I\ix{1}-2|\Gamma(\tau)| \nonumber \\
+					K(\tau)=&\frac{|\left\langle E^*\ix{1}(t)E\ix{2}(t+\tau)\right\rangle|}{\left\langle E^*\ix{1}(t)E\ix{2}(t)\right\rangle}=\frac{|\Gamma(\tau)|}{\Gamma(0)}=|\gamma(\tau)| \label{eq:kontrast}
+				\end{align}
+
+			In der Regel \cite{MZcohe} ergeben bzw. beobachtet man, über die zeitliche Kohärenzbeziehung in $\tau$ monoton abfallenden Kontrastfunktionen. Dies ist insbesondere auch in dem Versuch dieses Experimentes der Fall.\\
+			Ein weiterer Aspekt des Kontrast und der Interferenz ist die Polarisation, welche bspw. mit einem Polarisationsfilter eingestellt werden kann. Außerdem ist die Polarisation einer Lichtwelle beim Durchgang durch ein (optisch aktives) Medium nicht zwangsweise erhalten und kann auch bei der Reflexion (bspw. im \tilt{Brewster}-Winkel) sich ändern. 
 
 			\subsection{MZ-Interferometer für einzelne Photonen}
 
+				Nimmt man hingegen Abstand von der Welleninterpretation des Lichts, so wie es bisher angenommen wurde, und betrachtet das Experiment mit dem Mach-Zehnder-Interferometer auf quantenmechanische Weise, so ergibt sich sobald eine Frage der Art:
+
+					\begin{quote}
+						Wählt das Photon einen bestimmten Weg, wird es also vom Strahlteiler entweder durchgelassen oder reflektiert, und zeigt es so seine Teilcheneigenschaft, oder wird es sozusagen gleichzeitig durchgelassen und reflektiert, so dass es mit sich selbst interferiert und seine Wellennatur zeigt? \par\raggedleft ---\text{A. Schimony, Die Realität der Quantenwelt; 1996, S. 75 \cite{MZquote}}
+					\end{quote}
+
+				Betrachte man demnach nun ein einzelnes Photon im Zustand $\ket{\alpha}$ auf seinem Weg durch den Aufbau. Die jeweiligen Phasenverschiebungen kennen wir bereits aus \autoref{eq:phas1a} und folgende. Zu versehen sind die einzelnen Möglichkeiten zusätzlich noch mit, an die Normierung der Wahrscheinlichkeit geknüpften Faktoren $1/\sqrt{2}$, weswegen sich \autoref{eq:zust} und nachfolgende ergeben.
+
+					\begin{align}
+						\fett{W1, A:}&\quad \frac{1}{2}e^{\imag(2\pi+\phi+\theta\ix{W1})}\ket{\alpha}=\frac{1}{2}e^{\imag(\phi+\theta\ix{W1})}\ket{\alpha} \label{eq:zust} \\
+						\fett{W1, B:}&\quad \frac{1}{2}e^{\imag(\phi+\theta\ix{W1}+\pi)}\ket{\alpha} \\
+						\fett{W2, A:}&\quad \frac{1}{2}e^{\imag(\phi+\theta\ix{W2})}\ket{\alpha} \\
+						\fett{W2, B:}&\quad \frac{1}{2}e^{\imag(\pi+2\phi+\theta\ix{W2})}\ket{\alpha}
+					\end{align}
+
+				Unter der Annahme, dass die optischen Wege gleich sind, e.g. $\theta\ix{W2}=\theta\ix{W1},$ können deren Phaseneinflüsse vernachlässigt werden - man könnte genau so gut den Zustand $\ket{\beta}=e^{\imag\theta}\ket{\alpha}$ definieren.\\
+				Die Wahrscheinlichkeit, dass ein Photon also auf den Detektor \fett{A} bzw. \fett{B} trifft, ist demnach die Summe der beiden Möglichkeiten, auf \fett{W1} bzw. \fett{W2} zu propagieren. Es hat also eine nicht-verschwindende Probabilität, beide Wege gleichzeitig zu begehen, um dann an den Detektoren "`mit sich selbst zu interferieren"'. Natürlich ist hierbei von keinem "`Weg des Photons"' oder Selbstinterferenz zu sprechen, da die Beobachtung auf dem Schirm bzw. eine Messung auf einem Pfad den Kollaps der Wellenfunktion zur Folge hat und den Wellen- bzw. Teilchencharakter damit zerstört (je nach Betrachtungsweise).\\
+				Mit Hilfe eines Polarisators auf dem Weg \fett{W1} nach der Strahlteilung kann man zudem das \enquote{Welchen-Weg-Problem} nachvollziehen: aus dem anfänglichen Zustand $\ket{\alpha}$ wird somit ein \tilt{Hilbert}-Vektor $\ket{\gamma}$, verziert mit der gleichen Phasenverschiebung wie zuvor (\autoref{eq:zust}). Die Gesamt-Wahrscheinlichkeit ist in \autoref{eq:wahr} gegeben, wobei die Bedingung $|\frac{1}{\sqrt{2}}e^{\imag\phi}|^2=1/2$ an den Phasenhub geknüpft werden muss. Diese ist somit gleichbedeutend mit der Wahrscheinlichkeit, ein Photon auf dem Detektor \fett{A} zu messen. Durch die Kenntnis, bzw. das Aufprägen der Polarisation des Photons 'kann' damit prinzipiell eine Weginformation im Interferometer erhalten werden.
+
+					\begin{align}
+						\frac{1}{2}e^{\imag\phi}\ket{\gamma}+\frac{1}{2}e^{\imag\phi\ket{\alpha}}=\frac{1}{\sqrt{2}}e^{\imag\phi}\left(\frac{1}{\sqrt{2}}\ket{\gamma}+\frac{1}{\sqrt{2}}\ket{\alpha}\right) \label{eq:wahr}
+					\end{align}
+
+				In diesem Experiment werden hingegen 2 Polarisatoren auf \fett{W1} und \fett{W2} benutzt, um gezielt die Interferenz eines Photons mit sich selbst zu verhindern. Durch die vollständige Einschränkung des Polarisationszustandes kommt es, wie zuvor angedeutet, zum Kollaps der Wellenfunktion. Das System der Wellenfunktionen (Hilbert-Vektoren) geht in einen diskreten Zustand eines Teilchens über.\\
+				Ein weiterer Polarisator kann genutzt werden, um die Information über den Verlauf des Photons "`auszuradieren"' (\tilt{quantum eraser}, Quantenradierer). Dieser wird dafür hinter dem zweiten Strahlteiler vor einem Detektor platziert. Damit ist es wieder möglich, Interferenzmuster zu beobachten.
+
 	\clearpage
 	\section{Durchführung}
-	
+
+		Der Versuch zum \tilt{Mach-Zehnder-Interferometer} ist aus 3 Teilen aufgebaut.\\
+		Zum Beginn des Experimentes gilt es sich mit dem optischen Aufbau nach \cite{MZaufbau} vertraut zu machen und die verwendeten, optischen Bauteile zu charakterisieren. Dafür wird der Polarisationsgrad des eingebauten Helium-Neon-Lasers ($\unit[0,2\dots1]{mW}$) und die Polarisation nach dem Durchgang durch einen Polarisator bei maximaler Intensität bestimmt. Dafür kann eine arbiträre Photodiode und Multimeter benutzt werden. Im Anschluss daran muss das sog. $\lambda/4$-Plättchen untersucht werden: mit Hilfe der Polarisatoren wird jenes so eingestellt, das zirkular polarisiertes Licht vorliegt.\\
+		Im zweiten Teil gilt es, den Aufbau nach \cite{MZaufbau} vorzunehmen. Hierbei ist die möglichst horizontale und, innerhalb des Aufbaus parallele Strahlführung von großer Bedeutung. Sowohl Winkel und Höhe der Strahlteiler, Spiegel als auch der Linse (notwendig um \tilt{Fresnelringe} auf dem Schirm zu beobachten) sind hierbei zu beachten.\\
+		Wurde eine optimale Interferenz der Teilstrahlen am zweiten Strahlteiler/auf beiden Schirmen erreicht, so kann mit einer CCD-Kamera das beobachtete Muster aufgenommen werden. Daraus lässt sich ebenfalls die Kontrastfunktion ablesen.\\
+		Schließlich kann mit den, in \autoref{img:aufbau2} mit \fett{PF1} bis \fett{PF3} bezeichneten Polarisatoren der \tilt{Quantum Eraser} aufgebaut werden.
+
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=0.85\textwidth]{aufbau.png}
+				\caption{Aufbau des finalen Experimentes nach \cite{MZaufbau}. Das $\lambda/4$-Plättchen entspricht dem \tilt{quarter lambda}, die Spiegel den \fett{M1} bis \fett{M4} und die Strahlteiler den \fett{BS1} und \fett{2}. Beobachtet wird die Intereferenz auf \fett{SC1} und \fett{SC2}.}
+				\label{img:aufbau2}
+			\end{figure}
+
 	\clearpage
 	\section{Auswertung}
 	
 	\clearpage
 	\section{Anhang}
 
-\bibliography{all}
+\bibliography{all.bib}
 \bibliographystyle{natdin}
 
 \end{document}
