@@ -5,8 +5,8 @@
 % with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
 % The lincense itself can be found at <https://www.gnu.org/licenses/fdl-1.3>.
 
-\documentclass[numbers=noenddot,a4paper,notitlepage,twoside,BCOR15mm]{article}
-%\documentclass[numbers=noenddot,12pt,a4paper]{scrartcl}
+\documentclass[numbers=noenddot,a4paper]{article}
+%\documentclass[numbers=noenddot,12pt,a4paper,notitlepage,twoside,BCOR15mm]{scrartcl}
 
 \usepackage[english]{babel}
 \usepackage[T1]{fontenc}
@@ -33,7 +33,6 @@
 \usepackage[backref=page]{hyperref}
 
 \usepackage{csquotes}
-%\usepackage{ifoddpage}
 \usepackage[infoshow]{tabularx}
 \usepackage{fancyhdr}
 
@@ -96,6 +95,7 @@ Supervisor: Dr. Robin John\\ %TODO Name des Betreuers eintragen
 		\end{tabularx}
 	\end{table}
 \end{center}
+
 \vspace*{\fill}
 \tableofcontents
 \vfill
@@ -174,7 +174,7 @@ Supervisor: Dr. Robin John\\ %TODO Name des Betreuers eintragen
 					\lambda\ix{mfp}=\frac{538\cdot a\unit{[nm]}}{(E\ix{kin}\unit{[eV]})^2}+0,41\cdot a^{3/2}\unit{[nm^{3/2}]}\sqrt{E\ix{kin}\unit{[eV]}} \,\,.\label{eq:mfp}
 				\end{align}
 
-			A quantitative - say how much of which element is on the sample - analysis can be achieved by a comparison of peak areas $A\ix{i}$ in the spectrum one yields from a full measurement. As there are different probabilities of electron emission for each element $i$, the calculated peak area has to be weighted with the atomic sensitivity facto $ASF\ix{i}$. The concentration of an element on the samples surface is then represented by:
+			A quantitative - say how much of which element is on the sample - analysis can be achieved by a comparison of peak areas $A\ix{i}$ in the spectrum one yields from a full measurement. As there are different probabilities of electron emission for each element $i$, the calculated peak area has to be weighted with the atomic sensitivity factor $ASF\ix{i}$. The concentration in percent of an element on the samples surface is then represented by:
 
 				\begin{align}
 					c\ix{i}=\frac{A\ix{i}\cdot ASF\ix{i}^{-1}}{\sum_{j}A\ix{j}\cdot ASF\ix{j}^{-1}} \,\,.
