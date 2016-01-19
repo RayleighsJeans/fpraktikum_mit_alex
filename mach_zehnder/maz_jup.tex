@@ -189,10 +189,104 @@
 	\clearpage
 	\section{Auswertung}
 	
-	\clearpage
+	\subsection{Polarisationsgrad des Laserlichtes}
+	
+	Zur Bestimmung der Polarisation wird die Intensität des durch einen Polarisator transmitierten Laserlichtes gemessen. Die aufgenommenen Werte sind in \autoref{fig:1xpol} dargestellt. Die Intensität weist bei kleinen Winkeleinstellungen auf. Weiterhin ist zu beobachten, dass die Intensität in beide Richtungen gleichermaßen abnimmt, bis sie jeweils bei einem Winkel von ca. $90^\circ$ in ein Minimum läuft. Um den Polarisationgrad zu bestimmen kann die Beziehung
+	\begin{equation}
+		K = \frac{I_\mathrm{max}-I_\mathrm{min}}{I_\mathrm{max}+I_\mathrm{min}}
+		\label{eq:kontrast}
+	\end{equation}
+	verwendet werden, welche den Kontrast $K$ in Abhängigkeit der minimalen und maximalen Intensität $I_\mathrm{max}$, $I_\mathrm{min}$ setzt. Je höher der gemessene Kontrast ist, desto näher ist das Licht total Polarisiert. Für diese Messung wird als minimale Intensität ein Wert von $I_\mathrm{min} = 0,2$ und als maximale Intensität $I_\mathrm{max} = 33,0$ aufgenommen. Der zugehörige Kontrast ist $K \approx 0,99$, weshalb man von quasi vollständig polarisierten Laserlicht ausgehen kann.
+	
+	\begin{figure}[h]
+		\centering
+		\begin{subfigure}{.49\textwidth}
+			\centering
+			\includegraphics[width=0.8\linewidth]{pics/1xpol.png}
+		\end{subfigure}
+		\begin{subfigure}{.49\textwidth}
+			\centering
+			\includegraphics[width=0.8\linewidth]{pics/2xpol.png}
+		\end{subfigure}
+		\caption{Intensität des Laserlichtes nach dem Durchgang eines bzw. zwei Polarisatoren in Abhängigkeit der Einstellungsinkel.}
+		\label{fig:1xpol}
+	\end{figure}
+	
+	Weiterhin sind ist der Intensitätsverlauf des Lichtes nach Durchgang durch das $\lambda/4$-Plättchen und eines auf $0^\circ$ eingestellten Polarisators in Abhängigkeit des Einstellungswinkels des Plättchens in \autoref{fig:lambda4} dargestellt. Die Messung zeigt, das dass $\lambda /4$-Plättchen, nicht wie erwartet bei $45^\circ$ zirkular polarisiertes Licht erzeugt, sondern bei einem Winkel von ca. $50^\circ$. Für die weiteren Messung wird diese Einstellung verwendet. \clearpage
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.5\columnwidth]{pics/lambda4.png}
+		\caption{Intensität des Laserlichtes nach dem Durchgang durch das $\lambda /4$-Plättchen und einen auf $0^\circ$ eingestellten Polarisator. Bei der Messung wurde der Einstellungswinkel des $\lambda /4$-Plättchens variiert.}
+		\label{fig:lambda4}
+	\end{figure}
+	
+	\subsection{Kontrastfunktion des Mach-Zehnder-Interferometers}	
+	
+	Nach dem Aufbau des Mach-Zehnder-Interferometers wird das Interferenzmuster mit einer Kamera aufgenommen. Dieses ist ohne einsetzen der Polarisatoren in \autoref{fig:ohnealles} dargestellt. Es war im Zeitrahmen des Versuches nicht möglich ein Interfenzmuster mit Ringen zu erzeugen und es wurde sich mit den dargestellten Muster zufrieden gegeben. 
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width = 0.5 \columnwidth]{pics/ohnealles.png}
+		\caption{Interferenzmuster des rekombinierten Laserlichtes an einem der Schirme aufgenommen mit einer CCD Kamera in Graustuffen.}
+		\label{fig:ohnealles}
+	\end{figure}
+	
+	Nach dem Einbau der Polarisatoren werden Aufnahmen bei verschiedenen Einstellungswinkel vorgenommen, wobei der Winkel von $0^\circ$ bis $90^\circ$ in $5^\circ$ Schritten variiert wird. In \autoref{fig:interpol} sind die Interferenzmuster vom minimalen und maximalen Winkel zur Veranschaulichung gegenüber gestellt. Ein Querschnitt durch diese Bilder ist in \autoref{fig:test} für ausgewählte Winkel dargestellt. Der Querschnitt wurde hierbei für jeden Fall an der gleichen Stelle angefertigt. Es ist bereits mit dem Auge zu erkennen, das der Kontrast bei größeren Winkeln abnimmt und für die Messung bei $90^\circ$ ist bereits kein Interferenzmuster mehr zu erkennen. An Hand der Querschnitte kann mit Hilfe von \autoref{eq:kontrast} der Kontrastverlauf der Messung aufgetragen werden. Das Ergebnis ist in \autoref{fig:kontrast} dargestellt.
+	
+	\begin{figure}
+		\centering
+		\begin{subfigure}{.49\textwidth}
+			\centering
+			\includegraphics[width=.7\linewidth]{pics/0grad_.png}
+		\end{subfigure}
+		\begin{subfigure}{.45\textwidth}
+			\centering
+			\includegraphics[width=.7\linewidth]{pics/90grad_.png}
+		\end{subfigure}	
+		\caption{Interfentmuster des rekombinierten Laserlichtes nach dem Einsetzten der Polarisatoren bei einer Winkeleinstellung von $0^\circ$ bzw. $90^\circ$ in Graustuffen.}
+		\label{fig:interpol}
+	\end{figure}
+	
+	
+	\begin{figure}
+		\centering
+		\begin{subfigure}{.49\textwidth}
+			\centering
+			\includegraphics[width=0.75\linewidth]{pics/5grad.png}
+		\end{subfigure}
+		\begin{subfigure}{.49\textwidth}
+			\centering
+			\includegraphics[width=0.75\linewidth]{pics/30grad.png}
+		\end{subfigure}
+		\begin{subfigure}{.49\textwidth}
+			\centering
+			\includegraphics[width=0.75\linewidth]{pics/60grad.png}
+		\end{subfigure}
+		\begin{subfigure}{.49\textwidth}
+			\centering
+			\includegraphics[width=0.75\linewidth]{pics/90grad.png}
+		\end{subfigure}
+		\caption{Intensitätsprofil des Interferenzmusters entlang einer Graden für verschiedene Winkeleinstellung des Polarisators.}
+		\label{fig:test}
+	\end{figure}
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.8\columnwidth]{pics/Kontrast.png}
+		\caption{Kontrast des Interfenzmusters in Abhängigkeit des Einstellungswinkels des Polarisators.}
+		\label{fig:kontrast}
+	\end{figure}
+	\newpage
+	\subsection{Diskusion der Ergebnisse}
+	
+	Der Kontrastverlauf in \autoref{fig:kontrast} fällt zwar mit zunehmenden Winkel ab, schwankt aber stark. Der Hauptgrund für diese Schwankungen ist eine schlechte Belichtung der Aufnahme. Die intensivsten Maxima in den Bildaufnahmen sind stark überbelichtet und übersteigen das Maximum der Intensität, welche einen arbiträren Zahlenwert von $255$ hat. Dadurch kann der Kontrast nicht im Zentrum des Bildes gemessen werden, sondern wird möglichst nahe am diesem angesetzt. Diese Intensitätsprofile haben jedoch starke Schwankungen, wodurch der Kontrast für die einzelnen Winkeleinstellungen nur approximativ bestimmt werden kann.\\
+	Weiterhin konnte im Zeitrahmen des Versuches der Aufbau des Quantenradierers nicht mehr realisiert werden, wodurch eine Auswertung einer solchen Messung ausbleibt.
+	
+	\newpage
 	\section{Anhang}
-
-\bibliography{all.bib}
-\bibliographystyle{natdin}
-
+	
+	\bibliography{all.bib}
+	\bibliographystyle{unsrt}
+	
 \end{document}
