@@ -206,10 +206,69 @@ Supervisor: Dr. Robin John\\ %TODO Name des Betreuers eintragen
 	\clearpage
 	\section{Analysis}
 	
+	\subsection{Overview Spectrum}
+	
+	The first mesurement consist of the making of a overview spectrum for the target witha an energy intervall of $100 - 1253\,\mathrm{eV}$ in steps of $0,5\,\mathrm{eV}$. To minimize the signal to noise ratio the mesurement is iterated over 10 cycles. The spectrum is shown in fig.\ref{fig:all}
+	
+	\begin{figure}[h]
+		\centering
+		\fbox{\includegraphics[width=1\textwidth]{pics/alles.png}}
+		\caption{Overview spectrum of the Silicon target.}\label{fig:all}
+	\end{figure}
+	The elements and nuclear niveaus corresponding to the energy peaks in the mesurement are matched with the the given data from the instruction manual. One distinctly notices, that the nuclear nievaus for Oxygen, Silicon and Carbon and the KLL-Auger-Lines and for Carbon and the KVV-Lines for Oxygen are matching the signal. Due to the limitations for the maximum energy given by the MgK$\alpha$-radiation higher nuclear levels and the Silicon-Auger-Lines can not observed in this spectrum.\\
+	
+	\subsection{Single peaks}
+	
+	In the following three of the peaks from the overview spectrum shall be examined more closely. For this, new mesurements are made in the respective energy intervalls at a higher resolution with 10 iterations per peak. The first peak is the $1s$ peak of Oxygen at $531,6\,\mathrm{eV}$ peak energy. The mesurement with a noise fit and gaussian fit is shown in fig.\ref{fig:O2}. The mesurement confirmes the expectations for the position of the peak.\\
+	
+	\begin{figure}[t]
+		\centering
+		\fbox{\includegraphics[width=0.65\textwidth]{pics/O1s.png}}
+		\caption{Intensity of the photoelectron in an energyinterval near the O $1s$ binding energy. The blue line represents the mesured data, the black line represents a fit for the background noise and the  the drawn line red line represents a gaussian fit for the datapoints.}
+		\label{fig:O2}
+	\end{figure}
+	
+	The second peak is the $1s$ peak of Carbon. This peak is expected at an energy of $284,6\,\mathrm{ev}$ for polyethylene. The fig.\ref{fig:C1s} shows the mesured data with the background noise fit and the gaussian fit. In contrast to the Oxygen peak, this mesurement has a noticibly worse signal to noise ratio due to the relativly low yield for this peak.\\
+	
+	\begin{figure}[!H]
+		\centering
+		\fbox{\includegraphics[width=0.65\textwidth]{pics/C1s.png}}
+		\caption{Intensity of the photoelectron in an energyinterval near the C $1s$ binding energy. The blue line represents the mesured data, the black line represents a fit for the background noise and the  the drawn line red line represents a gaussian fit for the datapoints.}
+		\label{fig:C1s}
+	\end{figure}
+	
+	The third peak is the $2p$ peak of Silicon. The peak is expected at an energy of $99,15\,\mathrm{eV}$ with a secondary peak at $103,4\,\mathrm{eV}$ due to a chemical shift of Silicon bound in $\text{SiO}_2$. The Mesurement is shown in fig.\ref{fig:Si2p} with a background fit, two gaussian fit for the respective peaks and the combined value of the gaussian fits. The mesured data matches the expected position of the peaks.
+	
+	\begin{figure}[!H]
+		\centering
+		\fbox{\includegraphics[width=0.65\textwidth]{pics/Si2p.png}}
+		\caption{Intensity of the photoelectron in an energyinterval near the C $1s$ binding energy. The blue line represents the mesured data, the black line represents a fit for the background noise and the  the drawn line red line represents a gaussian fit for the datapoints.}
+		\label{fig:Si2p}
+	\end{figure}
+	
+	
+	
+	\subsection{Concentration of the Elements}
+	
+	To determine the concentration of the mesured elements, once can use \eqref{eq:conc} and insert the area under the gaussian fit for $A$. The $ASF$ is taken from the instruction manual. The calculated concentrations are shown in tab.\ref{tab:conc}. The calculations impy, that the target consist of $42\%$ Silicon, where $6\%$ of that occurres in a bound with 2 Oxygen. Thus, one can assume, that $12\%$ of the Oxygen yield is bound to Silicon, where the remaining $27\%$ will be bound to the Carbon or other soiling.
+	
+	\begin{table}[h]
+		\centering
+		\caption{Comparison of the different elements and their concentrations.}
+		\begin{tabular}{c c r r r}
+			\hline Element & Bondingstate & $A\,/\,\mathrm{a.u.}$ & $ASF$ & $c$ \\ \hline \hline
+			O & 1s & $1384,83$ & $0,711$ & 0,39 \\ 
+			C & 1s & $191,35$ & $0,296$ & 0,13 \\ 
+			Si & 2p & $719,35$ & $0,339$ & 0,42 \\ 
+			SiO$_2$ & 2p & $98.95$ & $0.339$ & 0,06 \\ \hline
+		\end{tabular}
+		\label{tab:conc}
+	\end{table}
+	
 	\clearpage
-	\section{Appendix}
-
-		\bibliography{all.bib}
-		\bibliographystyle{unsrt}
-
+	\section{Apendix}
+	
+	\bibliography{all.bib}
+	\bibliographystyle{unsrt}
+	
 \end{document}
