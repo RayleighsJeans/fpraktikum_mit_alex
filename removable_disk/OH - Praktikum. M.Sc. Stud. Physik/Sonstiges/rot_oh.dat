@@ -1,4 +1,0 @@
-;  Constants are from Wallace, Herzberg See Lab Book Dec. 1/67
-;  lambda=1.0  & T_e=0.0  & w_e=3735.21  & w_ex_e=82.81  & w_ey_e=0.0
-;  B_e=18.871  & D_e=0.00188  & alpha_e=0.714  & gamma_e=0.0035  & A=-139.7
-1.0 0.0 3735.21 82.81 0.0 18.871 0.00188 0.714 0.0035 -139.7
