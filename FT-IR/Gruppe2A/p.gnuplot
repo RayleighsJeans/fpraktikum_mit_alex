@@ -1,12 +1,12 @@
-set terminal svg enhanced font 'PT Serif,18'
+set terminal svg enhanced font 'Times New Roman'
 
-set output 'meth_diff.svg'
+set output 'inter.svg'
 
 set grid
 set key bottom left
 
 set xlabel "Wellenzahl in cm^{-1}"
-set ylabel "rel. Absorbtion"
+set ylabel "rel. Absorbtionink"
 
-p [450:4000] [0:1.1] "meth_diff.dat" u 1:($2)/100 with lines
+p [450:4000] "inter.dat"  with lines
 
