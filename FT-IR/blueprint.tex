@@ -5,7 +5,7 @@
 % with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
 % The lincense itself can be found at <https://www.gnu.org/licenses/fdl-1.3>.
 
-\documentclass[numbers=noenddot,a4paper]{article}
+\documentclass[numbers=noenddot,a4paper,10pt,twocolumn]{article}
 %\documentclass[numbers=noenddot,12pt,a4paper,notitlepage,twoside,BCOR15mm]{scrartcl}
 
 \usepackage[T1]{fontenc}
@@ -84,7 +84,8 @@
 	\renewcommand*{\figurename}{Abbildung }
 	\renewcommand*{\tablename}{Tabelle}
 
-
+	
+	\onecolumn
 	\maketitle
 
 	\begin{center}
@@ -110,75 +111,116 @@
 
 		Eine FTIR-Spektroskopie einer Probe kann dazu genutzt werden, quantitativ als auch qualitativ Informationen \"uber die Zusammensetzung dieser zu erhalten.
 
-	\clearpage
+	\twocolumn
+	
 	\section{Physikalische Grundlagen}
 
-		Bei einer FTIR-Untersuchung handelt es sich um die spektroskopische Aufl\"osung von funktionellen Gruppen mit Hilfe der \tilt{Fourier-Transformations-Infra-}\\ \tilt{rotspektrometrie}. Mit einem pr\"azisen Interferometer wird dabei ein Interferogramm - der Verlauf der Interferenzerscheinungen auf dem Schirm des Interferometers, welche durch die \"Uberlagerung von zwei Einzelstrahlen einer IR-Quelle entstehen - aufgenommen, welches dann \"uber eine \tilt{Fourier-Transformation} aus dem Orts- in den Frequenzraum abgebildet wird.\\
-		Die bei der FTIR-Spektroskopie benutzte Infrarotstrahlung im Wellenl\"angenbereich zwischen $\unit[[2500-15400]]{nm}$ bzw. den Wellenzahlen $\unit[[4000-650]]{cm^{-1}}$ regt in der, im Strahlengang des Interferometers befindlichen Probe, Molek\"ulschwingungen an. Verschiedene Arten von Molek\"ulen bzw. funktionellen Gruppen dieser, welche wiederum anders in der Probe gebunden sind, haben unterschiedliche Eigenfrequenzen der Schwingungen. Durch diese Anrgegung wird Energie aus der elektromagnischen Welle von der Probe absorbiert, was ein, f\"ur das zu untersuchende Objekt spezifisches Absorptionsspektrum liefert. Der Teil der Welle, welcher nicht absorbiert, sondern einfach transmittiert wird, ergibt wiederum ein einzigartiges Transmissionsspektrum. Diese \tilt{Fingerabdruck-Methode} bedarf einer umfangreichen Datenbank von Korrelationstabellen - Literaturspektren zu bekannten Materialien/Proben - um das eigene Spektrum einordnen und schlie{\ss}lich eine Bestimmung der Molek\"ul(-gruppen) vornehmen zu k\"onnen.\\
+		Bei einer FTIR-Untersuchung handelt es sich um die spektroskopische Aufl\"osung von funktionellen Gruppen mit Hilfe der \tilt{Fourier-Transformations-Infrarotspektrometrie}. Mit einem pr\"azisen Interferometer wird dabei ein Interferogramm - der Verlauf der Interferenzerscheinungen auf dem Schirm des Interferometers, welche durch die \"Uberlagerung von zwei Einzelstrahlen einer IR-Quelle entstehen - aufgenommen, welches dann \"uber eine \tilt{Fourier-Transformation} aus dem Orts- in den Frequenzraum abgebildet wird.\\
+		Die bei der FTIR-Spektroskopie benutzte Infrarotstrahlung im Wellenl\"angenbereich zwischen $\unit[[2500-15400]]{nm}$ bzw. den Wellenzahlen $\unit[[4000-650]]{cm^{-1}}$ regt in der, im Strahlengang des Interferometers befindlichen Probe, Molek\"ulschwingungen an. Verschiedene Arten von Molek\"ulen bzw. funktionellen Gruppen dieser, welche wiederum anders in der Probe gebunden sind, haben unterschiedliche Eigenfrequenzen der Schwingungen. Durch diese Anrgegung wird Energie aus der elektromagnischen Welle von der Probe absorbiert, was ein, f\"ur das zu untersuchende Objekt spezifisches Absorptionsspektrum liefert. Der Teil der Welle, welcher nicht absorbiert, sondern einfach transmittiert wird, ergibt wiederum ein einzigartiges Transmissionsspektrum. Diese \tilt{Fingerabdruck-Methode} bedarf einer umfangreichen Datenbank von Korrelationstabellen - Literaturspektren zu bekannten Materialien/Proben - um das eigene Spektrum einordnen und schlie{\ss}lich eine Bestimmung der Molek\"ul(-gruppen) vornehmen zu k\"onnen.
+		
+	\subsection{Molek\"ulschwingungen}
+	
 		Das quantenmechanische Modell bedient sich der parabolischen N\"aherung des harmonischen Potentialminimums der Molek\"ulbindungen. Man geht dabei au{\ss}erdem davon aus, dass die Relativbewegung von Atomkernen und Elektronen von den wesentlich schnelleren und leichteren Fermionen bestimmt wird - die tilt{Born-Oppenheimer-N\"aherung}. Des weiteren erh\"alt man aus solchen Schwingungen nur Infrarotstrahlung, wenn ein vorliegendes Dipolmoment sich zeitlich \"andert. Die station\"are Schr\"odingergleichung f\"ur ein Molek\"ul\ im Zustand $\Psi(\vec{x})$ mit den Atomen der reduzierten Massen $\mu$	lautet folglich \cite{FTIRInfra}
 		
 			\begin{align}
-				-\frac{\hbar^{2}}{2\mu}\frac{\diff^{2}\Psi(\vec{x})}{\diff x^{2}}+V(\vec{x})\Psi(\vec{x})=E\Psi(\vec{x}) \label{eq:schroed}
+				\Aboxed{
+				-\frac{\hbar^{2}}{2\mu}\frac{\diff^{2}\Psi(\vec{x})}{\diff x^{2}}+V(\vec{x})\Psi(\vec{x})=E\Psi(\vec{x})
+				}
+				\label{eq:schroed}
 			\end{align}
 	
 		F\"ur das Potential $V(\vec{x})=k/2\cdot (\vec{x}-\vec{x}\ix{0})^{2}$ um die Gleichgewichtslage $\vec{x}\ix{0}$ liefert \autoref{eq:schroed} das Ergebnis f\"ur die Energiesniveaus $E_{\nu}$ nach den Schwindungsquantenzahlen $\nu$:
 	
 			\begin{align}
-			\Aboxed{E_{\nu}=(\nu+\frac{1}{2})\cdot\hbar\sqrt{\frac{k}{\mu}}.} \label{eq:energie}
+				\Aboxed{E_{\nu}=(\nu+\frac{1}{2})\cdot\hbar\sqrt{\frac{k}{\mu}}.
+				}
 			\end{align}
 	
 		F\"ur die Vereinfachung, dass die Molek\"ule n\"aherungsweise harmonische Oszillatoren sind (s.o.), so gilt die Auswahlregel f\"ur \"Uberg\"ange in dem erzeugten Schwingungspektrum $\Delta\nu=\pm1$. Die Absorption von einem Photon der Energie $\hbar\omega=\hbar\sqrt{k/m}$ entspricht demnach dem \"Ubergang von $\nu\rightarrow\nu+1$.\\
 		Starke chemische Bindungen von Atomen kleiner Massen ben\"otigen gro{\ss}e Schwingungsquanten, schw\"achere Bindungen schwerer Atome kleinere.\\
 		Unterschieden werden muss im IR-Spektrum noch zus\"atzlich die Art der Molek\"ulschwingung: Normalschwingungen erzeugen nicht immer Infrarotstrahlung, sondern nur dann, wenn sich innerhalb des System des Molek\"uls L\"angen oder Winkel \"andern. Demnach geh\"oren bspw. Translationen und Rotationen nicht zu den IR-aktiven Schwingungen.
 	
-	\subsection*{Interferometrie und Fourier-Transformation}
+	\subsection{Interferometrie und Fourier-Transformation}
 	
 		Das Interferometer innerhalb des Spektrometers besteht aus einem halbdurchl\"assigen Strahlteiler, einem festen sowie einem beweglichen Spiegel. Die normale Infrarotstrahlung eines - im Idealfall - erhitzten \tilt{schwarzen K\"orpers} \cite{FTIRSpek} mit Wellenzahlen $\unit[[400-7800]]{cm^{-1}}$ (Infrarot $\leftrightarrow$ W\"armestrahlung) wird an dem Strahlteiler aus Kaliumbromid - Transmission bei $\unit[[400-7800]]{cm^{-1}}$ - in zwei Teilstrahlen aufgeteilt. Wie in einem \tilt{Michelson-Interferometer} werden diese dann einerseits auf den feststehende, andererseits auf den beweglichen Spiegel gelenkt. Auf dem selben Strahlteiler kommt es danach zu verschiedenen Interferenzerscheinungen zwischen den reflektierten Strahlen, je nachdem, welche optische Wegdifferenz und Frequenz vorliegt.\\
 		Der wieder zusammengef\"uhrte Strahl wird durch eine Blende, den \tilt{J-Stopp}, auf die Probe geleitet. Dort werden die Molek\"ulschwingungen von der Infrarotstrahlung angeregt, woraus die charakteristische Absorption bzw. Transmission in Abh\"angigkeit der Frequenz folgt. Ein \tilt{DTGS}-Detektor - kristallines \tilt{Deuteriertes Triglycinsulfat} hat die g\"unstige pyroelektrische Eigenschaft, das Ladungstrennung bei Temperatur\"anderungen/Verformungen aufgrund polarer Einheitszellen eintritt - nimmt das erhaltene Signal in Abh\"angigkeit der Stellung des beweglichen Spiegels auf. Dieses nicht-korrigierte Interferogramm als Funktion $I\ix{IF}(x)$ von der optischen Wegdifferenz $x$ muss noch um einen konstanten Teil - Beachtung des, an die Quelle verloren gegangenen reflektierten Teils - berichtigt werden. Schlie{\ss}lich erh\"alt man aus einer  \tilt{Cosinus-Fourier-Transformation} aus dem Orts- in den Frequenzraum das Spektrum $I\ix{F}(f)$,
 		
 			\begin{align}
-			\Aboxed{
+				\Aboxed{
 				I\ix{F}(f)=\int_{-\infty}^{+\infty}I\ix{IF}(x)\cdot\cos(2\pi\nu^{\prime}x)\diff \nu^{\prime}.
-				} \label{eq:fourier}
+				}
+				\label{eq:fourier}
 			\end{align}
 		
 		Im allgemeinen gibt man das Spektrum in Abh\"angigkeit von der Wellenzahl $k=2\pi/\lambda$ an. Demnach findet man die Absorptionsbanden von \tilt{Streckschwingungen} der Molek\"ule des Typs \tilt{X-H}, wobei \tilt{X} ein beliebiges Atom und \tilt{H} Wasserstoff ist, im Bereich von $\unit[[2500-4000]]{cm^{-1}}$. Die st\"arkeren 3-fach Bindungen findet man hingegen im Bereich $\unit[[2000-2500]]{cm^{-1}}$ auf Grund ihrer h\"oheren Kopplungskonstante des Bindungspotentials. Au{\ss}erdem k\"onnen zu diesem Spektralbereich auch X-H-Streckschwingungen mit schweren X-Atomen beitragen. Der Gr\"o{\ss}te Anteil im Bereich zwischen $\unit[[1500-2000]]{cm^{-1}}$ ist den Streckschwingungen der Doppelbindungen mit Kohlenstoffatomen zu zuordnen \cite{FTIRAns}.\\
 		Im sogenannten ``Fingerprint''-Bereich zwischen $\unit[[400-1500]]{cm^{-1}}$ manifestieren sich vor allem feinste Unterschiede zwischen \"ahnlichen Molek\"ulen, welche durch chemische unterschiedliche Anbindungen, die Umgebung oder Defekte hervorgerunfen werden. Solche sind s\"amtliche elektronischen Effekte sowie Beuge- und Ger\"ustschwingungen.\\
 		Schlie{\ss}lich gilt es zu beachten, dass nat\"urlich auch die Wechselwirkung induzierter/permanenter Dipole in der Probe mit der Infrarotstrahlung eine Ver\"anderung des reinen Schwingungsspektrums hervor ruft.
 		
-	\clearpage
+	\subsection{Grenzen und Aufl\"osung der FTIR-Spektroskopie}
+	
+		Im allgemeinen entspricht ein Interferogramm einer Cosinus-Funktion um einen Ursprungswert $x\ix{0}$ im Ortsraum. Dies gilt f\"ur eine Wellenl\"ange und eine beliebige Anfangsposition des beweglichen Spiegels. Ein Beispiel f\"ur ein reales Interferogramm zeigt \autoref{img:inter}, welches aus dem vorliegenden Experiment stammt. Die Spiegelposition wurde dabei um einen Ausgangswert 0 herum verschoben, welche dem gleichen optischen Weg zum Strahlteiler wie beim festen Spiegel entspricht.
+		
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=0.4\textwidth]{Gruppe2A/inter.pdf}
+			\caption{Interferogramm aus dem FTIR-Interferometer ohne Transformation in den Frequenzraum und Probe.}
+			\label{img:inter}
+		\end{figure}
+	
+		Die sog. \tilt{Trunkation} - das Abschneiden des Interferogramms bei der maximalen Verschiebung des Spiegels - liefert nach einer Fourier-Transformation eine Spektralfunktion der Form $\propto\sin(x)/x$, dessen Seitenbanden ung\"unstig f\"ur weitere Untersuchungen der Probe sind. \"Uber eine \tilt{Apodisation}, dh.die Faltung mit einer weiteren Funktion bspw. mit Rampen-Form, verbreitert man zwar den Peak der Spektralfunktion, unterdr\"uckt dabei aber zus\"atzliche Extrema nebem dem Hauptmaximum. Das Ergebnis, ein Graph $\propto\sin^{2}(x)/x^{2}$ entspricht \autoref{img:inter}.\\
+		Im Hinblick auf das Aufl\"osungsverm\"ogen $\Delta\nu$ eines FTIR-Spektrometers findet man, dass dieses ma{\ss}geblich von der maximalen Auslenkung $L$ des beweglichen Spiegels und dem Winkel, unter welchem der Detektor die Quelle betrachtet, beeinflusst wird. Eine optimale Aufl\"osung stellt sich mit $\Delta\nu\approx1,3/2L$ ein, wobei allgemein
+		
+		\begin{align}
+			\Aboxed{
+			\frac{\nu}{\Delta\nu}=2L\nu
+			} \nonumber
+		\end{align} 
+		
+		gilt. Hohe Aufl\"osungen von $\unit[1]{cm^{-1}}$, f\"ur bspw. Betrachtungen von Verunreinigungen etc., gehen mit einem gr\"o{\ss}eren Rausch-zu-Signal-Verh\"altnis (\tilt{signal-to-noise-ration} SNR) einher. Entsprechend muss sich im Vorfeld einer Untersuchung f\"ur eine sinnvolle Aufl\"osung bei einer gegebenen Probe entschieden werden.\\
+		Ein Vorteil der FTIRS ist, dass fast die vollst\"andige Intensit\"at der IR-Quelle zur Probe geleitet werden kann (nur J-Stopp). Im Gegensatz zu Gitterspektrographen o.\"a. ist die Energie am Detektor um ein vielfaches h\"oher. Der \tilt{Jacquinot-Vorteil} ergibt sich zu
+		
+		\begin{align}
+			\Aboxed{
+			\frac{(SNR)\ix{FT}}{(SNR)\ix{G}}\approx200.
+			} \nonumber
+		\end{align} 
+		
+		Daraus ergibt sich zudem der \tilt{Felgett-Vorteil}, welcher auf der gleichzeitigen Messung von vielen Frequenzen $\nu$ beruht. Er gibt den Vorteil des SNR eines, in einer kurzen Zeit gemessenen Signals an und ist proportional zur Wurzel aus der Menge der aufgel\"osten Elemente $M$ \cite{FTIRAns}.
+		
+		\begin{align}
+			\Aboxed{
+			\frac{(SNR)\ix{FT}}{(SNR)\ix{G}}=\sqrt{M}
+			} \nonumber
+		\end{align}
+		
+		Die Wellenzahlskala kann \"uber die Kalibrierung mit einem \tilt{He-Ne-Referenzlaser} vorgenommen werden. Damit ist die permanente Kontrolle der optischen Wegdifferenz mit den Interferenzerscheinungen des Lasers sichergestellt. Diese Abtastung des Interferogramms mit der monochromatischen Lichtquelle ergibt den \tilt{Connes-Vorteil}.
+		
+		\subsection{Quantitative Analyse}
+		
+		Eine Untersuchung der Absorption im Hinblick auf die statistische Zusammensetzung von Mehrkomponentenproben ist \"uber einen Ansatz nach \tilt{Lamber-Beer} m\"oglich. Bei einer Konzentration des Stoffes in der Probe $c$, deren optischer Wegl\"ange $d$ und dem Absorptionskoeffizienten $\lambda(\nu)$ bei der Wellenl\"ange $\nu$, wird die Absorption $A$ zu
+		
+		\begin{align}
+		\Aboxed{
+			\log\left(\frac{I\ix{0}}{I}\right)=A=\lambda(\nu)cd .
+		}
+		\label{eq:lamber}
+		\end{align}
+		
+		
+		Dabei ist $I\ix{0}$ die Intensit\"at vor der Probe und $I$ auf dem Detektor. Der Koeffizient $\lambda(\nu)$ ist eine Molek\"u-spezifische Gr\"o{\ss}e. Insgesamt ist die Absorption der Probe additiv bez\"uglich der enthaltenen Molek\"ule in der gemischten Probe. Sind die Konzentrationen nicht zu hoch - sonst treten Ver\"anderungen der Absorptionskoeffizienten auf Grund von st\"arkeren Wechselwirkungen auf - kann bei einer monochromatischen Strahlung so in guter N\"aherung die anteilige Zusammensetzung bestimmt werden.\\
+		H\"ohere Gasdr\"ucke sorgen f\"ur eine Verbreiterung der IR-Absorptionsbanden, weil verst\"arkt Wechselwirkungen die Anregung der Molek\"ule dominieren. Dies gilt f\"ur alle charakteristischen Banden.\\
+		Steigt die Temperatur der Probe, so ver\"andert sich folglich die thermische Gleichverteilung der Molek\"ule in den Schwingungsniveaus. Die spezifische Absorption der Probe ver\"andert sich und zeigt u.U. ganz neue Peaks. 
+		
+	\subsection{ATR-Infrarotspektroskopie}
+		
+		
+		
 	\section{Durchführung}
 
-
-
-	\clearpage
+		
 	\section{Auswertung}
 
-%	\begin{figure}
-%		\includegraphics[width=\textwidth]{Gruppe2A/inter.pdf}
-%		\caption{Interferogramm}
-%		\label{img:inter}
-%	\end{figure}
-%	
-%	\begin{figure}
-%		\includegraphics[width=\textwidth]{Gruppe2A/stick.pdf}
-%		\caption{}
-%		\label{img:stick}
-%	\end{figure}
-%	
-%	\begin{figure}
-%		\includegraphics[width=\textwidth]{Gruppe2A/meth.pdf}
-%		\caption{}
-%		\label{img:meth}
-%	\end{figure}
-%
-%	\begin{figure}
-%		\includegraphics[width=\textwidth]{Gruppe2A/meth_diff.pdf}
-%		\caption{}
-%		\label{img:meth_diff}
-%	\end{figure}
 	
-	\clearpage
 	\section{Anhang}
 
 		\bibliography{all.bib}

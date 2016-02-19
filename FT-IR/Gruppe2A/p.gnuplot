@@ -1,12 +1,19 @@
-set terminal svg enhanced font 'Times New Roman'
+set terminal svg enhanced font 'PT Serif,24'
 
 set output 'inter.svg'
 
+stats 'tmp.dat' u 1:2 nooutput
+
+set yrange [STATS_min_y+STATS_min_y/10:STATS_max_y+STATS_max_y/10]
+
 set grid
-set key bottom left
+unset key
 
-set xlabel "Wellenzahl in cm^{-1}"
-set ylabel "rel. Absorbtionink"
+set border linewidth 1.8
+set tics nomirror out scale 0.8
 
-p [450:4000] "inter.dat"  with lines
+set xlabel "rel. Spiegelposition"
+set ylabel "Interferenz-Intensität, a.u."
+
+p [-500:500] "tmp.dat" with lines lw 1.8
 
