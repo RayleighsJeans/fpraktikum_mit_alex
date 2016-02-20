@@ -106,16 +106,16 @@
 	\tableofcontents
 	\vfill
 	\clearpage
+	
+	\twocolumn
 
 	\section{Motivation}
 
 		Eine FTIR-Spektroskopie einer Probe kann dazu genutzt werden, quantitativ als auch qualitativ Informationen \"uber die Zusammensetzung dieser zu erhalten.
-
-	\twocolumn
 	
 	\section{Physikalische Grundlagen}
 
-		Bei einer FTIR-Untersuchung handelt es sich um die spektroskopische Aufl\"osung von funktionellen Gruppen mit Hilfe der \tilt{Fourier-Transformations-Infrarotspektrometrie}. Mit einem pr\"azisen Interferometer wird dabei ein Interferogramm - der Verlauf der Interferenzerscheinungen auf dem Schirm des Interferometers, welche durch die \"Uberlagerung von zwei Einzelstrahlen einer IR-Quelle entstehen - aufgenommen, welches dann \"uber eine \tilt{Fourier-Transformation} aus dem Orts- in den Frequenzraum abgebildet wird.\\
+		Bei einer FTIR-Untersuchung handelt es sich um die spektroskopische Aufl\"osung von funktionellen Gruppen einer Fl\"ussigkeit/eines Gases mit Hilfe der \tilt{Fourier-Transformations-Infrarotspektrometrie}. Mit einem pr\"azisen Interferometer wird dabei ein Interferogramm - der Verlauf der Interferenzerscheinungen auf dem Schirm des Interferometers, welche durch die \"Uberlagerung von zwei Einzelstrahlen einer IR-Quelle entstehen - aufgenommen, welches dann \"uber eine \tilt{Fourier-Transformation} aus dem Orts- in den Frequenzraum abgebildet wird.\\
 		Die bei der FTIR-Spektroskopie benutzte Infrarotstrahlung im Wellenl\"angenbereich zwischen $\unit[[2500-15400]]{nm}$ bzw. den Wellenzahlen $\unit[[4000-650]]{cm^{-1}}$ regt in der, im Strahlengang des Interferometers befindlichen Probe, Molek\"ulschwingungen an. Verschiedene Arten von Molek\"ulen bzw. funktionellen Gruppen dieser, welche wiederum anders in der Probe gebunden sind, haben unterschiedliche Eigenfrequenzen der Schwingungen. Durch diese Anrgegung wird Energie aus der elektromagnischen Welle von der Probe absorbiert, was ein, f\"ur das zu untersuchende Objekt spezifisches Absorptionsspektrum liefert. Der Teil der Welle, welcher nicht absorbiert, sondern einfach transmittiert wird, ergibt wiederum ein einzigartiges Transmissionsspektrum. Diese \tilt{Fingerabdruck-Methode} bedarf einer umfangreichen Datenbank von Korrelationstabellen - Literaturspektren zu bekannten Materialien/Proben - um das eigene Spektrum einordnen und schlie{\ss}lich eine Bestimmung der Molek\"ul(-gruppen) vornehmen zu k\"onnen.
 		
 	\subsection{Molek\"ulschwingungen}
@@ -132,7 +132,7 @@
 		F\"ur das Potential $V(\vec{x})=k/2\cdot (\vec{x}-\vec{x}\ix{0})^{2}$ um die Gleichgewichtslage $\vec{x}\ix{0}$ liefert \autoref{eq:schroed} das Ergebnis f\"ur die Energiesniveaus $E_{\nu}$ nach den Schwindungsquantenzahlen $\nu$:
 	
 			\begin{align}
-				\Aboxed{E_{\nu}=(\nu+\frac{1}{2})\cdot\hbar\sqrt{\frac{k}{\mu}}.
+				\Aboxed{E_{\nu}=(\nu+\frac{1}{2})\cdot\hbar\sqrt{\frac{k}{\mu}}\,\, .
 				}
 			\end{align}
 	
@@ -147,7 +147,7 @@
 		
 			\begin{align}
 				\Aboxed{
-				I\ix{F}(f)=\int_{-\infty}^{+\infty}I\ix{IF}(x)\cdot\cos(2\pi\nu^{\prime}x)\diff \nu^{\prime}.
+				I\ix{F}(f)=\int_{-\infty}^{+\infty}I\ix{IF}(x)\cdot\cos(2\pi\nu^{\prime}x)\diff \nu^{\prime}\,\, .
 				}
 				\label{eq:fourier}
 			\end{align}
@@ -181,7 +181,7 @@
 		
 		\begin{align}
 			\Aboxed{
-			\frac{(SNR)\ix{FT}}{(SNR)\ix{G}}\approx200.
+			\frac{(SNR)\ix{FT}}{(SNR)\ix{G}}\approx200\,\,.
 			} \nonumber
 		\end{align} 
 		
@@ -201,7 +201,7 @@
 		
 		\begin{align}
 		\Aboxed{
-			\log\left(\frac{I\ix{0}}{I}\right)=A=\lambda(\nu)cd .
+			\log\left(\frac{I\ix{0}}{I}\right)=A=\lambda(\nu)cd\,\, .
 		}
 		\label{eq:lamber}
 		\end{align}
@@ -213,14 +213,46 @@
 		
 	\subsection{ATR-Infrarotspektroskopie}
 		
+		Die \tilt{abgeschw\"achte Totalreflexion} (engl.: \tilt{attenuated total reflection} ATR) wird genutzt, um sehr viskose Fl\"ussigkeiten - also bspw. Gele - Pulver oder Folien mit der Infrarotspektroskopie zu untersuchen.\\
+		\"Uber einen Lichtwellenleiter - in unserem Fall einen Diamanten, in welchem Mehrfachreflexion m\"oglich ist - mit sehr hohem Brechnungsindex, wird die IR-Strahlung, idealerweise aus einer Schwarzk\"orper-Quelle, auf die Probe geleitet. Dort wird sie am optisch D\"unneren Medium der Probe zur Totalreflexion gebracht. Klassisch betrachtet wird das eingestrahlte Licht bei der Totalreflexion an der Grenzfl\"ache zum Substrat vollst\"andig reflektiert. Tats\"achlich bilden sich jedoch \tilt{evaneszente Wellen} in der Probe aus, wenn sich die elektromagnetische Welle unter dem eingestrahlten Winkel nicht ausbreiten kann. Deren Amplitude f\"allt stetig, jedoch schnell mit der Eindringtiefe, als Folge von quantenmechanischen Anschlussbedingungen ab \cite{FTIRInfra}.\\
+		Auf diesem Weg wird der elektromagnetischen Welle der IR-Strahlung Energie entzogen. Ein Ma{\ss} f\"ur die Absorption der Welle bei der ATR ist die Eindringtiefe $d\ix{P}$, bei der die Amplitude auf das  $1/\euler$-fache abgefallen ist. Bei der Wellenl\"ange $\lambda$, den Brechnungindizes $n\ix{D}$ des Leiters und $n\ix{P}$ der Probes, sowie unter dem Einstrahlwinkel $\varphi$ ergibt sich diese zu
 		
+		\begin{align}
+		\Aboxed{
+			d\ix{P}=\frac{\lambda}{2\pi n\ix{D}\sqrt{\sin^{2}(\varphi)-(n\ix{P}/n\ix{D})^{2}}}\,\, .
+		} \label{eq:atr}
+		\end{align}
 		
+		Wichtig bei der ATR ist die hohe Dichte der Probe vor dem Lichtwellenleiter, um ein gutes Signal zu erhalten. Man erh\"alt als Messsignal die Absorption in Abh\"angigkeit der Wellenl\"ange, nimmt man parallel das von der Probe reflektierte Licht wiederum zuerst wieder als Interferogramm auf (siehe \autoref{eq:fourier}).
+
+			\begin{figure*}
+			\centering
+				\includegraphics[width=0.85\textwidth]{Gruppe2A/methan.pdf}
+				\caption{Absorptionsspektrum der FTIRS einer Methan-Gaszelle. Subtrahierte Basislinie eingetragen.}
+				\label{img:methan}
+			\end{figure*}
+
 	\section{Durchführung}
 
-		
+		Im Rahmen der FTIR-Spektroskopie dieses Versuches werden verschiedene Gase, Fl\"ussigkeiten, Pulver und Folien unter zur Hilfenahme der ATR-Einheit untersucht. Dabei muss zudem R\"ucksicht auf die Transmissions- und Absorptionseigenschaften der verwendeten Probenzellen, sowie deren Vertr\"aglichkeit mit den jeweiligen Inhalten genommen werden.\\
+		In der Gasphase gilt es Methan und Stickstoff zu analysieren und mit Literaturbilbiotheken f\"ur spezifische, experimentell sondierte Absorptionsbanden zu vergleichen. In einer Fl\"ussigkeitszelle mit Fenstern aus \fett{CaF}$_{\fett{2}}$ werden dann anschlie{\ss}end 3 \"Ole - aus Oliven, Sonnenblumen und Erdn\"ussen - im FTIR-Spektrometer untersucht. Zuletzt wird die ATR-Einheit in das Interferometer eingesetzt, damit mit dessen Hilfe weitere 3 unbekannte Pulver spektroskopisch untersucht werden k\"onnen.\\
+		Im Vorfeld zu jeder Art von Messung ist es notwending, ein Untergrundspektrum - mit anderen Worten ein Interferogramm, wie in \autoref{img:inter} ohne Probe - zu Korrektur- und Kalibrationszwecken aufzunehmen.
+
 	\section{Auswertung}
 
-	
+		\subsection{Untersuchung der Gase}
+
+		\subsubsection*{Stickstoff}
+		Zuerst wurde in einer Gaszelle mit Kaliumbromid-Fenstern (\fett{KBr}) Stickstoff untersucht. Zwischen $\unit[450]{cm^{-1}}$ und $\unit[4000]{cm^{-1}}$ ist in $\unit[1]{cm^{-1}}$ eine Serie von 10 Scans aufgenommen worden. Um $\unit[670]{cm^{-1}}$ zeigte sich eine Absorptionsbande, die, der Literatur zur Folge, Polysterene-Beh\"altern zugeordnet werden kann, in welchen der Stickstoff transportiert bzw. aufbewahrt und gemischt wird. Ein weiterer Einfluss gelangt \"uber die verwendeten Fenstermaterialien in das Spektrum: bei etwa $\unit[1000]{cm^{-1}}$  liegt eine Bande, welche der Wechselwirkung anorganischer Proben mit \fett{KBr} zugeordnet werden kann.\\
+		Leider ist eine weitere Analyse der Messdaten und eine Darstellung nicht m\"oglich, da betreffende Datein aus der propiet\"aren Software nicht entnommen wurde.
+		
+		\subsubsection*{Methan}
+		Hierbei wurde gleichsam, wie f\"ur den Stickstoff verfahren. Das Spektrum und dessen subtrahierte Basislinie werden in \autoref{img:methan} gezeigt.\\
+		Im Absorptionsspektrum sind zum einen gro{\ss}e Peaks und mehrere Substrukturen um diese bei $\unit[1350]{cm^{-1}}$ und $\unit[3000]{cm^{-1}}$ zu sehen. Der erste Peak kann Bindungen der Art -[\fett{CH}$_{\fett{2}}$]$_{N}$- zugeordnet werden. Des weiteren k\"onnen  u.a. sulfatische S\"auren mit Gruppen der Form -[\fett{SO}$_{\fett{2}}$]- zu dieser Absorption beitragen. Offensichtlich z\"ahlt dieser Einfluss damit zu denen der Verunreinigungen. Au{\ss}erdem werden in der Literatur auch Gruppen von -[\fett{NO}$_{\fett{2}}$]- f\"ur diesen Bereich verzeichnet. Ein kleinerer Nebenpeak um ca. $\unit[1550]{cm^{-1}}$ l\"asst sich besonders gut mit den $\Delta\nu=0,\pm1$ \"Uberg\"angen der P-,Q-, und R-Zweige (siehe \autoref{eq:schroed}) der -[\fett{C=C}]- Gruppe identifizieren.\\
+		Das zweite, gro{\ss}e Absorptionsmaximum zeigt \"ahnliche Merkmale - eine Dreiteilung in die Zweige der entsprechenden \"Uberg\"ange zwischen den Niveaus - und kann den Schwingungen von verschiedenen -[\fett{C-H}]- Gruppen zugesprochen werden. Dem breiten Verlauf dieser Bande in Richtung $\unit[2500]{cm^{-1}}$ sind Schwingungen von Verunreinigungen mit -[\fett{O-H}]- Gruppen geschuldet.
+
+		\subsection{Fl\"ussigkeitsuntersuchungen}
+
 	\section{Anhang}
 
 		\bibliography{all.bib}
