@@ -5,7 +5,7 @@
 % with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
 % The lincense itself can be found at <https://www.gnu.org/licenses/fdl-1.3>.
 
-\documentclass[a4paper,10pt,twocolumn]{article}
+\documentclass[numbers=noenddot,a4paper,10pt,twocolumn]{article}
 %\documentclass[numbers=noenddot,12pt,a4paper,notitlepage,twoside,BCOR15mm]{scrartcl}
 
 \usepackage[T1]{fontenc}
@@ -236,7 +236,9 @@
 
 		Im Rahmen der FTIR-Spektroskopie dieses Versuches werden verschiedene Gase, Fl\"ussigkeiten, Pulver und Folien unter zur Hilfenahme der ATR-Einheit untersucht. Dabei muss zudem R\"ucksicht auf die Transmissions- und Absorptionseigenschaften der verwendeten Probenzellen, sowie deren Vertr\"aglichkeit mit den jeweiligen Inhalten genommen werden.\\
 		In der Gasphase gilt es Methan und Stickstoff zu analysieren und mit Literaturbilbiotheken f\"ur spezifische, experimentell sondierte Absorptionsbanden zu vergleichen. In einer Fl\"ussigkeitszelle mit Fenstern aus \fett{CaF}$_{\fett{2}}$ werden dann anschlie{\ss}end 3 \"Ole - aus Oliven, Sonnenblumen und Erdn\"ussen - im FTIR-Spektrometer untersucht. Zuletzt wird die ATR-Einheit in das Interferometer eingesetzt, damit mit dessen Hilfe weitere 3 unbekannte Pulver spektroskopisch untersucht werden k\"onnen.\\
-		Im Vorfeld zu jeder Art von Messung ist es notwending, ein Untergrundspektrum - mit anderen Worten ein Interferogramm, wie in \autoref{img:inter} ohne Probe - zu Korrektur- und Kalibrationszwecken aufzunehmen.
+		Im Vorfeld zu jeder Art von Messung ist es notwending, ein Untergrundspektrum - mit anderen Worten ein Interferogramm, wie in \autoref{img:inter} ohne Probe - zu Korrektur- und Kalibrationszwecken aufzunehmen.\\
+		Bei der Arbeit mit den Fl\"ussigkeitszellen ist zu beachten, das unterschiedliche Abstandshalter zwischen Zelle und Glasscheibe (\tilt{spacer}) eingesetzt werden. Es liegen Aluminiumfolie und Teflon-Spacer vor.\\
+		Des weiteren gilt Vorsicht beim Einf\"ullen der Proben in die K\"uvetten: Luftblasen oder eingeschlossene \"Uberreste anderer Untersuchungen k\"onnen die Absorption stark beeintr\"achtigen oder verf\"alschen, siehe \cite{FTIRAns},\cite{EMAUGreifswaldFTIR}.
 
 	\section{Auswertung}
 
@@ -252,6 +254,79 @@
 		Das zweite, gro{\ss}e Absorptionsmaximum zeigt \"ahnliche Merkmale - eine Dreiteilung in die Zweige der entsprechenden \"Uberg\"ange zwischen den Niveaus - und kann den Schwingungen von verschiedenen -[\fett{C-H}]- Gruppen zugesprochen werden. Dem breiten Verlauf dieser Bande in Richtung $\unit[2500]{cm^{-1}}$ sind Schwingungen von Verunreinigungen mit -[\fett{O-H}]- Gruppen geschuldet.
 
 		\subsection{Fl\"ussigkeitsuntersuchungen}
+
+		\subsubsection{Schichtdickenbestimmung}
+
+			\begin{figure*}
+			\centering
+				\includegraphics[width=0.85\textwidth]{Gruppe2A/erdnuss.pdf}
+				\caption{Transmissionsspektrum einer Fl\"ussigkeitsprobe mit Erdnuss-\"Ol. Basislinie und zweites Spektrum mit Abstandshaltern (\tilt{spacer}) eingetragen. Aus der Datenbibliothek (propiet\"ar) erhielt man eine 97.8\%-ige \"Ubereinstimmung in den Absorptionsbanden mit Methyl-Linoleat (\tilt{Linols\"auremethylesther}).} 
+				\label{img:erdnuss}
+			\end{figure*}
+
+		Zur Bestimmung und sinnvoller Korrektur von Spektren mit Fl\"ussigkeitsk\"uvetten kann eine Schichtdickenermittlung der verwendeteten Bauteile vorgenommen werden. Das Interferenzmuster einer leeren K\"uvette kann demnach genutzt werden, welche Dicke die absorbierenden Komponenten dieser haben.\\
+		Im vorliegenden Fall handelt es sich dabei um die Abstandshalter (\tilt{spacer}) zwischen den Halterungen und Fenstern des Fl\"ussigkeitsbeh\"alters. \"Uber die Formel
+		
+		\begin{align}
+		\Aboxed{
+			d/\unit{\upmu m}=\frac{N\cdot 10000}{2n(\nu\ix{1}-\nu\ix{2})}
+			}
+		\end{align}
+		
+		kann die Schichtdicke der spacer berechnet werden.
+
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=0.4\textwidth]{Gruppe2A/spacer.pdf}
+			\caption{Transmissions der \tilt{Spacer}.}
+			\label{img:space}
+		\end{figure}
+		
+		Dabei ist N die Zahn der vollst\"andigen Wellenz\"uge zwischen den Wellenzahlen $\nu\ix{i}$, wenn innerhalb der K\"uvette ein Medium mit dem Brechnungsindex $n$ vorliegt. F\"ur eine d\"unne Aluminium-Folie wurde die Dicke zu $d\ix{Al}=\unit[79.67]{\upmu m}$, und f\"ur Teflon zu $d\ix{Tf}=\unit[28.92]{\upmu m}$ ermittelt. Die Leer-Spektren zeigt \autoref{img:space}.
+
+		\subsubsection*{Erdnuss\"ol}
+
+		Die \autoref{img:erdnuss} zeigt das Ergebnis der Spektroskopie von Erdnuss-\"Ol. Das korriegierte Spektrum erh\"alt man, wenn die spacer f\"ur die Untersuchung entfernt werden und wenn davon die Basislinie subtrahiert wird. In diesem Fall werden die hohen Banden nicht mehr von der Apparatur in ihrer Aufl\"osung abgeschnitten.\\
+		In einem Vergleich zur Literatur findet man in automatisierten Bibliotheken eine \"Ubereinstimmung von 97.8\% mit einem Esther der Linol-S\"aure. Des weiteren gibt es Korrelationen \"uber 95\% mit Methyl-Meristat, welches sich jedoch gleichwertig im Spektrum wie der erste Fall ausdr\"uckt.\\
+		\tilt{Linols\"auremethylesther} hat die Summenformel \fett{C}$_{\fett{19}}$\fett{H}$_{\fett{34}}$\fett{O}$_{\fett{2}}$ und besitzt zwei \fett{CH}$_{\fett{3}}$ Gruppen. Die entsprechende Absorptionsbande findet sich bei $\unit[3150]{cm^{-1}}$ im Spektrum wieder. Au{\ss}erdem tragen auch im Bereich $\unit[2800-3000]{cm^{-1}}$ die vielen \fett{CH}$_{\fett{2}}$ bei. Diese -[\fett{CH}$_{\fett{2}}$]$_{N}$- sind auch wiederum Ursache f\"ur die Strukturen bis $\unit[1500]{cm^{-1}}$. Der scharfe Peak bei ca. $\unit[1750]{cm^{-1}}$ ist Ergebnis der Schwingungen der einfachen -$[\fett{CO}]$- und der einen, doppelten -$[\fett{C=O}]$- Bindung.
+		
+		\subsubsection*{Sonnenblumen-\"Ol}
+		
+			\begin{figure*}
+			\centering
+				\includegraphics[width=0.85\textwidth]{Gruppe2A/sonnen.pdf}
+				\caption{Transmissionsspektrum einer Fl\"ussigkeitsprobe mit Sonnenblumen-\"Ol. Das zweite Spektrum mit Abstandshaltern (\tilt{spacer}) ist gezeigt. Aus der Datenbibliothek (propiet\"ar) erhielt man eine 95.18\%-ige \"Ubereinstimmung in den Absorptionsbanden mit Methyl-Myristat.} 
+				\label{img:sonnen}
+			\end{figure*}
+		
+		Die \autoref{img:sonne} enth\"alt die rohen und korrigierten Spektren von Sonnenblumen-\"Ol sowie das Literatur-Ergebnis zu \tilt{Methyl-Myristat}, welches damit eine 95.18\%-ige \"Ubereinstimmung haben. Dieses hat die Summenformel \fett{C}$_{\fett{15}}$\fett{H}$_{\fett{30}}$\fett{O}$_{\fett{2}}$. Im Vergleich zum Spektrum aus \autoref{img:erdnuss} sieht man schnell, dass alle Annahmen zu diesen Ergebnissen auch hier greifen. Besonders anschaulich wird diese \"Ubereinkunft, wenn man die Strukturformel (siehe \cite{FTIRStruk} o.\"a.) miteinander vergleicht. Beide enthalten 2 -[\fett{CH}$_{\fett{3}}$]- sowie mehrer Kohlenstoff-Doppelbindungen. Zudem findet man bei beiden Verbindungen eine Gruppe der Form -[\fett{O-C=O}]-.
+		
+		\subsubsection*{Oliven-\"Ol}
+
+		Die \autoref{img:oliven} skizziert nochmals das Spektrum f\"ur Oliven\"ol und die h\"ochste Korrelation, \fett{C}$_{\fett{18}}$\fett{H}$_{\fett{36}}$\fett{O}$_{\fett{2}}$ Ethyl-Palmitat. Es folgen die Gleichen Argumente wie f\"ur \autoref{img:sonnen} und \autoref{img:erdnuss}.
+
+			\begin{figure}[h]
+			\centering
+				\includegraphics[width=0.4\textwidth]{Gruppe2A/oliven.pdf}
+				\caption{Absorptionsspektrum einer Oliven-\"Ol Probe. Vergleich mit dem am besten \"ubereinstimmenden Bibliothekseintrag, Ethyl-Myristat.}
+				\label{img:oliven}
+			\end{figure}
+
+		Die Ausnahme an diesem \"Ol ist, dass keine Methyl-Gruppen enthalten sind. Nur eine -[\fett{O-C=O}]- Komponente sorgt f\"ur den scharfen Peak um $\unit[1750]{cm^{-1}}$. Die weiteren 12 -[\fett{CH}$_{\fett{2}}$]- Gruppen erzeugen die Banden zwischen $\unit[2700-3100]{cm^{-1}}$.
+		
+		\subsection{ATR-Untersuchungen}
+		
+		\subsubsection*{Folien}
+
+			\begin{figure*}
+			\centering
+				\includegraphics[width=0.85\textwidth]{Gruppe2A/folien.pdf}
+				\caption{} 
+				\label{img:folien}
+			\end{figure*}
+
+		Bei den Untersuchungen mit der ATR-Einheit wurde mit einer unbekannten Folie begonnen, siehe \autoref{img:folien}. Nach Analyse mit Hilfe der Daten-Bibliothek fand man leicht heraus - Korrelation zu 98.98\%, mit dem blo{\ss}en Auge im Spektrum kaum zu unterscheiden - dass diese vollst\"andig aus Polyethylen bestand. Die Banden - bei $\unit[2800]{cm^{-1}}$, $\unit[1450]{cm^{-1}}$ sowie $\unit[800]{cm^{-1}}$ - sind deswegen den $N$-fachen Ethylen-Ketten -[\fett{C}$_{\fett{2}}$\fett{H}$_{\fett{4}}$]$_{N}$- zuzuordnen. Eine Substruktur um $\unit[2800]{cm^{-1}}$ deutet auf eine Aufteilung in die Banden zu $\Delta\nu\pm1$ hin.\\
+		Im zweiten Schritt untersuchte man bewusste \tilt{PVC}, also ebenso eine Folie aus Anordnungen der Form -[\fett{C}$_{\fett{2}}$\fett{H}$_{\fett{3}}$\fett{Cl}]$_{N}$-. Unerwarteter Weise sieht die charakterische Absorption dieser Molek\"ulgruppe fast vollkommen anders aus. 
 
 	\section{Anhang}
 

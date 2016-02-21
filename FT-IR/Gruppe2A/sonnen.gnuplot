@@ -6,10 +6,10 @@ set termoption dash
 set samples 500
 set isosamples 500
 
-x_min=450.0
+x_min=1100.0
 x_max=4000.0
-y_min=-2
-y_max=105.0
+y_min=-5
+y_max=102.5
 y=((y_max-y_min)**2)**(1/2)
 
 set output 'tmp.svg'
@@ -31,12 +31,15 @@ set tics nomirror out scale 0.7
 set xlabel "Wellenzahl / cm^{-1}"
 set ylabel "rel. Transmission, a.u."
 
-set style line 1 lt 1 lc -1
-set style line 2 lt 3 lc -1
+set style line 2 lt 1 lc -1
+set style line 1 lt 5 lc -1
+set style line 3 lt 3 lc -1
 
-set label 1 at 3150,25 'Methan, korr.' tc ls 1
-set label 2 at 1800,75 'Basislinie' tc ls 2
+set label 1 at 3050,5 'Sonnenbl., roh' tc ls 1
+set label 2 at 1800,40 'Sonnebl., korr.' tc ls 2
+set label 3 at 3200,98.5 'Methyl-Myristat' tc ls 3
 
-p "tmp.dat" smooth csplines lw 2.5 lc -1, \
-  "tmp2.dat" smooth csplines lw 2.5 lt 5 lc -1
+p "tmp30.dat" smooth csplines lw 2.5 lt 3 lc -1, \
+  "tmp33.dat" smooth csplines lw 3.0 lt 1 lc -1, \
+  "tmp40.dat" u 1:($2-10) smooth csplines lw 3.0 lt 5 lc -1
 
