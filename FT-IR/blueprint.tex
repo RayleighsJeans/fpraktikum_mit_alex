@@ -5,7 +5,7 @@
 % with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
 % The lincense itself can be found at <https://www.gnu.org/licenses/fdl-1.3>.
 
-\documentclass[numbers=noenddot,a4paper,10pt,twocolumn]{article}
+\documentclass[a4paper,10pt,twocolumn]{article}
 %\documentclass[numbers=noenddot,12pt,a4paper,notitlepage,twoside,BCOR15mm]{scrartcl}
 
 \usepackage[T1]{fontenc}
@@ -111,8 +111,8 @@
 
 	\section{Motivation}
 
-		Eine FTIR-Spektroskopie einer Probe kann dazu genutzt werden, quantitativ als auch qualitativ Informationen \"uber die Zusammensetzung dieser zu erhalten.
-	
+		Infrarotstrahlung hat Wellenl\"angen, die spezifische Schwingungsniveaus innerhalb von Molek\"ulen anregen k\"onnen. Aufgrund der charakteristischen Eigenfrequenzen der Bindungen, welche zum oszillieren gebracht werden, kann durch die spektroskopische Untersuchung einer Probe - u.U. auch im Vergleich mit  Datenbanken, bezieht man sich auf den sog. \tilt{fingerprint}-Bereich - auf deren Zusammensetzung gesprochen werden.\\
+		Eine FTIR-Spektroskopie einer Probe kann genau dazu genutzt werden. Sie ist zudem eine sehr umg\"angliche und, setzt man eine nicht zu hohe Aufl\"osung voraus, relativ anspruchslose Methode.			
 	\section{Physikalische Grundlagen}
 
 		Bei einer FTIR-Untersuchung handelt es sich um die spektroskopische Aufl\"osung von funktionellen Gruppen einer Fl\"ussigkeit/eines Gases mit Hilfe der \tilt{Fourier-Transformations-Infrarotspektrometrie}. Mit einem pr\"azisen Interferometer wird dabei ein Interferogramm - der Verlauf der Interferenzerscheinungen auf dem Schirm des Interferometers, welche durch die \"Uberlagerung von zwei Einzelstrahlen einer IR-Quelle entstehen - aufgenommen, welches dann \"uber eine \tilt{Fourier-Transformation} aus dem Orts- in den Frequenzraum abgebildet wird.\\
@@ -238,7 +238,8 @@
 		In der Gasphase gilt es Methan und Stickstoff zu analysieren und mit Literaturbilbiotheken f\"ur spezifische, experimentell sondierte Absorptionsbanden zu vergleichen. In einer Fl\"ussigkeitszelle mit Fenstern aus \fett{CaF}$_{\fett{2}}$ werden dann anschlie{\ss}end 3 \"Ole - aus Oliven, Sonnenblumen und Erdn\"ussen - im FTIR-Spektrometer untersucht. Zuletzt wird die ATR-Einheit in das Interferometer eingesetzt, damit mit dessen Hilfe weitere 3 unbekannte Pulver spektroskopisch untersucht werden k\"onnen.\\
 		Im Vorfeld zu jeder Art von Messung ist es notwending, ein Untergrundspektrum - mit anderen Worten ein Interferogramm, wie in \autoref{img:inter} ohne Probe - zu Korrektur- und Kalibrationszwecken aufzunehmen.\\
 		Bei der Arbeit mit den Fl\"ussigkeitszellen ist zu beachten, das unterschiedliche Abstandshalter zwischen Zelle und Glasscheibe (\tilt{spacer}) eingesetzt werden. Es liegen Aluminiumfolie und Teflon-Spacer vor.\\
-		Des weiteren gilt Vorsicht beim Einf\"ullen der Proben in die K\"uvetten: Luftblasen oder eingeschlossene \"Uberreste anderer Untersuchungen k\"onnen die Absorption stark beeintr\"achtigen oder verf\"alschen, siehe \cite{FTIRAns},\cite{EMAUGreifswaldFTIR}.
+		Des weiteren gilt Vorsicht beim Einf\"ullen der Proben in die K\"uvetten: Luftblasen oder eingeschlossene \"Uberreste anderer Untersuchungen k\"onnen die Absorption stark beeintr\"achtigen oder verf\"alschen, siehe \cite{FTIRAns},\cite{EMAUGreifswaldFTIR}.\\
+		Die Arbeit mit der ATR-Einheit verl\"auft \"ahnlich wie die mit dem Fl\"ussigkeits-/Gaszellen-Interferometer. Jedoch werden dabei die 'festeren' Proben zwischen dem Lichtwellenleiter - einem chemisch best\"andigen, harten Diamanten - und einem Probenhalterungskopf, welcher festgeschraubt werden kann, eingeklemmt. Somit wird eine u.U. Verdichtung von Pulvern etc. erreicht, sodass die Absorption erh\"oht wird.
 
 	\section{Auswertung}
 
@@ -316,21 +317,60 @@
 		
 		\subsection{ATR-Untersuchungen}
 		
-		\subsubsection*{Folien}
+		\subsubsection{Folien}
 
 			\begin{figure*}
 			\centering
 				\includegraphics[width=0.85\textwidth]{Gruppe2A/folien.pdf}
-				\caption{} 
+				\caption{Spektrum einer unbekannten Folie, PVC und von Dibutylphtalat. Letzteres ist der Daten-Bibliothek entnommen worden. Gute \"Ubereinstimmung zwischen PVC und dem Dibutylphtalat. Die Folie bestand zu fast 99\% aus Polyethylen.} 
 				\label{img:folien}
 			\end{figure*}
-
+			
+		Nach \autoref{eq:atr} betr\"agt die Eindringtiefe der Infrarotstrahlung bei einer herk\"ommlichen Plastik-Folie mit einem Brechnungsindex von 1.51 und unter einem Einstrahlwinkel 48$^{\circ}$ \"uber einen Diamanten mit der Brechung von 2,378 
+		
+		\begin{align}
+			d\ix{P}&=\frac{\unit[515\dots4000]{cm^{-1}}}{2\pi\cdot2,376\sqrt{0,552^{2}-(1,51/2,376)^{2}}} \nonumber \\
+			&=\unit[(2,12\dots0,273)]{\upmu m}\,\, .\nonumber
+		\end{align}
+		
 		Bei den Untersuchungen mit der ATR-Einheit wurde mit einer unbekannten Folie begonnen, siehe \autoref{img:folien}. Nach Analyse mit Hilfe der Daten-Bibliothek fand man leicht heraus - Korrelation zu 98.98\%, mit dem blo{\ss}en Auge im Spektrum kaum zu unterscheiden - dass diese vollst\"andig aus Polyethylen bestand. Die Banden - bei $\unit[2800]{cm^{-1}}$, $\unit[1450]{cm^{-1}}$ sowie $\unit[800]{cm^{-1}}$ - sind deswegen den $N$-fachen Ethylen-Ketten -[\fett{C}$_{\fett{2}}$\fett{H}$_{\fett{4}}$]$_{N}$- zuzuordnen. Eine Substruktur um $\unit[2800]{cm^{-1}}$ deutet auf eine Aufteilung in die Banden zu $\Delta\nu\pm1$ hin.\\
-		Im zweiten Schritt untersuchte man bewusste \tilt{PVC}, also ebenso eine Folie aus Anordnungen der Form -[\fett{C}$_{\fett{2}}$\fett{H}$_{\fett{3}}$\fett{Cl}]$_{N}$-. Unerwarteter Weise sieht die charakterische Absorption dieser Molek\"ulgruppe fast vollkommen anders aus. 
+		Im zweiten Schritt untersuchte man bewusste \tilt{PVC}, also ebenso eine Folie aus Anordnungen der Form -[\fett{C}$_{\fett{2}}$\fett{H}$_{\fett{3}}$\fett{Cl}]$_{N}$-. Unerwarteter Weise sieht die charakterische Absorption dieser Molek\"ulgruppe fast vollkommen anders aus. Die, f\"ur das Polyethylen beobachtete Absorption kommt nur noch flach oder \"uberhaupt nicht vor. Nach einem Vergleich mit der Bibliothek erh\"alt man, dass der Esther \tilt{Dibutylphtalat} eine hohe, 88\%-ige \"Ubereinstimmung damit hat. Als zweites folgen Weichmacher f\"ur Plastik mit 55\%.\\
+		Das \fett{C}$_{\fett{16}}$\fett{H}$_{\fett{22}}$\fett{O}$_{\fett{4}}$ setzt sich durch einen Benzol-Ring mit 3 Kohlenstoff-Doppelbindungen, 2 Mehtyl-Gruppen und 2 weitere -[\fett{O-C=O}]- Verbindungen zusammen. Die erkl\"art nach \cite{FTIRAnl} auch bereit das Spektrum in \autoref{img:folien}, da diese Gruppen der Literatur zur Folge in den gezeigten Banden absorbieren.
+		
+		\subsubsection{Pulver A}
 
+		Das erste unbekannte Pulver erwies sich als S\"u{\ss}stoff. Dieses hatte mit dem gemessenen Spektrum eine \"Ubereinstimmung von 90,01\%. Eine Inhaltsangabe der Bibliothek zeigt, dass enthaltene Gruppen Natriumhydrogencarbonat, Natriumcylamat, Mononatriumcitrat, Saccharin und Laktose sind. Die genannten Inhaltsstoffe setzten sich i.A. aus Benzolringen (Laktose, Natriumcyclamat) oder einfacheren Kohlenwasserstoff-Verbindungen zusammen. Darunter sind auch Gruppen mit Stickstoff-Atomen und Doppelbindungen an Sauerstoff (siehe bspw. Abschn. 4.2.1). 
+
+			\begin{figure}[h]
+			\centering
+				\includegraphics[width=0.4\textwidth]{Gruppe2A/pulver_a.pdf}
+				\caption{Absorption des Pulvers A und von herk\"ommlichen S\"u{\ss}stoff. \"Ubereinstimmung 90,01\%.}
+				\label{img:a}
+			\end{figure}
+
+		\subsubsection{Pulver B}
+
+		Nach der  Aufnahme des FTIR-Spektrums von Pulver B ergab sich, dass dieses h\"ochstwahrscheinlich aus ASS-Ratiopharm Tabletten gegen Kopfschmerzen - oder auch \tilt{aspirin} - bestand. Man fand eine Korrelation von 94\%. Die Inhaltsstoffe konnten zu O-Acetylsalicyls\"aure (72\%), sowie Maisst\"arke und Cellulosepulver f\"ur die Bindung in Tabletten-Form ermittelt werden.
+
+		\subsubsection{Pulver C}
+	
+		Als letztes wurde Pulver C untersucht. Ein Bibliotheks-Vergleich ergibt eine Korrelation mit Calciumcarbonat von 97\%. Bei der Probe handelte es sich wahrscheinlich um Kreide.
+		
+		\subsection{Fazit}
+
+		Die \tilt{Fourier-Transformations-Infrarotspektroskopie} ist eine umg\"angliche, praktikable Mehtode zur Inhaltsstoffuntersuchung von unbekannten Proben. Des weiteren kann man sehr gut, \"uber den Vergleich mit Bibliotheken und Datenbanken, auf die funktionellen Gruppen bzw. deren Umgebung innerhalb der Verbindung schlie{\ss}en.\\
+		Die Ergebnisse dieses Praktikumsversuchs sind, im Hinblick auf die Einarbeitung in das Feld der FTIR-Spektroskopie und Kennenlernen der Methodik zufriedenstellend. 
+
+	\bibliography{all.bib}
+	\bibliographystyle{unsrt}
+
+	\onecolumn
 	\section{Anhang}
 
-		\bibliography{all.bib}
-		\bibliographystyle{unsrt}
+		\begin{figure}[h]
+		\centering
+			\includegraphics[width=0.8\textwidth]{Gruppe2A/pulver_b.pdf}				\caption{Absorption des Pulvers B und ASS-Ratiopharm. Au{\ss}erdem O-Acetylsalicyls\"aure. \"Ubereinstimmungen bei 94,12\% und 71,9\%.}\label{img:b}
+			\includegraphics[width=0.8\textwidth]{Gruppe2A/pulver_c.pdf}				\caption{Absorption des Pulvers C. \"Ubereinstimmung mit Calciumcarbonat zu 97,07\%.}\label{img:c}
+		\end{figure}
 
 \end{document}
