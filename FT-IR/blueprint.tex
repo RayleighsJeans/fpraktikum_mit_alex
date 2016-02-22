@@ -106,13 +106,12 @@
 	\tableofcontents
 	\vfill
 	\clearpage
+	\twocolumn
 
 	\section{Motivation}
 
 		Infrarotstrahlung hat Wellenl\"angen, die spezifische Schwingungsniveaus innerhalb von Molek\"ulen anregen k\"onnen. Aufgrund der charakteristischen Eigenfrequenzen der Bindungen, welche zum oszillieren gebracht werden, kann durch die spektroskopische Untersuchung einer Probe - u.U. auch im Vergleich mit  Datenbanken, bezieht man sich auf den sog. \tilt{fingerprint}-Bereich - auf deren Zusammensetzung gesprochen werden.\\
 		Eine FTIR-Spektroskopie einer Probe kann genau dazu genutzt werden. Sie ist zudem eine sehr umg\"angliche und, setzt man eine nicht zu hohe Aufl\"osung voraus, relativ anspruchslose Methode.
-
-	\twocolumn
 
 	\section{Physikalische Grundlagen}
 
@@ -163,7 +162,7 @@
 		
 		\begin{figure}[h]
 			\centering
-			\includegraphics[width=0.4\textwidth]{Gruppe2A/inter.pdf}
+			\includegraphics[width=0.45\textwidth]{Gruppe2A/inter.pdf}
 			\caption{Interferogramm aus dem FTIR-Interferometer ohne Transformation in den Frequenzraum und Probe.}
 			\label{img:inter}
 		\end{figure}
@@ -228,7 +227,7 @@
 
 			\begin{figure*}
 			\centering
-				\includegraphics[width=0.85\textwidth]{Gruppe2A/methan.pdf}
+				\includegraphics[width=0.8\textwidth]{Gruppe2A/methan.pdf}
 				\caption{Absorptionsspektrum der FTIRS einer Methan-Gaszelle. Subtrahierte Basislinie eingetragen.}
 				\label{img:methan}
 			\end{figure*}
@@ -252,19 +251,17 @@
 		
 		\subsubsection*{Methan}
 		Hierbei wurde gleichsam, wie f\"ur den Stickstoff verfahren. Das Spektrum und dessen subtrahierte Basislinie werden in \autoref{img:methan} gezeigt.\\
-		Im Absorptionsspektrum sind zum einen gro{\ss}e Peaks und mehrere Substrukturen um diese bei $\unit[1350]{cm^{-1}}$ und $\unit[3000]{cm^{-1}}$ zu sehen. Der erste Peak kann Bindungen der Art -[\fett{CH}$_{\fett{2}}$]$_{N}$- zugeordnet werden. Des weiteren k\"onnen  u.a. sulfatische S\"auren mit Gruppen der Form -[\fett{SO}$_{\fett{2}}$]- zu dieser Absorption beitragen. Offensichtlich z\"ahlt dieser Einfluss damit zu denen der Verunreinigungen. Au{\ss}erdem werden in der Literatur auch Gruppen von -[\fett{NO}$_{\fett{2}}$]- f\"ur diesen Bereich verzeichnet. Ein kleinerer Nebenpeak um ca. $\unit[1550]{cm^{-1}}$ l\"asst sich besonders gut mit den $\Delta\nu=0,\pm1$ \"Uberg\"angen der P-,Q-, und R-Zweige (siehe \autoref{eq:schroed}) der -[\fett{C=C}]- Gruppe identifizieren.\\
+		Im Absorptionsspektrum sind zum einen gro{\ss}e Peaks und mehrere Substrukturen um diese bei $\unit[1350]{cm^{-1}}$ und $\unit[3000]{cm^{-1}}$ zu sehen. Der erste Peak kann Bindungen der Art -[\fett{CH}$_{\fett{2}}$]$_{N}$- zugeordnet werden. Des weiteren k\"onnen  u.a. sulfatische S\"auren mit Gruppen der Form -[\fett{SO}$_{\fett{2}}$]- zu dieser Absorption beitragen. Offensichtlich z\"ahlt dieser Einfluss damit zu denen der Verunreinigungen. Au{\ss}erdem werden in der Literatur auch Gruppen von -[\fett{NO}$_{\fett{2}}$]- f\"ur diesen Bereich verzeichnet. Ein kleinerer Nebenpeak um ca. $\unit[1550]{cm^{-1}}$ l\"asst sich besonders gut mit den $\Delta\nu=0,\pm1$ \"Uberg\"angen der P-,Q-, und R-Zweige (siehe \autoref{eq:schroed}) der -[\fett{C=C}]- Gruppe identifizieren.
+
+	\newpage
+
 		Das zweite, gro{\ss}e Absorptionsmaximum zeigt \"ahnliche Merkmale - eine Dreiteilung in die Zweige der entsprechenden \"Uberg\"ange zwischen den Niveaus - und kann den Schwingungen von verschiedenen -[\fett{C-H}]- Gruppen zugesprochen werden. Dem breiten Verlauf dieser Bande in Richtung $\unit[2500]{cm^{-1}}$ sind Schwingungen von Verunreinigungen mit -[\fett{O-H}]- Gruppen geschuldet.
+
+	\clearpage
 
 		\subsection{Fl\"ussigkeitsuntersuchungen}
 
 		\subsubsection{Schichtdickenbestimmung}
-
-			\begin{figure*}
-			\centering
-				\includegraphics[width=0.9\textwidth]{Gruppe2A/erdnuss.pdf}
-				\caption{Transmissionsspektrum einer Fl\"ussigkeitsprobe mit Erdnuss-\"Ol. Basislinie und zweites Spektrum mit Abstandshaltern (\tilt{spacer}) eingetragen. Aus der Datenbibliothek (propiet\"ar) erhielt man eine 97.8\%-ige \"Ubereinstimmung in den Absorptionsbanden mit Methyl-Linoleat (\tilt{Linols\"auremethylesther}).} 
-				\label{img:erdnuss}
-			\end{figure*}
 
 		Zur Bestimmung und sinnvoller Korrektur von Spektren mit Fl\"ussigkeitsk\"uvetten kann eine Schichtdickenermittlung der verwendeteten Bauteile vorgenommen werden. Das Interferenzmuster einer leeren K\"uvette kann demnach genutzt werden, welche Dicke die absorbierenden Komponenten dieser haben.\\
 		Im vorliegenden Fall handelt es sich dabei um die Abstandshalter (\tilt{spacer}) zwischen den Halterungen und Fenstern des Fl\"ussigkeitsbeh\"alters. \"Uber die Formel
@@ -274,17 +271,18 @@
 			d/\unit{\upmu m}=\frac{N\cdot 10000}{2n(\nu\ix{1}-\nu\ix{2})}
 			}
 		\end{align}
-		
-		kann die Schichtdicke der spacer berechnet werden.
 
-		\begin{figure}[h]
-			\centering
-			\includegraphics[width=0.4\textwidth]{Gruppe2A/spacer.pdf}
-			\caption{Transmissions der \tilt{Spacer}.}
-			\label{img:space}
-		\end{figure}
-		
-		Dabei ist N die Zahn der vollst\"andigen Wellenz\"uge zwischen den Wellenzahlen $\nu\ix{i}$, wenn innerhalb der K\"uvette ein Medium mit dem Brechnungsindex $n$ vorliegt. F\"ur eine d\"unne Aluminium-Folie wurde die Dicke zu $d\ix{Al}=\unit[79.67]{\upmu m}$, und f\"ur Teflon zu $d\ix{Tf}=\unit[28.92]{\upmu m}$ ermittelt. Die Leer-Spektren zeigt \autoref{img:space}.
+		kann die Schichtdicke der spacer berechnet werden. Dabei ist N die Zahn der vollst\"andigen Wellenz\"uge zwischen den Wellenzahlen $\nu\ix{i}$, wenn innerhalb der K\"uvette ein Medium mit dem Brechnungsindex $n$ vorliegt. F\"ur eine d\"unne Aluminium-Folie wurde die Dicke zu $d\ix{Al}=\unit[79.67]{\upmu m}$, und f\"ur Teflon zu $d\ix{Tf}=\unit[28.92]{\upmu m}$ ermittelt. Die Leer-Spektren zeigt \autoref{img:space}.
+
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.45\textwidth]{Gruppe2A/spacer.pdf}
+		\caption{Transmissions der \tilt{Spacer}.}
+		\label{img:space}
+	\end{figure}
+
+	\newpage
 
 		\subsubsection*{Erdnuss\"ol}
 
@@ -293,31 +291,43 @@
 		\tilt{Linols\"auremethylesther} hat die Summenformel \fett{C}$_{\fett{19}}$\fett{H}$_{\fett{34}}$\fett{O}$_{\fett{2}}$ und besitzt zwei \fett{CH}$_{\fett{3}}$ Gruppen. Die entsprechende Absorptionsbande findet sich bei $\unit[3150]{cm^{-1}}$ im Spektrum wieder. Au{\ss}erdem tragen auch im Bereich $\unit[2800-3000]{cm^{-1}}$ die vielen \fett{CH}$_{\fett{2}}$ bei. Diese -[\fett{CH}$_{\fett{2}}$]$_{N}$- sind auch wiederum Ursache f\"ur die Strukturen bis $\unit[1500]{cm^{-1}}$. Der scharfe Peak bei ca. $\unit[1750]{cm^{-1}}$ ist Ergebnis der Schwingungen der einfachen -$[\fett{CO}]$- und der einen, doppelten -$[\fett{C=O}]$- Bindung.
 		
 		\subsubsection*{Sonnenblumen-\"Ol}
-		
+
+		Die \autoref{img:sonnen} enth\"alt die rohen und korrigierten Spektren von Sonnenblumen-\"Ol sowie das Literatur-Ergebnis zu \tilt{Methyl-Myristat}, welches damit eine 95.18\%-ige \"Ubereinstimmung haben. Dieses hat die Summenformel \fett{C}$_{\fett{15}}$\fett{H}$_{\fett{30}}$\fett{O}$_{\fett{2}}$. Im Vergleich zum Spektrum aus \autoref{img:erdnuss} sieht man schnell, dass alle Annahmen zu diesen Ergebnissen auch hier greifen. Besonders anschaulich wird diese \"Ubereinkunft, wenn man die Strukturformel (siehe \cite{FTIRStruk} o.\"a.) miteinander vergleicht. Beide enthalten 2 -[\fett{CH}$_{\fett{3}}$]- sowie mehrer Kohlenstoff-Doppelbindungen. Zudem findet man bei beiden Verbindungen eine Gruppe der Form -[\fett{O-C=O}]-.
+
 			\begin{figure*}
-			\centering
-				\includegraphics[width=0.9\textwidth]{Gruppe2A/sonnen.pdf}
+				\centering
+				\includegraphics[width=0.8\textwidth]{Gruppe2A/erdnuss.pdf}
+				\caption{Transmissionsspektrum einer Fl\"ussigkeitsprobe mit Erdnuss-\"Ol. Basislinie und zweites Spektrum mit Abstandshaltern (\tilt{spacer}) eingetragen. Aus der Datenbibliothek (propiet\"ar) erhielt man eine 97.8\%-ige \"Ubereinstimmung in den Absorptionsbanden mit Methyl-Linoleat (\tilt{Linols\"auremethylesther}).} 
+				\label{img:erdnuss}
+			\end{figure*}
+
+	\newpage
+
+		\subsubsection*{Oliven-\"Ol}
+
+		Die \autoref{img:oliven} skizziert nochmals das Spektrum f\"ur Oliven\"ol und die h\"ochste Korrelation, \fett{C}$_{\fett{18}}$\fett{H}$_{\fett{36}}$\fett{O}$_{\fett{2}}$ Ethyl-Palmitat. Es folgen die Gleichen Argumente wie f\"ur \autoref{img:sonnen} und \autoref{img:erdnuss}.\\
+		Die Ausnahme an diesem \"Ol ist, dass keine Methyl-Gruppen enthalten sind. Nur eine -[\fett{O-C=O}]- Komponente sorgt f\"ur den scharfen Peak um $\unit[1750]{cm^{-1}}$. Die weiteren 12 -[\fett{CH}$_{\fett{2}}$]- Gruppen erzeugen die Banden zwischen $\unit[2700-3100]{cm^{-1}}$.
+
+	\newpage
+
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.45\textwidth]{Gruppe2A/oliven.pdf}
+					\caption{Absorptionsspektrum einer Oliven-\"Ol Probe. Vergleich mit dem am besten \"ubereinstimmenden Bibliothekseintrag, Ethyl-Myristat.}
+					\label{img:oliven}
+				\end{figure}
+
+			\begin{figure*}
+				\centering
+				\includegraphics[width=0.8\textwidth]{Gruppe2A/sonnen.pdf}
 				\caption{Transmissionsspektrum einer Fl\"ussigkeitsprobe mit Sonnenblumen-\"Ol. Das zweite Spektrum mit Abstandshaltern (\tilt{spacer}) ist gezeigt. Aus der Datenbibliothek (propiet\"ar) erhielt man eine 95.18\%-ige \"Ubereinstimmung in den Absorptionsbanden mit Methyl-Myristat.} 
 				\label{img:sonnen}
 			\end{figure*}
-		
-		Die \autoref{img:sonnen} enth\"alt die rohen und korrigierten Spektren von Sonnenblumen-\"Ol sowie das Literatur-Ergebnis zu \tilt{Methyl-Myristat}, welches damit eine 95.18\%-ige \"Ubereinstimmung haben. Dieses hat die Summenformel \fett{C}$_{\fett{15}}$\fett{H}$_{\fett{30}}$\fett{O}$_{\fett{2}}$. Im Vergleich zum Spektrum aus \autoref{img:erdnuss} sieht man schnell, dass alle Annahmen zu diesen Ergebnissen auch hier greifen. Besonders anschaulich wird diese \"Ubereinkunft, wenn man die Strukturformel (siehe \cite{FTIRStruk} o.\"a.) miteinander vergleicht. Beide enthalten 2 -[\fett{CH}$_{\fett{3}}$]- sowie mehrer Kohlenstoff-Doppelbindungen. Zudem findet man bei beiden Verbindungen eine Gruppe der Form -[\fett{O-C=O}]-.
-		
-		\subsubsection*{Oliven-\"Ol}
 
-		Die \autoref{img:oliven} skizziert nochmals das Spektrum f\"ur Oliven\"ol und die h\"ochste Korrelation, \fett{C}$_{\fett{18}}$\fett{H}$_{\fett{36}}$\fett{O}$_{\fett{2}}$ Ethyl-Palmitat. Es folgen die Gleichen Argumente wie f\"ur \autoref{img:sonnen} und \autoref{img:erdnuss}.
+	\newpage
 
-			\begin{figure}[h]
-			\centering
-				\includegraphics[width=0.4\textwidth]{Gruppe2A/oliven.pdf}
-				\caption{Absorptionsspektrum einer Oliven-\"Ol Probe. Vergleich mit dem am besten \"ubereinstimmenden Bibliothekseintrag, Ethyl-Myristat.}
-				\label{img:oliven}
-			\end{figure}
-
-		Die Ausnahme an diesem \"Ol ist, dass keine Methyl-Gruppen enthalten sind. Nur eine -[\fett{O-C=O}]- Komponente sorgt f\"ur den scharfen Peak um $\unit[1750]{cm^{-1}}$. Die weiteren 12 -[\fett{CH}$_{\fett{2}}$]- Gruppen erzeugen die Banden zwischen $\unit[2700-3100]{cm^{-1}}$.
-		
 		\subsection{ATR-Untersuchungen}
-		
+
 		\subsubsection{Folien}
 
 			\begin{figure*}
@@ -334,33 +344,42 @@
 			&=\unit[(2,12\dots0,273)]{\upmu m}\,\, .\nonumber
 		\end{align}
 		
-		Bei den Untersuchungen mit der ATR-Einheit wurde mit einer unbekannten Folie begonnen, siehe \autoref{img:folien}. Nach Analyse mit Hilfe der Daten-Bibliothek fand man leicht heraus - Korrelation zu 98.98\%, mit dem blo{\ss}en Auge im Spektrum kaum zu unterscheiden - dass diese vollst\"andig aus Polyethylen bestand. Die Banden - bei $\unit[2800]{cm^{-1}}$, $\unit[1450]{cm^{-1}}$ sowie $\unit[800]{cm^{-1}}$ - sind deswegen den $N$-fachen Ethylen-Ketten -[\fett{C}$_{\fett{2}}$\fett{H}$_{\fett{4}}$]$_{N}$- zuzuordnen. Eine Substruktur um $\unit[2800]{cm^{-1}}$ deutet auf eine Aufteilung in die Banden zu $\Delta\nu\pm1$ hin.\\
+		Bei den Untersuchungen mit der ATR-Einheit wurde mit einer unbekannten Folie begonnen, siehe \autoref{img:folien}. Nach Analyse mit Hilfe der Daten-Bibliothek fand man leicht heraus - Korrelation zu 98.98\%, mit dem blo{\ss}en Auge im Spektrum kaum zu unterscheiden - dass diese vollst\"andig aus Polyethylen bestand. Die Banden - bei $\unit[2800]{cm^{-1}}$, $\unit[1450]{cm^{-1}}$ sowie $\unit[800]{cm^{-1}}$ - sind deswegen den $N$-fachen Ethylen-Ketten -[\fett{C}$_{\fett{2}}$\fett{H}$_{\fett{4}}$]$_{N}$- zuzuordnen. Eine Substruktur um $\unit[2800]{cm^{-1}}$ deutet auf eine Aufteilung in die Banden zu $\Delta\nu\pm1$ hin.
+
+	\newpage
+
 		Im zweiten Schritt untersuchte man bewusste \tilt{PVC}, also ebenso eine Folie aus Anordnungen der Form -[\fett{C}$_{\fett{2}}$\fett{H}$_{\fett{3}}$\fett{Cl}]$_{N}$-. Unerwarteter Weise sieht die charakterische Absorption dieser Molek\"ulgruppe fast vollkommen anders aus. Die, f\"ur das Polyethylen beobachtete Absorption kommt nur noch flach oder \"uberhaupt nicht vor. Nach einem Vergleich mit der Bibliothek erh\"alt man, dass der Esther \tilt{Dibutylphtalat} eine hohe, 88\%-ige \"Ubereinstimmung damit hat. Als zweites folgen Weichmacher f\"ur Plastik mit 55\%.\\
 		Das \fett{C}$_{\fett{16}}$\fett{H}$_{\fett{22}}$\fett{O}$_{\fett{4}}$ setzt sich durch einen Benzol-Ring mit 3 Kohlenstoff-Doppelbindungen, 2 Mehtyl-Gruppen und 2 weitere -[\fett{O-C=O}]- Verbindungen zusammen. Die erkl\"art nach \cite{FTIRAnl} auch bereit das Spektrum in \autoref{img:folien}, da diese Gruppen der Literatur zur Folge in den gezeigten Banden absorbieren.
-		
+
+	\newpage
+
 		\subsubsection{Pulver A}
 
-		Das erste unbekannte Pulver erwies sich als S\"u{\ss}stoff. Dieses hatte mit dem gemessenen Spektrum eine \"Ubereinstimmung von 90,01\%. Eine Inhaltsangabe der Bibliothek zeigt, dass enthaltene Gruppen Natriumhydrogencarbonat, Natriumcylamat, Mononatriumcitrat, Saccharin und Laktose sind. Die genannten Inhaltsstoffe setzten sich i.A. aus Benzolringen (Laktose, Natriumcyclamat) oder einfacheren Kohlenwasserstoff-Verbindungen zusammen. Darunter sind auch Gruppen mit Stickstoff-Atomen und Doppelbindungen an Sauerstoff (siehe bspw. Abschn. 4.2.1). 
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.45\textwidth]{Gruppe2A/pulver_a.pdf}
+					\caption{Absorption des Pulvers A und von herk\"ommlichen S\"u{\ss}stoff. \"Ubereinstimmung 90,01\%.}
+					\label{img:a}
+				\end{figure}
 
-			\begin{figure}[h]
-			\centering
-				\includegraphics[width=0.4\textwidth]{Gruppe2A/pulver_a.pdf}
-				\caption{Absorption des Pulvers A und von herk\"ommlichen S\"u{\ss}stoff. \"Ubereinstimmung 90,01\%.}
-				\label{img:a}
-			\end{figure}
+		Das erste unbekannte Pulver erwies sich als S\"u{\ss}stoff. Dieses hatte mit dem gemessenen Spektrum eine \"Ubereinstimmung von 90,01\%. Eine Inhaltsangabe der Bibliothek zeigt, dass enthaltene Gruppen Natriumhydrogencarbonat, Natriumcylamat, Mononatriumcitrat, Saccharin und Laktose sind. Die genannten Inhaltsstoffe setzten sich i.A. aus Benzolringen (Laktose, Natriumcyclamat) oder einfacheren Kohlenwasserstoff-Verbindungen zusammen. Darunter sind auch Gruppen mit Stickstoff-Atomen und Doppelbindungen an Sauerstoff (siehe bspw. Abschn. 4.2.1).
 
 		\subsubsection{Pulver B}
 
 		Nach der  Aufnahme des FTIR-Spektrums von Pulver B ergab sich, dass dieses h\"ochstwahrscheinlich aus ASS-Ratiopharm Tabletten gegen Kopfschmerzen - oder auch \tilt{aspirin} - bestand. Man fand eine Korrelation von 94\%. Die Inhaltsstoffe konnten zu O-Acetylsalicyls\"aure (72\%), sowie Maisst\"arke und Cellulosepulver f\"ur die Bindung in Tabletten-Form ermittelt werden.
 
 		\subsubsection{Pulver C}
-	
+
 		Als letztes wurde Pulver C untersucht. Ein Bibliotheks-Vergleich ergibt eine Korrelation mit Calciumcarbonat von 97\%. Bei der Probe handelte es sich wahrscheinlich um Kreide.
-		
+
+	\clearpage
+
 		\subsection{Fazit}
 
 		Die \tilt{Fourier-Transformations-Infrarotspektroskopie} ist eine umg\"angliche, praktikable Mehtode zur Inhaltsstoffuntersuchung von unbekannten Proben. Des weiteren kann man sehr gut, \"uber den Vergleich mit Bibliotheken und Datenbanken, auf die funktionellen Gruppen bzw. deren Umgebung innerhalb der Verbindung schlie{\ss}en.\\
-		Die Ergebnisse dieses Praktikumsversuchs sind, im Hinblick auf die Einarbeitung in das Feld der FTIR-Spektroskopie und Kennenlernen der Methodik zufriedenstellend. 
+		Die Ergebnisse dieses Praktikumsversuchs sind, im Hinblick auf die Einarbeitung in das Feld der FTIR-Spektroskopie und Kennenlernen der Methodik zufriedenstellend.
+
+	\newpage
 
 	\bibliography{all.bib}
 	\bibliographystyle{unsrt}
