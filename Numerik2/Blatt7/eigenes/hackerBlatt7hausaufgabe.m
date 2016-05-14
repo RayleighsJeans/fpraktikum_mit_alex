@@ -1,4 +1,4 @@
-function [] = hackerBlatt7hausaufgabe(n) % n: Anzahl Verfeinerungen
+function [ ] = hackerBlatt7hausaufgabe(n) % n: Anzahl Verfeinerungen
    
 close all
 
