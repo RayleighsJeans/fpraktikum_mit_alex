@@ -9,9 +9,7 @@ n = 5;
 tau = 0.2;
 
     % Triangulation laden
-    load Coords; % Knoten mit Koordinaten
-    load Kanten; % Kanten mit Knoten
-    load Element3; % Elemente mit Kanten
+    load AllData
     load Dirichlet; % Dirichlet-Kanten
     load Robin; % Robin-Kanten
 
