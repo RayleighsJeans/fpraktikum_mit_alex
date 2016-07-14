@@ -7,6 +7,17 @@
 *.out
 *.toc
 
+.DS*
+*\.DS*
+*/.DS*
+*/**/.DS*
+*\**\.DS*
+
+tmp/*
+*/tmp/*
+tmp\*
+*\tmp\*
+
 *.blg
 */*.blg
 *.bbl
